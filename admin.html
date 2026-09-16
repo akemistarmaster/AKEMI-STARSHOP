@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AKEMI STARSHOP — Admin Panel</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#08070d;--card:#12101b;--soft:#181525;--purple:#8b5cf6;--light:#a78bfa;--danger:#ef4444;--ok:#22c55e;--muted:#9d99ad;--border:rgba(139,92,246,.18);--text:#f8f7ff}
+body{font-family:Arial,sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+.hidden{display:none!important}
+.login-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;background:radial-gradient(circle at 50% 0,rgba(124,58,237,.2),transparent 45%),var(--bg)}
+.login-card{width:min(430px,100%);padding:28px;background:var(--card);border:1px solid var(--border);border-radius:20px}
+.logo{text-align:center;font-size:22px;font-weight:800;margin-bottom:7px}.sub{text-align:center;color:var(--muted);font-size:13px;margin-bottom:25px}
+label{display:block;font-size:12px;font-weight:700;margin:13px 0 7px}
+input,select,textarea{width:100%;background:#0d0b14;color:white;border:1px solid var(--border);border-radius:10px;padding:12px;outline:none}
+input,select{height:46px}textarea{min-height:100px;resize:vertical}input:focus,select:focus,textarea:focus{border-color:var(--purple)}
+.btn{border:0;border-radius:10px;padding:12px 16px;color:white;font-weight:700;background:linear-gradient(135deg,var(--purple),#6d28d9)}
+.btn.secondary{background:var(--soft);border:1px solid var(--border)}.btn.danger{background:#4b1414;border:1px solid #7f1d1d}
+.btn.small{padding:8px 10px;font-size:11px}.proof-btn{white-space:nowrap}
+.msg{font-size:12px;color:#fca5a5;margin-top:12px;line-height:1.5}
+header{position:sticky;top:0;z-index:20;background:rgba(8,7,13,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.nav{max-width:1150px;margin:auto;min-height:68px;padding:12px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{font-weight:800}.brand span{color:var(--light)}
+main{max-width:1150px;margin:auto;padding:25px 18px 70px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:20px}.top h1{font-size:25px}.top p{color:var(--muted);font-size:12px;margin-top:5px}
+.tabs{display:flex;gap:8px;overflow:auto;margin-bottom:18px}.tab{white-space:nowrap}.tab.active{background:var(--purple)}
+.panel{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px;margin-bottom:18px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.full{grid-column:1/-1}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}
+.table-wrap{overflow:auto}.orders{width:100%;border-collapse:collapse;min-width:820px}.orders th,.orders td{text-align:left;padding:12px 9px;border-bottom:1px solid rgba(255,255,255,.07);font-size:12px;vertical-align:top}.orders th{color:var(--muted);font-size:11px}
+.badge{display:inline-block;padding:5px 8px;border-radius:7px;font-size:10px;font-weight:800;background:rgba(234,179,8,.1);color:#fde68a}.badge.paid,.badge.selesai{background:rgba(34,197,94,.1);color:#86efac}.badge.cancel{background:rgba(239,68,68,.1);color:#fca5a5}.payment-actions{display:flex;gap:6px;flex-wrap:wrap;margin-top:7px}.payment-actions .btn{font-size:10px}.payment-actions .btn:disabled{opacity:.45;cursor:not-allowed}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px}.stat{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px}.stat b{display:block;font-size:22px}.stat span{color:var(--muted);font-size:11px}
+.product-list{display:grid;gap:10px}.product-row{display:flex;align-items:center;gap:12px;padding:12px;border:1px solid rgba(255,255,255,.07);border-radius:12px;background:rgba(255,255,255,.02)}.thumb{width:70px;height:55px;border-radius:8px;object-fit:cover;background:#0c0a12;display:flex;align-items:center;justify-content:center;font-size:10px;color:#666}.grow{flex:1;min-width:0}.grow strong{display:block;font-size:13px;margin-bottom:5px}.grow small{color:var(--muted)}
+@media(max-width:650px){.grid{grid-template-columns:1fr}.full{grid-column:auto}.stats{grid-template-columns:1fr 1fr 1fr}.stat{padding:12px 9px}.stat b{font-size:18px}.top h1{font-size:21px}.product-row{align-items:flex-start}.actions .btn{flex:1}}
+.proof-modal{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.88);display:flex;align-items:center;justify-content:center;padding:18px}.proof-modal.hidden{display:none}.proof-box{width:min(100%,850px);max-height:92vh;background:#111;border:1px solid var(--border);border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:10px}.proof-head{display:flex;justify-content:space-between;align-items:center;gap:10px}.proof-head strong{font-size:13px}.proof-image-wrap{flex:1;min-height:0;overflow:auto;text-align:center;background:#050505;border-radius:10px;padding:8px}.proof-image{max-width:100%;height:auto;display:block;margin:auto;border-radius:8px}.proof-error{color:#fca5a5;padding:20px;text-align:center}.proof-close{cursor:pointer}\n</style>
+</head>
+<body>
+<div id="proofModal" class="proof-modal hidden">
+  <div class="proof-box">
+    <div class="proof-head"><strong>🖼️ Bukti Pembayaran</strong><button id="closeProof" class="btn secondary small proof-close">Tutup</button></div>
+    <div id="proofContent" class="proof-image-wrap"><div style="color:#aaa;padding:25px">Memuat bukti...</div></div>
+  </div>
+</div>
+
+<div id="loginPage" class="login-wrap">
+  <div class="login-card">
+    <div class="logo">🎮 AKEMI <span>STARSHOP</span></div>
+    <div class="sub">Admin Panel</div>
+    <form id="loginForm">
+      <label>Email</label>
+      <input id="loginEmail" type="email" autocomplete="email" required>
+      <label>Password</label>
+      <input id="loginPassword" type="password" autocomplete="current-password" required>
+      <div class="actions"><button class="btn" style="width:100%" type="submit">🔐 Login</button></div>
+      <div id="loginMsg" class="msg"></div>
+    </form>
+  </div>
+</div>
+
+<div id="app" class="hidden">
+<header><div class="nav"><div class="brand">🎮 AKEMI <span>STARSHOP</span></div><button id="logoutBtn" class="btn secondary small">Logout</button></div></header>
+<main>
+  <div class="top">
+    <div><h1>Dashboard Admin</h1><p>Kelola akun dan pesanan toko.</p></div>
+  </div>
+
+  <div class="tabs">
+    <button class="btn tab active" data-tab="ordersTab">📦 Pesanan</button>
+    <button class="btn secondary tab" data-tab="productsTab">🎮 Akun</button>
+  </div>
+
+  <section id="ordersTab" class="tab-content">
+    <div class="stats">
+      <div class="stat"><b id="statTotal">0</b><span>Total Order</span></div>
+      <div class="stat"><b id="statPending">0</b><span>Pending</span></div>
+      <div class="stat"><b id="statDone">0</b><span>Selesai</span></div>
+    </div>
+    <div class="panel">
+      <div class="actions" style="margin-top:0">
+        <input id="orderSearch" placeholder="🔎 Cari nomor, nama, email, WhatsApp..." style="flex:1;min-width:220px">
+        <button id="refreshOrders" class="btn secondary">🔄 Refresh</button>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="table-wrap">
+        <table class="orders">
+          <thead><tr><th>Order</th><th>Pembeli</th><th>Akun</th><th>Harga</th><th>Dibuat</th><th>Status Order</th><th>Pembayaran</th><th>Bukti</th><th>Aksi</th></tr></thead>
+          <tbody id="ordersBody"><tr><td colspan="9">Memuat pesanan...</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="productsTab" class="tab-content hidden">
+    <div class="panel">
+      <h2 id="productFormTitle" style="font-size:18px">Tambah Akun</h2>
+      <form id="productForm">
+        <input id="productId" type="hidden">
+        <div class="grid">
+          <div><label>Nama Akun</label><input id="pName" required></div>
+          <div><label>Harga (Rp)</label><input id="pPrice" type="number" min="0" required></div>
+          <div><label>Server</label><input id="pServer" value="Asia"></div>
+          <div><label>AR</label><input id="pAr" type="number" min="1"></div>
+          <div><label>Jumlah 5★</label><input id="pStars" type="number" min="0"></div>
+          <div><label>Status</label><select id="pStatus"><option value="tersedia">Tersedia</option><option value="hold">Hold</option><option value="terjual">Terjual</option></select></div>
+          <div class="full"><label>Deskripsi</label><textarea id="pDescription" placeholder="Detail akun..."></textarea></div>
+          <div class="full"><label>Screenshot Akun</label><input id="pImage" type="file" accept="image/*"></div>
+        </div>
+        <div class="actions"><button class="btn" type="submit">💾 Simpan Akun</button><button id="cancelEdit" class="btn secondary" type="button">Bersihkan</button></div>
+        <div id="productMsg" class="msg"></div>
+      </form>
+    </div>
+    <div class="panel">
+      <div class="actions" style="margin-top:0"><input id="productSearch" placeholder="🔎 Cari akun..." style="flex:1"><button id="refreshProducts" class="btn secondary">🔄 Refresh</button></div>
+    </div>
+    <div class="panel"><div id="productList" class="product-list">Memuat akun...</div></div>
+  </section>
+</main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script>
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+let orders = [];
+let payments = [];
+let products = [];
+let editingImageUrl = "";
+
+const $ = id => document.getElementById(id);
+const rupiah = n => "Rp " + Number(n || 0).toLocaleString("id-ID");
+const esc = v => String(v ?? "").replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
+
+function statusBadge(status){
+  const s = String(status || "pending").toLowerCase();
+  const cls = s === "selesai" || s === "paid" ? "paid" : s === "cancel" || s === "dibatalkan" ? "cancel" : "";
+  return `<span class="badge ${cls}">${esc(s.toUpperCase())}</span>`;
+}
+
+async function checkSession(){
+  const {data:{session}} = await supabaseClient.auth.getSession();
+  if(session){ showApp(); } else { $("loginPage").classList.remove("hidden"); }
+}
+function showApp(){ $("loginPage").classList.add("hidden"); $("app").classList.remove("hidden"); loadOrders(); loadProducts(); }
+
+$("loginForm").addEventListener("submit", async e=>{
+  e.preventDefault();
+  const email=$("loginEmail").value.trim();
+  const password=$("loginPassword").value;
+  const msg=$("loginMsg");
+  const btn=e.submitter || document.querySelector('#loginForm button[type="submit"]');
+  msg.textContent="Memeriksa login...";
+  if(btn){btn.disabled=true;btn.textContent="⏳ Login...";}
+  try{
+    const result=await supabaseClient.auth.signInWithPassword({email,password});
+    if(result.error) throw result.error;
+    const session=result.data?.session;
+    if(!session) throw new Error("Login berhasil tetapi sesi admin belum tersedia. Coba refresh halaman lalu login lagi.");
+    msg.textContent="Login berhasil. Membuka Admin Panel...";
+    $("loginPage").classList.add("hidden");
+    $("app").classList.remove("hidden");
+    await Promise.all([loadOrders(),loadProducts()]);
+  }catch(err){
+    console.error("LOGIN ERROR",err);
+    msg.textContent="Login gagal: "+(err?.message || "Terjadi kesalahan.");
+  }finally{
+    if(btn){btn.disabled=false;btn.textContent="🔐 Login";}
+  }
+});
+
+$("logoutBtn").addEventListener("click", async()=>{
+  await supabaseClient.auth.signOut();
+  location.reload();
+});
+
+document.querySelectorAll(".tab").forEach(btn=>btn.addEventListener("click",()=>{
+  document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
+  document.querySelectorAll(".tab").forEach(x=>x.classList.add("secondary"));
+  btn.classList.add("active");btn.classList.remove("secondary");
+  document.querySelectorAll(".tab-content").forEach(x=>x.classList.add("hidden"));
+  $(btn.dataset.tab).classList.remove("hidden");
+}));
+
+async function loadOrders(){
+  $("ordersBody").innerHTML='<tr><td colspan="9">Memuat pesanan...</td></tr>';
+  const [{data:orderData,error:orderError},{data:paymentData,error:paymentError}]=await Promise.all([
+    supabaseClient.from("orders").select("*").order("created_at",{ascending:false}),
+    supabaseClient.from("payments").select("*").order("created_at",{ascending:false})
+  ]);
+  if(orderError){$("ordersBody").innerHTML=`<tr><td colspan="9">Gagal memuat pesanan: ${esc(orderError.message)}</td></tr>`;return}
+  orders=orderData||[];
+  payments=paymentData||[];
+  updateStats();
+  renderOrders(orders);
+  if(paymentError) console.warn("Pembayaran tidak termuat:",paymentError.message);
+}
+function updateStats(){
+  $("statTotal").textContent=orders.length;
+  $("statPending").textContent=orders.filter(o=>String(o.status||"pending").toLowerCase()==="pending").length;
+  $("statDone").textContent=orders.filter(o=>["selesai","paid"].includes(String(o.status||"").toLowerCase())).length;
+}
+function paymentForOrder(o){
+  return payments.find(p=>String(p.order_id)===String(o.id)) || payments.find(p=>String(p.order_code||"")===String(o.order_code||""));
+}
+function paymentBadge(status){
+  const st=String(status||"pending").toLowerCase();
+  const cls=st==="diterima"||st==="paid"||st==="lunas"?"paid":st==="ditolak"||st==="rejected"?"cancel":"";
+  return `<span class="badge ${cls}">${esc(st.toUpperCase())}</span>`;
+}
+async function openProof(path,button){
+  if(!path){alert("Bukti pembayaran belum tersedia.");return}
+  const old=button.textContent; button.disabled=true; button.textContent="Membuka...";
+  const modal=$("proofModal"), content=$("proofContent");
+  modal.classList.remove("hidden");
+  content.innerHTML='<div style="color:#aaa;padding:25px">Memuat bukti pembayaran...</div>';
+  try{
+    const {data,error}=await supabaseClient.storage.from("payment-proofs").createSignedUrl(path,600);
+    if(error) throw error;
+    if(!data?.signedUrl) throw new Error("URL bukti tidak tersedia.");
+    const url=data.signedUrl;
+    content.innerHTML='';
+    const img=document.createElement("img");
+    img.className="proof-image";
+    img.alt="Bukti pembayaran";
+    img.src=url;
+    img.onload=()=>{ button.disabled=false; button.textContent=old; };
+    img.onerror=()=>{ content.innerHTML='<div class="proof-error">❌ Gambar bukti tidak dapat dimuat.<br><small>Pastikan file masih ada di bucket payment-proofs.</small></div>'; button.disabled=false; button.textContent=old; };
+    content.appendChild(img);
+  }catch(err){
+    content.innerHTML='<div class="proof-error">❌ Gagal membuka bukti: '+esc(err.message||err)+'</div>';
+    button.disabled=false; button.textContent=old;
+  }
+}
+function closeProofModal(){ $("proofModal").classList.add("hidden"); $("proofContent").innerHTML=''; }
+$("closeProof").addEventListener("click",closeProofModal);
+$("proofModal").addEventListener("click",e=>{if(e.target.id==="proofModal")closeProofModal()});
+async function updatePaymentStatus(id,status){
+  const pay=payments.find(x=>String(x.id)===String(id));
+  if(!pay){alert("Data pembayaran tidak ditemukan.");return}
+
+  const label = status === "diterima" ? "menerima pembayaran" : "menolak pembayaran";
+  if(!confirm("Yakin ingin "+label+" untuk pesanan ini?")) return;
+
+  const {error:paymentError}=await supabaseClient
+    .from("payments")
+    .update({status})
+    .eq("id",id);
+  if(paymentError){alert("Gagal mengubah status pembayaran: "+paymentError.message);return}
+
+  const order=orders.find(o=>
+    (pay.order_id!=null && String(o.id)===String(pay.order_id)) ||
+    (pay.order_code && String(o.order_code||"")===String(pay.order_code))
+  );
+
+  // Jika pembayaran diterima, order otomatis menjadi "dibayar".
+  // Jika ditolak, order dikembalikan ke "pending" agar dapat diperiksa/dibayar ulang.
+  if(order){
+    const nextOrderStatus = status === "diterima" ? "dibayar" : "pending";
+    const {error:orderError}=await supabaseClient
+      .from("orders")
+      .update({status:nextOrderStatus})
+      .eq("id",order.id);
+    if(orderError){
+      alert("Pembayaran sudah diubah, tetapi status pesanan gagal diperbarui: "+orderError.message);
+      loadOrders();
+      return;
+    }
+    order.status=nextOrderStatus;
+
+    // Jika pembayaran diterima, akun otomatis menjadi "terjual".
+    if(status === "diterima" && order.product_id != null){
+      const {error:productError}=await supabaseClient
+        .from("products")
+        .update({status:"terjual"})
+        .eq("id",order.product_id);
+      if(productError){
+        alert("Pembayaran sudah diterima dan status pesanan menjadi DIBAYAR, tetapi status akun gagal diubah menjadi TERJUAL: "+productError.message);
+        pay.status=status;
+        updateStats();
+        renderOrders(orders);
+        loadProducts();
+        return;
+      }
+      const product=products.find(p=>String(p.id)===String(order.product_id));
+      if(product) product.status="terjual";
+
+      // Verifikasi agar akun benar-benar berubah di database.
+      const {data:checkProduct,error:checkError}=await supabaseClient
+        .from("products")
+        .select("id,status")
+        .eq("id",order.product_id)
+        .maybeSingle();
+      if(checkError) {
+        console.warn("Verifikasi produk gagal:",checkError.message);
+      } else if(checkProduct && String(checkProduct.status).toLowerCase() !== "terjual") {
+        alert("Status akun belum berubah menjadi TERJUAL. Silakan cek policy UPDATE products.");
+        await loadProducts();
+        return;
+      }
+    }
+  }
+
+  pay.status=status;
+  updateStats();
+  renderOrders(orders);
+  alert(status === "diterima"
+    ? "✅ Pembayaran diterima. Status pesanan dan akun otomatis diperbarui menjadi TERJUAL."
+    : "❌ Pembayaran ditolak. Status pesanan dikembalikan menjadi PENDING.");
+}
+function renderOrders(list){
+  if(!list.length){$("ordersBody").innerHTML='<tr><td colspan="9">Belum ada pesanan.</td></tr>';return}
+  $("ordersBody").innerHTML=list.map(o=>{
+    const product=products.find(p=>String(p.id)===String(o.product_id));
+    const pay=paymentForOrder(o);
+    const when=o.created_at?new Date(o.created_at).toLocaleString("id-ID"):"-";
+    return `<tr>
+      <td><strong>${esc(o.order_code||("#"+o.id))}</strong><br><small>ID ${esc(o.id)}</small></td>
+      <td>${esc(o.customer_name)}<br><small>${esc(o.customer_email)}<br>${esc(o.customer_whatsapp)}</small></td>
+      <td>${esc(product?.name||("Product #"+(o.product_id??"-")))}</td>
+      <td>${rupiah(o.total_price)}</td>
+      <td>${esc(when)}</td>
+      <td>${statusBadge(o.status)}</td>
+      <td>${pay?`${esc(pay.payment_method||"-")}<br>${rupiah(pay.amount)}<br>${paymentBadge(pay.status)}`:'<span style="color:#888">Belum ada</span>'}</td>
+      <td>${pay?.proof_url?`<button class="btn secondary small proof-btn" data-path="${esc(pay.proof_url)}">🖼️ Lihat</button>`:'-'}</td>
+      <td>
+        <select class="order-status" data-id="${esc(o.id)}">
+          ${["pending","diproses","dibayar","selesai","dibatalkan"].map(st=>`<option value="${st}" ${String(o.status||"pending")===st?"selected":""}>${st}</option>`).join("")}
+        </select>
+        ${pay?`<div class="payment-actions">
+          <button class="btn small accept-payment" data-id="${esc(pay.id)}" ${String(pay.status||"").toLowerCase()==="diterima"?"disabled":""}>✅ Terima</button>
+          <button class="btn secondary small reject-payment" data-id="${esc(pay.id)}" ${String(pay.status||"").toLowerCase()==="ditolak"?"disabled":""}>❌ Tolak</button>
+        </div>`:""}
+      </td>
+    </tr>`;
+  }).join("");
+  document.querySelectorAll(".order-status").forEach(sel=>sel.addEventListener("change",()=>updateOrderStatus(sel.dataset.id,sel.value)));
+  document.querySelectorAll(".accept-payment").forEach(btn=>btn.addEventListener("click",()=>updatePaymentStatus(btn.dataset.id,"diterima")));
+  document.querySelectorAll(".reject-payment").forEach(btn=>btn.addEventListener("click",()=>updatePaymentStatus(btn.dataset.id,"ditolak")));
+  document.querySelectorAll(".proof-btn").forEach(btn=>btn.addEventListener("click",()=>openProof(btn.dataset.path,btn)));
+}
+async function updateOrderStatus(id,status){
+  const {error}=await supabaseClient.from("orders").update({status}).eq("id",id);
+  if(error){alert("Gagal mengubah status: "+error.message);loadOrders();return}
+  const o=orders.find(x=>String(x.id)===String(id)); if(o)o.status=status;
+  updateStats();renderOrders(orders);
+}
+$("refreshOrders").addEventListener("click",loadOrders);
+$("orderSearch").addEventListener("input",()=>{
+  const q=$("orderSearch").value.toLowerCase().trim();
+  renderOrders(orders.filter(o=>[
+    o.order_code,o.id,o.customer_name,o.customer_email,o.customer_whatsapp,o.status,o.product_id
+  ].join(" ").toLowerCase().includes(q)));
+});
+
+async function loadProducts(){
+  $("productList").textContent="Memuat akun...";
+  const {data,error}=await supabaseClient.from("products").select("*").order("created_at",{ascending:false});
+  if(error){$("productList").textContent="Gagal memuat: "+error.message;return}
+  products=data||[];
+  renderProducts(products);
+  if(!$("ordersTab").classList.contains("hidden")) renderOrders(orders);
+}
+function renderProducts(list){
+  if(!list.length){$("productList").textContent="Belum ada akun.";return}
+  $("productList").innerHTML=list.map(p=>`
+    <div class="product-row">
+      ${p.image_url?`<img class="thumb" src="${esc(p.image_url)}" alt="">`:`<div class="thumb">FOTO</div>`}
+      <div class="grow"><strong>${esc(p.name||"Akun Genshin")}</strong><small>${esc(p.server||"Asia")} · AR ${esc(p.ar??"-")} · ${esc(p.five_star_count??0)} 5★ · ${rupiah(p.price)}</small><br>${statusBadge(p.status)}</div>
+      <button class="btn small secondary edit-product" data-id="${esc(p.id)}">Edit</button>
+      <button class="btn small danger delete-product" data-id="${esc(p.id)}">Hapus</button>
+    </div>`).join("");
+  document.querySelectorAll(".edit-product").forEach(b=>b.addEventListener("click",()=>startEdit(b.dataset.id)));
+  document.querySelectorAll(".delete-product").forEach(b=>b.addEventListener("click",()=>deleteProduct(b.dataset.id)));
+}
+$("productSearch").addEventListener("input",()=>{
+  const q=$("productSearch").value.toLowerCase().trim();
+  renderProducts(products.filter(p=>[p.name,p.server,p.description,p.status,p.ar,p.five_star_count].join(" ").toLowerCase().includes(q)));
+});
+$("refreshProducts").addEventListener("click",loadProducts);
+
+function clearProductForm(){
+  $("productForm").reset();$("productId").value="";editingImageUrl="";
+  $("pServer").value="Asia";$("pStatus").value="tersedia";$("productFormTitle").textContent="Tambah Akun";$("productMsg").textContent="";
+}
+$("cancelEdit").addEventListener("click",clearProductForm);
+
+function startEdit(id){
+  const p=products.find(x=>String(x.id)===String(id));if(!p)return;
+  $("productId").value=p.id;$("pName").value=p.name||"";$("pPrice").value=p.price||0;$("pServer").value=p.server||"Asia";
+  $("pAr").value=p.ar??"";$("pStars").value=p.five_star_count??"";$("pStatus").value=p.status||"tersedia";
+  $("pDescription").value=p.description||"";editingImageUrl=p.image_url||"";
+  $("productFormTitle").textContent="Edit Akun #"+p.id;
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+async function uploadImage(file){
+  const ext=(file.name.split(".").pop()||"jpg").toLowerCase();
+  const path=Date.now()+"-"+Math.random().toString(36).slice(2)+"."+ext;
+  const {error}=await supabaseClient.storage.from("product-images").upload(path,file,{upsert:false});
+  if(error)throw error;
+  const {data}=supabaseClient.storage.from("product-images").getPublicUrl(path);
+  return data.publicUrl;
+}
+$("productForm").addEventListener("submit",async e=>{
+  e.preventDefault();
+  $("productMsg").textContent="Menyimpan...";
+  try{
+    let imageUrl=editingImageUrl;
+    const file=$("pImage").files[0];
+    if(file) imageUrl=await uploadImage(file);
+    const payload={
+      name:$("pName").value.trim(),
+      price:Number($("pPrice").value||0),
+      server:$("pServer").value.trim(),
+      ar:$("pAr").value?Number($("pAr").value):null,
+      five_star_count:$("pStars").value?Number($("pStars").value):0,
+      status:$("pStatus").value,
+      description:$("pDescription").value.trim(),
+      image_url:imageUrl||null
+    };
+    const id=$("productId").value;
+    let result;
+    if(id) result=await supabaseClient.from("products").update(payload).eq("id",id);
+    else result=await supabaseClient.from("products").insert(payload);
+    if(result.error)throw result.error;
+    $("productMsg").textContent="Akun berhasil disimpan.";
+    clearProductForm();await loadProducts();
+  }catch(err){$("productMsg").textContent="Gagal: "+err.message}
+});
+async function deleteProduct(id){
+  const p=products.find(x=>String(x.id)===String(id));
+  if(!confirm("Hapus akun "+(p?.name||("#"+id))+"?"))return;
+  const {error}=await supabaseClient.from("products").delete().eq("id",id);
+  if(error){alert("Gagal menghapus: "+error.message);return}
+  loadProducts();
+}
+checkSession();
+</script>
+</body>
+</html>
