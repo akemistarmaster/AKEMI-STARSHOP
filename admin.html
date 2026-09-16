@@ -30,18 +30,71 @@ main{max-width:1150px;margin:auto;padding:25px 18px 70px}
 .panel{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px;margin-bottom:18px}
 .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.full{grid-column:1/-1}
 .actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}
-.table-wrap{overflow:auto}.orders{width:100%;border-collapse:collapse;min-width:820px}.orders th,.orders td{text-align:left;padding:12px 9px;border-bottom:1px solid rgba(255,255,255,.07);font-size:12px;vertical-align:top}.orders th{color:var(--muted);font-size:11px}
+.table-wrap{overflow:auto;position:relative}.orders{width:100%;border-collapse:collapse;min-width:820px}.orders th:last-child,.orders td:last-child{position:sticky;right:0;background:#120d1d;z-index:2;box-shadow:-8px 0 16px rgba(0,0,0,.25)}.orders th,.orders td{text-align:left;padding:12px 9px;border-bottom:1px solid rgba(255,255,255,.07);font-size:12px;vertical-align:top}.orders th{color:var(--muted);font-size:11px}
 .badge{display:inline-block;padding:5px 8px;border-radius:7px;font-size:10px;font-weight:800;background:rgba(234,179,8,.1);color:#fde68a}.badge.paid,.badge.selesai{background:rgba(34,197,94,.1);color:#86efac}.badge.cancel{background:rgba(239,68,68,.1);color:#fca5a5}.payment-actions{display:flex;gap:6px;flex-wrap:wrap;margin-top:7px}.payment-actions .btn{font-size:10px}.payment-actions .btn:disabled{opacity:.45;cursor:not-allowed}
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:18px}.stat{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px}.stat b{display:block;font-size:22px}.stat span{color:var(--muted);font-size:11px}
 .product-list{display:grid;gap:10px}.product-row{display:flex;align-items:center;gap:12px;padding:12px;border:1px solid rgba(255,255,255,.07);border-radius:12px;background:rgba(255,255,255,.02)}.thumb{width:70px;height:55px;border-radius:8px;object-fit:cover;background:#0c0a12;display:flex;align-items:center;justify-content:center;font-size:10px;color:#666}.grow{flex:1;min-width:0}.grow strong{display:block;font-size:13px;margin-bottom:5px}.grow small{color:var(--muted)}
 @media(max-width:650px){.grid{grid-template-columns:1fr}.full{grid-column:auto}.stats{grid-template-columns:1fr 1fr 1fr}.stat{padding:12px 9px}.stat b{font-size:18px}.top h1{font-size:21px}.product-row{align-items:flex-start}.actions .btn{flex:1}}
-.proof-modal{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.88);display:flex;align-items:center;justify-content:center;padding:18px}.proof-modal.hidden{display:none}.proof-box{width:min(100%,850px);max-height:92vh;background:#111;border:1px solid var(--border);border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:10px}.proof-head{display:flex;justify-content:space-between;align-items:center;gap:10px}.proof-head strong{font-size:13px}.proof-image-wrap{flex:1;min-height:0;overflow:auto;text-align:center;background:#050505;border-radius:10px;padding:8px}.proof-image{max-width:100%;height:auto;display:block;margin:auto;border-radius:8px}.proof-error{color:#fca5a5;padding:20px;text-align:center}.proof-close{cursor:pointer}\n</style>
+.proof-modal{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.88);display:flex;align-items:center;justify-content:center;padding:18px}.proof-modal.hidden{display:none}.proof-box{width:min(100%,850px);max-height:92vh;background:#111;border:1px solid var(--border);border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:10px}.proof-head{display:flex;justify-content:space-between;align-items:center;gap:10px}.proof-head strong{font-size:13px}.proof-image-wrap{flex:1;min-height:0;overflow:auto;text-align:center;background:#050505;border-radius:10px;padding:8px}.proof-image{max-width:100%;height:auto;display:block;margin:auto;border-radius:8px}.proof-error{color:#fca5a5;padding:20px;text-align:center}.proof-close{cursor:pointer}\n
+/* ===== AKEMI CUSTOM POPUPS ===== */
+.akemi-modal{position:fixed;inset:0;z-index:1000;background:rgba(3,2,8,.78);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:1;transition:opacity .18s ease}
+.akemi-modal.hidden{display:none}
+.akemi-modal-box{width:min(430px,100%);background:linear-gradient(180deg,#1b1230 0%,#100b1b 100%);border:1px solid rgba(167,139,250,.34);border-radius:22px;box-shadow:0 24px 70px rgba(0,0,0,.55),0 0 45px rgba(124,58,237,.16);padding:22px;transform:translateY(0) scale(1);animation:akemiPop .18s ease}
+@keyframes akemiPop{from{opacity:0;transform:translateY(8px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+.akemi-modal-head{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.akemi-modal-icon{width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;background:rgba(139,92,246,.14);border:1px solid rgba(167,139,250,.22);flex:0 0 auto}
+.akemi-modal-box.success .akemi-modal-icon{background:rgba(34,197,94,.12);border-color:rgba(34,197,94,.25)}
+.akemi-modal-box.error .akemi-modal-icon{background:rgba(239,68,68,.12);border-color:rgba(239,68,68,.25)}
+.akemi-modal-box.warning .akemi-modal-icon{background:rgba(234,179,8,.12);border-color:rgba(234,179,8,.25)}
+.akemi-modal-title{font-size:17px;font-weight:800;line-height:1.25}
+.akemi-modal-subtitle{font-size:10px;color:#a78bfa;margin-top:3px;text-transform:uppercase;letter-spacing:.12em}
+.akemi-modal-message{font-size:13px;line-height:1.65;color:#c8c3d4;white-space:pre-line;margin:8px 0 18px}
+.akemi-modal-actions{display:flex;gap:9px;justify-content:flex-end}
+.akemi-modal-actions .btn{min-width:110px}
+.akemi-modal-actions .akemi-cancel{background:#181525;border:1px solid rgba(167,139,250,.2)}
+.akemi-modal-actions .akemi-danger{background:linear-gradient(135deg,#dc2626,#991b1b)}
+@media(max-width:480px){.akemi-modal{padding:14px}.akemi-modal-box{padding:19px;border-radius:19px}.akemi-modal-actions{flex-direction:column-reverse}.akemi-modal-actions .btn{width:100%;min-width:0}}
+
+</style>
 </head>
 <body>
+
+<!-- Custom AKEMI confirmation / notification popup -->
+<div id="akemiModal" class="akemi-modal hidden" role="dialog" aria-modal="true" aria-labelledby="akemiModalTitle">
+  <div id="akemiModalBox" class="akemi-modal-box">
+    <div class="akemi-modal-head">
+      <div id="akemiModalIcon" class="akemi-modal-icon">✦</div>
+      <div>
+        <div id="akemiModalTitle" class="akemi-modal-title">AKEMI STARSHOP</div>
+        <div class="akemi-modal-subtitle">Admin Panel</div>
+      </div>
+    </div>
+    <div id="akemiModalMessage" class="akemi-modal-message"></div>
+    <div id="akemiModalActions" class="akemi-modal-actions"></div>
+  </div>
+</div>
+
 <div id="proofModal" class="proof-modal hidden">
   <div class="proof-box">
     <div class="proof-head"><strong>🖼️ Bukti Pembayaran</strong><button id="closeProof" class="btn secondary small proof-close">Tutup</button></div>
     <div id="proofContent" class="proof-image-wrap"><div style="color:#aaa;padding:25px">Memuat bukti...</div></div>
+  </div>
+</div>
+
+<div id="deliveryModal" class="proof-modal hidden">
+  <div class="proof-box" style="max-width:520px;max-height:90vh;overflow:auto">
+    <div class="proof-head"><strong>🎁 Serahkan Akun ke Pembeli</strong><button id="closeDelivery" class="btn secondary small">Tutup</button></div>
+    <div style="color:#aaa;font-size:11px;line-height:1.5">Detail ini hanya disimpan pada order dan ditampilkan kepada pembeli yang dapat memverifikasi nomor pesanan + WhatsApp.</div>
+    <input id="deliveryOrderId" type="hidden">
+    <label style="display:block;font-size:12px;font-weight:700;margin:13px 0 7px">Login / Email Akun</label>
+    <input id="deliveryLogin" placeholder="Email atau username akun Genshin">
+    <label style="display:block;font-size:12px;font-weight:700;margin:13px 0 7px">Password Akun</label>
+    <input id="deliveryPassword" type="text" placeholder="Password akun">
+    <label style="display:block;font-size:12px;font-weight:700;margin:13px 0 7px">Catatan Penyerahan</label>
+    <textarea id="deliveryNote" placeholder="Contoh: Silakan login lalu segera ganti password."></textarea>
+    <label style="display:flex;align-items:center;gap:8px;font-size:11px;margin-top:12px"><input id="deliveryMarkDone" type="checkbox" style="width:auto;height:auto"> Tandai pesanan sebagai SELESAI setelah disimpan</label>
+    <div id="deliveryMsg" class="msg"></div>
+    <div class="actions"><button id="saveDelivery" class="btn" type="button">💾 Simpan & Serahkan</button></div>
   </div>
 </div>
 
@@ -54,8 +107,25 @@ main{max-width:1150px;margin:auto;padding:25px 18px 70px}
       <input id="loginEmail" type="email" autocomplete="email" required>
       <label>Password</label>
       <input id="loginPassword" type="password" autocomplete="current-password" required>
-      <div class="actions"><button class="btn" style="width:100%" type="submit">🔐 Login</button></div>
+      <div class="actions"><button id="loginSubmit" class="btn" style="width:100%" type="submit">🔐 Login</button></div>
+      <button id="forgotPasswordBtn" type="button" class="btn secondary" style="width:100%;margin-top:9px">🔑 Lupa Password?</button>
       <div id="loginMsg" class="msg"></div>
+    </form>
+    <form id="forgotForm" class="hidden">
+      <label>Email Admin</label>
+      <input id="forgotEmail" type="email" autocomplete="email" placeholder="email admin" required>
+      <div class="actions"><button id="forgotSubmit" class="btn" style="width:100%" type="submit">📩 Kirim Link Reset</button></div>
+      <button id="backToLoginBtn" type="button" class="btn secondary" style="width:100%;margin-top:9px">← Kembali ke Login</button>
+      <div id="forgotMsg" class="msg"></div>
+    </form>
+    <form id="recoveryForm" class="hidden">
+      <div style="font-size:13px;color:#c8c3d4;line-height:1.6;margin-bottom:12px">Masukkan password baru untuk akun admin kamu.</div>
+      <label>Password Baru</label>
+      <input id="newPassword" type="password" autocomplete="new-password" minlength="6" required>
+      <label>Ulangi Password Baru</label>
+      <input id="newPassword2" type="password" autocomplete="new-password" minlength="6" required>
+      <div class="actions"><button id="recoverySubmit" class="btn" style="width:100%" type="submit">🔐 Simpan Password Baru</button></div>
+      <div id="recoveryMsg" class="msg"></div>
     </form>
   </div>
 </div>
@@ -69,6 +139,7 @@ main{max-width:1150px;margin:auto;padding:25px 18px 70px}
 
   <div class="tabs">
     <button class="btn tab active" data-tab="ordersTab">📦 Pesanan</button>
+    <button class="btn secondary tab" data-tab="historyTab">🗂️ Riwayat Pesanan</button>
     <button class="btn secondary tab" data-tab="productsTab">🎮 Akun</button>
   </div>
 
@@ -89,6 +160,29 @@ main{max-width:1150px;margin:auto;padding:25px 18px 70px}
         <table class="orders">
           <thead><tr><th>Order</th><th>Pembeli</th><th>Akun</th><th>Harga</th><th>Dibuat</th><th>Status Order</th><th>Pembayaran</th><th>Bukti</th><th>Aksi</th></tr></thead>
           <tbody id="ordersBody"><tr><td colspan="9">Memuat pesanan...</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="historyTab" class="tab-content hidden">
+    <div class="stats">
+      <div class="stat"><b id="statHistoryTotal">0</b><span>Pesanan Selesai</span></div>
+      <div class="stat"><b id="statHistoryToday">0</b><span>Selesai Hari Ini</span></div>
+      <div class="stat"><b id="statHistoryValue">Rp 0</b><span>Total Nilai</span></div>
+    </div>
+    <div class="panel">
+      <div class="actions" style="margin-top:0">
+        <input id="historySearch" placeholder="🔎 Cari nomor, nama, email, WhatsApp..." style="flex:1;min-width:220px">
+        <button id="refreshHistory" class="btn secondary">🔄 Refresh</button>
+      </div>
+    </div>
+    <div class="panel">
+      <div style="margin-bottom:12px;color:#aaa;font-size:12px">Pesanan yang sudah <b style="color:#cfa8ff">SELESAI</b> dan data akun sudah diserahkan kepada pembeli otomatis dipindahkan ke sini.</div>
+      <div class="table-wrap">
+        <table class="orders">
+          <thead><tr><th>Order</th><th>Pembeli</th><th>Akun</th><th>Harga</th><th>Dibuat</th><th>Diserahkan</th><th>Pembayaran</th><th>Aksi</th></tr></thead>
+          <tbody id="historyBody"><tr><td colspan="8">Memuat riwayat...</td></tr></tbody>
         </table>
       </div>
     </div>
@@ -134,17 +228,126 @@ const $ = id => document.getElementById(id);
 const rupiah = n => "Rp " + Number(n || 0).toLocaleString("id-ID");
 const esc = v => String(v ?? "").replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
 
+function akemiIcon(type){
+  return type==="success" ? "✓" : type==="error" ? "!" : type==="warning" ? "!" : type==="confirm" ? "?" : "✦";
+}
+function showAkemiModal({title="AKEMI STARSHOP",message="",type="info",confirmText="OK",cancelText="Batal",confirmClass="btn",showCancel=false}={}){
+  return new Promise(resolve=>{
+    const modal=$("akemiModal"),box=$("akemiModalBox"),icon=$("akemiModalIcon"),titleEl=$("akemiModalTitle"),msg=$("akemiModalMessage"),actions=$("akemiModalActions");
+    box.className="akemi-modal-box "+type;
+    icon.textContent=akemiIcon(type);
+    titleEl.textContent=title;
+    msg.textContent=message;
+    actions.innerHTML="";
+    const close=value=>{
+      modal.classList.add("hidden");
+      document.removeEventListener("keydown",onKey);
+      resolve(value);
+    };
+    const onKey=e=>{
+      if(e.key==="Escape"){e.preventDefault();close(false);}
+      if(e.key==="Enter" && !showCancel){e.preventDefault();close(true);}
+    };
+    if(showCancel){
+      const cancel=document.createElement("button");
+      cancel.type="button";cancel.className="btn akemi-cancel";cancel.textContent=cancelText;
+      cancel.addEventListener("click",()=>close(false));
+      actions.appendChild(cancel);
+    }
+    const ok=document.createElement("button");
+    ok.type="button";ok.className="btn "+confirmClass;ok.textContent=confirmText;
+    ok.addEventListener("click",()=>close(true));
+    actions.appendChild(ok);
+    modal.classList.remove("hidden");
+    document.addEventListener("keydown",onKey);
+    setTimeout(()=>ok.focus(),30);
+  });
+}
+const akemiNotice=(title,message,type="info")=>showAkemiModal({title,message,type,confirmText:"OK"});
+const akemiConfirm=(title,message,confirmText="Ya, Lanjutkan",type="confirm")=>showAkemiModal({title,message,type,confirmText,cancelText:"Batal",confirmClass:type==="warning"?"akemi-danger":"btn",showCancel:true});
+
+
 function statusBadge(status){
   const s = String(status || "pending").toLowerCase();
   const cls = s === "selesai" || s === "paid" ? "paid" : s === "cancel" || s === "dibatalkan" ? "cancel" : "";
   return `<span class="badge ${cls}">${esc(s.toUpperCase())}</span>`;
 }
 
-async function checkSession(){
-  const {data:{session}} = await supabaseClient.auth.getSession();
-  if(session){ showApp(); } else { $("loginPage").classList.remove("hidden"); }
+function showLogin(){
+  $("app").classList.add("hidden");
+  $("loginPage").classList.remove("hidden");
+  $("loginForm").classList.remove("hidden");
+  $("forgotForm").classList.add("hidden");
+  $("recoveryForm").classList.add("hidden");
+  $("loginMsg").textContent="";
 }
 function showApp(){ $("loginPage").classList.add("hidden"); $("app").classList.remove("hidden"); loadOrders(); loadProducts(); }
+
+async function checkSession(){
+  const recovery = /type=recovery/i.test(window.location.hash);
+  if(recovery){
+    const {data:{session}} = await supabaseClient.auth.getSession();
+    if(session){
+      $("app").classList.add("hidden");
+      $("loginPage").classList.remove("hidden");
+      $("loginForm").classList.add("hidden");
+      $("forgotForm").classList.add("hidden");
+      $("recoveryForm").classList.remove("hidden");
+      return;
+    }
+  }
+  // Setiap kali halaman Admin dibuka, minta login ulang.
+  // Session lokal lama dibersihkan agar tidak otomatis masuk dashboard.
+  try{ await supabaseClient.auth.signOut({scope:"local"}); }catch(e){ console.warn("Local signout:",e); }
+  showLogin();
+}
+
+$("forgotPasswordBtn").addEventListener("click",()=>{
+  $("loginForm").classList.add("hidden");
+  $("forgotForm").classList.remove("hidden");
+  $("recoveryForm").classList.add("hidden");
+  $("forgotEmail").value=$("loginEmail").value.trim();
+  $("forgotMsg").textContent="";
+});
+$("backToLoginBtn").addEventListener("click",()=>showLogin());
+$("forgotForm").addEventListener("submit",async e=>{
+  e.preventDefault();
+  const email=$("forgotEmail").value.trim();
+  const btn=$("forgotSubmit");
+  const msg=$("forgotMsg");
+  if(!email){msg.textContent="Email admin wajib diisi.";return;}
+  btn.disabled=true;btn.textContent="⏳ Mengirim...";msg.textContent="";
+  try{
+    const redirectTo="https://akemistarshop.netlify.app/reset-password.html";
+    const {error}=await supabaseClient.auth.resetPasswordForEmail(email,{redirectTo});
+    if(error) throw error;
+    await akemiNotice("Link Reset Terkirim","Jika email tersebut terdaftar sebagai akun admin, link untuk membuat password baru sudah dikirim. Periksa Inbox atau Spam.","success");
+    $("loginEmail").value=email;
+    showLogin();
+  }catch(err){
+    msg.textContent="Gagal mengirim link reset: "+(err?.message||err);
+  }finally{btn.disabled=false;btn.textContent="📩 Kirim Link Reset";}
+});
+$("recoveryForm").addEventListener("submit",async e=>{
+  e.preventDefault();
+  const p=$("newPassword").value;
+  const p2=$("newPassword2").value;
+  const msg=$("recoveryMsg");
+  const btn=$("recoverySubmit");
+  if(p.length<6){msg.textContent="Password baru minimal 6 karakter.";return;}
+  if(p!==p2){msg.textContent="Konfirmasi password tidak sama.";return;}
+  btn.disabled=true;btn.textContent="⏳ Menyimpan...";msg.textContent="";
+  try{
+    const {error}=await supabaseClient.auth.updateUser({password:p});
+    if(error) throw error;
+    await akemiNotice("Password Berhasil Diubah","Password admin sudah diperbarui. Silakan login kembali dengan password baru.","success");
+    try{await supabaseClient.auth.signOut({scope:"local"});}catch(e){}
+    history.replaceState({},document.title,window.location.pathname+window.location.search);
+    $("newPassword").value="";$("newPassword2").value="";
+    showLogin();
+  }catch(err){msg.textContent="Gagal mengubah password: "+(err?.message||err);}
+  finally{btn.disabled=false;btn.textContent="🔐 Simpan Password Baru";}
+});
 
 $("loginForm").addEventListener("submit", async e=>{
   e.preventDefault();
@@ -172,8 +375,10 @@ $("loginForm").addEventListener("submit", async e=>{
 });
 
 $("logoutBtn").addEventListener("click", async()=>{
-  await supabaseClient.auth.signOut();
-  location.reload();
+  const ok=await akemiConfirm("Keluar dari Admin?","Kamu akan keluar dari panel admin dan harus login kembali saat masuk ke halaman Admin.","Ya, Logout","warning");
+  if(!ok)return;
+  await supabaseClient.auth.signOut({scope:"local"});
+  showLogin();
 });
 
 document.querySelectorAll(".tab").forEach(btn=>btn.addEventListener("click",()=>{
@@ -182,25 +387,48 @@ document.querySelectorAll(".tab").forEach(btn=>btn.addEventListener("click",()=>
   btn.classList.add("active");btn.classList.remove("secondary");
   document.querySelectorAll(".tab-content").forEach(x=>x.classList.add("hidden"));
   $(btn.dataset.tab).classList.remove("hidden");
+  if(btn.dataset.tab === "historyTab") renderHistory(getHistoryOrders());
+  if(btn.dataset.tab === "ordersTab") renderOrders(getActiveOrders());
 }));
 
 async function loadOrders(){
   $("ordersBody").innerHTML='<tr><td colspan="9">Memuat pesanan...</td></tr>';
+  $("historyBody").innerHTML='<tr><td colspan="8">Memuat riwayat...</td></tr>';
   const [{data:orderData,error:orderError},{data:paymentData,error:paymentError}]=await Promise.all([
     supabaseClient.from("orders").select("*").order("created_at",{ascending:false}),
     supabaseClient.from("payments").select("*").order("created_at",{ascending:false})
   ]);
-  if(orderError){$("ordersBody").innerHTML=`<tr><td colspan="9">Gagal memuat pesanan: ${esc(orderError.message)}</td></tr>`;return}
+  if(orderError){
+    $("ordersBody").innerHTML=`<tr><td colspan="9">Gagal memuat pesanan: ${esc(orderError.message)}</td></tr>`;
+    $("historyBody").innerHTML=`<tr><td colspan="8">Gagal memuat riwayat: ${esc(orderError.message)}</td></tr>`;
+    return;
+  }
   orders=orderData||[];
   payments=paymentData||[];
   updateStats();
-  renderOrders(orders);
+  renderOrders(getActiveOrders());
+  renderHistory(getHistoryOrders());
   if(paymentError) console.warn("Pembayaran tidak termuat:",paymentError.message);
 }
+function isDeliveredComplete(o){
+  const status=String(o?.status||"").toLowerCase();
+  const hasDelivery=Boolean(String(o?.delivery_login||"").trim() && String(o?.delivery_password||"").trim());
+  return status === "selesai" && hasDelivery;
+}
+function getHistoryOrders(){ return orders.filter(isDeliveredComplete); }
+function getActiveOrders(){ return orders.filter(o=>!isDeliveredComplete(o)); }
 function updateStats(){
-  $("statTotal").textContent=orders.length;
-  $("statPending").textContent=orders.filter(o=>String(o.status||"pending").toLowerCase()==="pending").length;
-  $("statDone").textContent=orders.filter(o=>["selesai","paid"].includes(String(o.status||"").toLowerCase())).length;
+  const active=getActiveOrders();
+  const history=getHistoryOrders();
+  $("statTotal").textContent=active.length;
+  $("statPending").textContent=active.filter(o=>String(o.status||"pending").toLowerCase()==="pending").length;
+  $("statDone").textContent=history.length;
+  if($("statHistoryTotal")) $("statHistoryTotal").textContent=history.length;
+  if($("statHistoryToday")){
+    const today=new Date(); today.setHours(0,0,0,0);
+    $("statHistoryToday").textContent=history.filter(o=>{const d=new Date(o.delivered_at||o.created_at); d.setHours(0,0,0,0); return d.getTime()===today.getTime();}).length;
+  }
+  if($("statHistoryValue")) $("statHistoryValue").textContent=rupiah(history.reduce((sum,o)=>sum+Number(o.total_price||0),0));
 }
 function paymentForOrder(o){
   return payments.find(p=>String(p.order_id)===String(o.id)) || payments.find(p=>String(p.order_code||"")===String(o.order_code||""));
@@ -211,7 +439,7 @@ function paymentBadge(status){
   return `<span class="badge ${cls}">${esc(st.toUpperCase())}</span>`;
 }
 async function openProof(path,button){
-  if(!path){alert("Bukti pembayaran belum tersedia.");return}
+  if(!path){akemiNotice("Bukti Pembayaran","Bukti pembayaran belum tersedia.","warning");return}
   const old=button.textContent; button.disabled=true; button.textContent="Membuka...";
   const modal=$("proofModal"), content=$("proofContent");
   modal.classList.remove("hidden");
@@ -239,16 +467,17 @@ $("closeProof").addEventListener("click",closeProofModal);
 $("proofModal").addEventListener("click",e=>{if(e.target.id==="proofModal")closeProofModal()});
 async function updatePaymentStatus(id,status){
   const pay=payments.find(x=>String(x.id)===String(id));
-  if(!pay){alert("Data pembayaran tidak ditemukan.");return}
+  if(!pay){akemiNotice("Data Pembayaran","Data pembayaran tidak ditemukan.","error");return}
 
   const label = status === "diterima" ? "menerima pembayaran" : "menolak pembayaran";
-  if(!confirm("Yakin ingin "+label+" untuk pesanan ini?")) return;
+  const okPayment=await akemiConfirm(status==="diterima"?"Terima Pembayaran":"Tolak Pembayaran","Yakin ingin "+label+" untuk pesanan ini?",status==="diterima"?"Ya, Terima":"Ya, Tolak",status==="diterima"?"confirm":"warning");
+  if(!okPayment) return;
 
   const {error:paymentError}=await supabaseClient
     .from("payments")
     .update({status})
     .eq("id",id);
-  if(paymentError){alert("Gagal mengubah status pembayaran: "+paymentError.message);return}
+  if(paymentError){akemiNotice("Gagal Mengubah Pembayaran",paymentError.message||"Terjadi kesalahan.","error");return}
 
   const order=orders.find(o=>
     (pay.order_id!=null && String(o.id)===String(pay.order_id)) ||
@@ -264,7 +493,7 @@ async function updatePaymentStatus(id,status){
       .update({status:nextOrderStatus})
       .eq("id",order.id);
     if(orderError){
-      alert("Pembayaran sudah diubah, tetapi status pesanan gagal diperbarui: "+orderError.message);
+      await akemiNotice("Status Pesanan Gagal Diperbarui","Pembayaran sudah diubah, tetapi status pesanan gagal diperbarui:\n"+orderError.message,"error");
       loadOrders();
       return;
     }
@@ -277,10 +506,10 @@ async function updatePaymentStatus(id,status){
         .update({status:"terjual"})
         .eq("id",order.product_id);
       if(productError){
-        alert("Pembayaran sudah diterima dan status pesanan menjadi DIBAYAR, tetapi status akun gagal diubah menjadi TERJUAL: "+productError.message);
+        await akemiNotice("Status Akun Gagal Diperbarui","Pembayaran sudah diterima dan pesanan menjadi DIBAYAR, tetapi status akun gagal diubah menjadi TERJUAL:\n"+productError.message,"error");
         pay.status=status;
         updateStats();
-        renderOrders(orders);
+        renderOrders(getActiveOrders());
         loadProducts();
         return;
       }
@@ -296,7 +525,7 @@ async function updatePaymentStatus(id,status){
       if(checkError) {
         console.warn("Verifikasi produk gagal:",checkError.message);
       } else if(checkProduct && String(checkProduct.status).toLowerCase() !== "terjual") {
-        alert("Status akun belum berubah menjadi TERJUAL. Silakan cek policy UPDATE products.");
+        await akemiNotice("Perlu Pemeriksaan","Status akun belum berubah menjadi TERJUAL. Silakan cek policy UPDATE products.","warning");
         await loadProducts();
         return;
       }
@@ -305,10 +534,14 @@ async function updatePaymentStatus(id,status){
 
   pay.status=status;
   updateStats();
-  renderOrders(orders);
-  alert(status === "diterima"
-    ? "✅ Pembayaran diterima. Status pesanan dan akun otomatis diperbarui menjadi TERJUAL."
-    : "❌ Pembayaran ditolak. Status pesanan dikembalikan menjadi PENDING.");
+  renderOrders(getActiveOrders());
+  await akemiNotice(
+    status === "diterima" ? "Pembayaran Diterima" : "Pembayaran Ditolak",
+    status === "diterima"
+      ? "Pembayaran diterima. Status pesanan menjadi DIBAYAR dan akun otomatis menjadi TERJUAL."
+      : "Pembayaran ditolak. Status pesanan dikembalikan menjadi PENDING.",
+    status === "diterima" ? "success" : "warning"
+  );
 }
 function renderOrders(list){
   if(!list.length){$("ordersBody").innerHTML='<tr><td colspan="9">Belum ada pesanan.</td></tr>';return}
@@ -329,10 +562,13 @@ function renderOrders(list){
         <select class="order-status" data-id="${esc(o.id)}">
           ${["pending","diproses","dibayar","selesai","dibatalkan"].map(st=>`<option value="${st}" ${String(o.status||"pending")===st?"selected":""}>${st}</option>`).join("")}
         </select>
+        <div class="payment-actions">
+          <button class="btn secondary small delivery-account" data-id="${esc(o.id)}">🎁 SERAHKAN AKUN</button>
         ${pay?`<div class="payment-actions">
           <button class="btn small accept-payment" data-id="${esc(pay.id)}" ${String(pay.status||"").toLowerCase()==="diterima"?"disabled":""}>✅ Terima</button>
           <button class="btn secondary small reject-payment" data-id="${esc(pay.id)}" ${String(pay.status||"").toLowerCase()==="ditolak"?"disabled":""}>❌ Tolak</button>
         </div>`:""}
+        </div>
       </td>
     </tr>`;
   }).join("");
@@ -340,19 +576,70 @@ function renderOrders(list){
   document.querySelectorAll(".accept-payment").forEach(btn=>btn.addEventListener("click",()=>updatePaymentStatus(btn.dataset.id,"diterima")));
   document.querySelectorAll(".reject-payment").forEach(btn=>btn.addEventListener("click",()=>updatePaymentStatus(btn.dataset.id,"ditolak")));
   document.querySelectorAll(".proof-btn").forEach(btn=>btn.addEventListener("click",()=>openProof(btn.dataset.path,btn)));
+  document.querySelectorAll(".delivery-account").forEach(btn=>btn.addEventListener("click",()=>openDeliveryModal(btn.dataset.id)));
 }
+function renderHistory(list){
+  if(!list.length){$("historyBody").innerHTML='<tr><td colspan="8">Belum ada riwayat pesanan selesai.</td></tr>';return}
+  $("historyBody").innerHTML=list.map(o=>{
+    const product=products.find(p=>String(p.id)===String(o.product_id));
+    const pay=paymentForOrder(o);
+    const created=o.created_at?new Date(o.created_at).toLocaleString("id-ID"):"-";
+    const delivered=o.delivered_at?new Date(o.delivered_at).toLocaleString("id-ID"):"-";
+    return `<tr>
+      <td><strong>${esc(o.order_code||("#"+o.id))}</strong><br><small>ID ${esc(o.id)}</small></td>
+      <td>${esc(o.customer_name)}<br><small>${esc(o.customer_email||"- ")}<br>${esc(o.customer_whatsapp)}</small></td>
+      <td>${esc(product?.name||("Product #"+(o.product_id??"-")))}</td>
+      <td>${rupiah(o.total_price)}</td>
+      <td>${esc(created)}</td>
+      <td>${esc(delivered)}</td>
+      <td>${pay?`${esc(pay.payment_method||"-")}<br>${rupiah(pay.amount)}<br>${paymentBadge(pay.status)}`:'<span style="color:#888">-</span>'}</td>
+      <td><button class="btn secondary small delivery-history" data-id="${esc(o.id)}">🎁 Detail Akun</button></td>
+    </tr>`;
+  }).join("");
+  document.querySelectorAll(".delivery-history").forEach(btn=>btn.addEventListener("click",()=>openDeliveryModal(btn.dataset.id)));
+}
+
 async function updateOrderStatus(id,status){
   const {error}=await supabaseClient.from("orders").update({status}).eq("id",id);
-  if(error){alert("Gagal mengubah status: "+error.message);loadOrders();return}
+  if(error){await akemiNotice("Gagal Mengubah Status","Status pesanan gagal diubah:\n"+error.message,"error");loadOrders();return}
   const o=orders.find(x=>String(x.id)===String(id)); if(o)o.status=status;
-  updateStats();renderOrders(orders);
+  updateStats();renderOrders(getActiveOrders());renderHistory(getHistoryOrders());
 }
 $("refreshOrders").addEventListener("click",loadOrders);
 $("orderSearch").addEventListener("input",()=>{
   const q=$("orderSearch").value.toLowerCase().trim();
-  renderOrders(orders.filter(o=>[
+  renderOrders(getActiveOrders().filter(o=>[
     o.order_code,o.id,o.customer_name,o.customer_email,o.customer_whatsapp,o.status,o.product_id
   ].join(" ").toLowerCase().includes(q)));
+});
+$("refreshHistory").addEventListener("click",loadOrders);
+$("historySearch").addEventListener("input",()=>{
+  const q=$("historySearch").value.toLowerCase().trim();
+  renderHistory(getHistoryOrders().filter(o=>[
+    o.order_code,o.id,o.customer_name,o.customer_email,o.customer_whatsapp,o.status,o.product_id
+  ].join(" ").toLowerCase().includes(q)));
+});
+
+const deliveryModal=$("deliveryModal"),deliveryOrderId=$("deliveryOrderId"),deliveryLogin=$("deliveryLogin"),deliveryPassword=$("deliveryPassword"),deliveryNote=$("deliveryNote"),deliveryMarkDone=$("deliveryMarkDone"),deliveryMsg=$("deliveryMsg");
+function openDeliveryModal(id){
+  const o=orders.find(x=>String(x.id)===String(id)); if(!o)return;
+  deliveryOrderId.value=id; deliveryLogin.value=o.delivery_login||""; deliveryPassword.value=o.delivery_password||""; deliveryNote.value=o.delivery_note||""; deliveryMarkDone.checked=String(o.status||"").toLowerCase()==="selesai"; deliveryMsg.textContent=""; deliveryModal.classList.remove("hidden");
+}
+function closeDeliveryModal(){deliveryModal.classList.add("hidden");}
+$("closeDelivery").addEventListener("click",closeDeliveryModal);
+deliveryModal.addEventListener("click",e=>{if(e.target===deliveryModal)closeDeliveryModal()});
+$("saveDelivery").addEventListener("click",async()=>{
+  const id=deliveryOrderId.value; const login=deliveryLogin.value.trim(); const password=deliveryPassword.value.trim(); const note=deliveryNote.value.trim();
+  if(!id){return;}
+  if(!login||!password){deliveryMsg.textContent="Login/email dan password wajib diisi.";return;}
+  const btn=$("saveDelivery"); btn.disabled=true; btn.textContent="⏳ Menyimpan..."; deliveryMsg.textContent="";
+  const patch={delivery_login:login,delivery_password:password,delivery_note:note||null,delivered_at:new Date().toISOString()};
+  if(deliveryMarkDone.checked)patch.status="selesai";
+  const {error}=await supabaseClient.from("orders").update(patch).eq("id",id);
+  if(error){deliveryMsg.textContent="Gagal menyimpan: "+(error.message||error);btn.disabled=false;btn.textContent="💾 Simpan & Serahkan";return;}
+  const o=orders.find(x=>String(x.id)===String(id)); if(o)Object.assign(o,patch);
+  renderOrders(getActiveOrders()); renderHistory(getHistoryOrders()); updateStats(); closeDeliveryModal(); await akemiNotice("Akun Berhasil Diserahkan","Detail akun berhasil disimpan untuk pembeli.","success");
+  btn.disabled=false; btn.textContent="💾 Simpan & Serahkan";
 });
 
 async function loadProducts(){
@@ -361,7 +648,7 @@ async function loadProducts(){
   if(error){$("productList").textContent="Gagal memuat: "+error.message;return}
   products=data||[];
   renderProducts(products);
-  if(!$("ordersTab").classList.contains("hidden")) renderOrders(orders);
+  if(!$("ordersTab").classList.contains("hidden")) renderOrders(getActiveOrders());
 }
 function renderProducts(list){
   if(!list.length){$("productList").textContent="Belum ada akun.";return}
@@ -431,9 +718,10 @@ $("productForm").addEventListener("submit",async e=>{
 });
 async function deleteProduct(id){
   const p=products.find(x=>String(x.id)===String(id));
-  if(!confirm("Hapus akun "+(p?.name||("#"+id))+"?"))return;
+  const okDelete=await akemiConfirm("Hapus Akun?","Akun \""+(p?.name||("#"+id))+"\" akan dihapus dari katalog. Tindakan ini tidak dapat dibatalkan.","Ya, Hapus","warning");
+  if(!okDelete)return;
   const {error}=await supabaseClient.from("products").delete().eq("id",id);
-  if(error){alert("Gagal menghapus: "+error.message);return}
+  if(error){await akemiNotice("Gagal Menghapus Akun","Akun gagal dihapus:\n"+error.message,"error");return}
   loadProducts();
 }
 checkSession();
