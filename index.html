@@ -17,7 +17,7 @@ html{scroll-behavior:smooth}body{font-family:Arial,Helvetica,sans-serif;backgrou
 body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.16;background-image:radial-gradient(circle,rgba(255,255,255,.7) 0 1px,transparent 1px);background-size:90px 90px;mask-image:linear-gradient(to bottom,black,transparent 75%)}
 a{color:inherit}button,input,select,textarea{font:inherit}
 /* HEADER */
-header{position:sticky;top:0;z-index:100;background:rgba(6,4,13,.84);backdrop-filter:blur(18px);border-bottom:1px solid var(--border);box-shadow:0 8px 30px rgba(0,0,0,.25)}
+header{position:sticky;top:0;z-index:100;height:2px;background:rgba(168,85,247,.28);border:0;box-shadow:0 0 14px rgba(139,92,246,.10)}
 .nav{max-width:1180px;margin:auto;min-height:56px;padding:6px 16px;display:flex;align-items:center;gap:18px}
 .logo{display:flex;align-items:center;gap:10px;min-width:max-content}.logo-icon{width:38px;height:38px;border-radius:14px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#05030a;border:1px solid rgba(196,181,253,.35);box-shadow:0 0 24px rgba(155,92,255,.32)}.logo-icon img{width:100%;height:100%;object-fit:cover}.logo-text{font-weight:900;letter-spacing:.6px;font-size:14px}.logo-text small{display:none}
 .nav-links{display:flex;align-items:center;gap:20px;margin-left:auto}.nav-links a{text-decoration:none;color:#d8d0e8;font-size:12px;font-weight:700}.nav-links a:hover{color:#fff}.nav-search{width:250px;height:42px;padding:0 14px;border:1px solid var(--border);border-radius:12px;background:rgba(255,255,255,.035);color:#fff;outline:none}.nav-search::placeholder{color:#766d87}.nav-actions{display:flex;gap:8px}.icon-btn{position:relative;width:40px;height:40px;border:1px solid var(--border);border-radius:12px;background:rgba(255,255,255,.035);color:#fff}
@@ -33,7 +33,7 @@ header{position:sticky;top:0;z-index:100;background:rgba(6,4,13,.84);backdrop-fi
 /* HERO */
 .hero{position:relative;max-width:1180px;margin:12px auto 0;padding:30px 35px 34px;overflow:hidden;border:1px solid var(--border);border-radius:28px;background:linear-gradient(110deg,rgba(14,7,31,.97),rgba(42,16,72,.55)),radial-gradient(circle at 75% 40%,rgba(168,85,247,.36),transparent 38%);box-shadow:0 25px 80px rgba(0,0,0,.35)}
 .hero:after{content:"";position:absolute;width:500px;height:500px;right:-180px;top:-160px;border-radius:50%;border:1px solid rgba(216,180,254,.18);box-shadow:0 0 0 35px rgba(216,180,254,.035),0 0 0 70px rgba(216,180,254,.025);pointer-events:none}
-.hero-content{position:relative;z-index:2;max-width:700px}.hero-mark{display:flex;align-items:center;gap:12px;margin-bottom:14px}.hero-mark img{width:82px;height:82px;object-fit:cover;border-radius:16px;border:1px solid rgba(216,180,254,.3);background:#05030a}.badge{display:inline-flex;padding:8px 13px;border:1px solid rgba(216,180,254,.28);border-radius:999px;background:rgba(139,92,246,.11);color:var(--light);font-size:10px;font-weight:800;letter-spacing:1.5px}.hero h1{font-size:clamp(34px,6.2vw,64px);line-height:1.02;letter-spacing:-2px;margin-bottom:12px}.gradient-text{background:linear-gradient(90deg,#fff,#d8b4fe,#a855f7,#f0abfc);-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{max-width:650px;color:#c0b8cf;line-height:1.6;font-size:14px}.hero-buttons{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 20px;border-radius:13px;text-decoration:none;font-size:13px;font-weight:800;border:1px solid transparent;transition:.2s}.btn-primary{background:linear-gradient(135deg,#a855f7,#6d28d9);color:#fff;box-shadow:0 12px 35px rgba(124,58,237,.3)}.btn-secondary{background:rgba(255,255,255,.04);border-color:var(--border);color:#fff}.btn:hover{transform:translateY(-1px)}
+.hero-content{position:relative;z-index:2;max-width:700px}.hero-mark{display:flex;align-items:center;gap:12px;margin-bottom:14px}.hero-mark img{width:82px;height:82px;object-fit:cover;border-radius:0;border:0;background:transparent;box-shadow:none}.badge{display:inline-flex;padding:8px 13px;border:1px solid rgba(216,180,254,.28);border-radius:999px;background:rgba(139,92,246,.11);color:var(--light);font-size:10px;font-weight:800;letter-spacing:1.5px}.hero h1{font-size:clamp(34px,6.2vw,64px);line-height:1.02;letter-spacing:-2px;margin-bottom:12px}.gradient-text{background:linear-gradient(90deg,#fff,#d8b4fe,#a855f7,#f0abfc);-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{max-width:650px;color:#c0b8cf;line-height:1.6;font-size:14px}.hero-buttons{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 20px;border-radius:13px;text-decoration:none;font-size:13px;font-weight:800;border:1px solid transparent;transition:.2s}.btn-primary{background:linear-gradient(135deg,#a855f7,#6d28d9);color:#fff;box-shadow:0 12px 35px rgba(124,58,237,.3)}.btn-secondary{background:rgba(255,255,255,.04);border-color:var(--border);color:#fff}.btn:hover{transform:translateY(-1px)}
 .hero-orb{position:absolute;right:7%;bottom:8%;width:230px;height:230px;border-radius:50%;background:radial-gradient(circle,rgba(192,132,252,.28),transparent 62%);filter:blur(2px)}.hero-orb:before,.hero-orb:after{content:"";position:absolute;border:1px solid rgba(216,180,254,.24);transform:rotate(30deg)}.hero-orb:before{inset:20px}.hero-orb:after{inset:45px;transform:rotate(-30deg)}
 /* TRUST */
 .trust{max-width:1180px;margin:10px auto 8px;padding:0 20px;display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.trust-item{padding:10px 11px;border:1px solid var(--border);border-radius:16px;background:rgba(18,10,39,.68);display:flex;align-items:center;gap:12px}.trust-item strong{width:30px;height:30px;border-radius:12px;display:grid;place-items:center;background:rgba(168,85,247,.13);color:#e9d5ff;font-size:18px}.trust-item span{font-size:10px;color:#d7cfe2}.trust-item small{display:block;color:#7f768d;font-size:8px;margin-top:3px}
@@ -46,7 +46,7 @@ header{position:sticky;top:0;z-index:100;background:rgba(6,4,13,.84);backdrop-fi
 .pagination-btn:disabled{opacity:.35;cursor:not-allowed;}
 .pagination-info{min-width:82px;text-align:center;color:var(--muted);font-size:10px;font-weight:800;}
 @media(max-width:650px){.pagination{gap:7px;margin-top:14px}.pagination-btn{min-width:40px;height:36px;padding:0 12px;font-size:17px}.pagination-info{font-size:9px;min-width:70px}}
-.products{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.product{overflow:hidden;background:linear-gradient(160deg,rgba(27,14,53,.92),rgba(10,7,20,.96));border:1px solid var(--border);border-radius:18px;transition:.22s;box-shadow:0 10px 30px rgba(0,0,0,.22)}.product:hover{transform:translateY(-3px);border-color:rgba(216,180,254,.48);box-shadow:0 16px 40px rgba(124,58,237,.15)}.product-image{height:220px;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle,rgba(139,92,246,.25),transparent 60%),#0b0714;overflow:hidden;color:#625c70;font-size:11px}.product-image img{width:100%;height:100%;object-fit:cover}.product-content{padding:16px}.status{display:inline-block;padding:5px 9px;border-radius:999px;background:rgba(34,197,94,.11);color:#86efac;font-size:9px;font-weight:900;letter-spacing:.6px;margin-bottom:10px}.product h3{font-size:15px;margin-bottom:10px}.details{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}.tag{padding:6px 8px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07);border-radius:8px;color:#aaa1b8;font-size:10px}.product-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px}.price{color:#d8b4fe;font-size:17px;font-weight:900}.detail-btn{padding:9px 12px;border-radius:10px;border:1px solid rgba(168,85,247,.3);background:rgba(168,85,247,.1);color:#fff;text-decoration:none;font-size:10px;font-weight:900;cursor:pointer}
+.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.product{overflow:hidden;background:linear-gradient(160deg,rgba(27,14,53,.92),rgba(10,7,20,.96));border:1px solid var(--border);border-radius:18px;transition:.22s;box-shadow:0 10px 30px rgba(0,0,0,.22)}.product:hover{transform:translateY(-3px);border-color:rgba(216,180,254,.48);box-shadow:0 16px 40px rgba(124,58,237,.15)}.product-image{height:220px;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle,rgba(139,92,246,.25),transparent 60%),#0b0714;overflow:hidden;color:#625c70;font-size:11px}.product-image img{width:100%;height:100%;object-fit:cover}.product-content{padding:16px}.status{display:inline-block;padding:5px 9px;border-radius:999px;background:rgba(34,197,94,.11);color:#86efac;font-size:9px;font-weight:900;letter-spacing:.6px;margin-bottom:10px}.product h3{font-size:15px;margin-bottom:10px}.details{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}.tag{padding:6px 8px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07);border-radius:8px;color:#aaa1b8;font-size:10px}.product-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px}.price{color:#d8b4fe;font-size:17px;font-weight:900}.detail-btn{padding:9px 12px;border-radius:10px;border:1px solid rgba(168,85,247,.3);background:rgba(168,85,247,.1);color:#fff;text-decoration:none;font-size:10px;font-weight:900;cursor:pointer}
 /* INFO */
 .info-grid{max-width:1180px;margin:auto;padding:0 20px 60px;display:grid;grid-template-columns:1.3fr .7fr;gap:16px}.info-card{padding:24px;border:1px solid var(--border);border-radius:20px;background:linear-gradient(145deg,rgba(23,11,45,.9),rgba(10,7,19,.94));position:relative;overflow:hidden}.info-card h2{font-size:20px;margin-bottom:8px}.info-card p{color:var(--muted);font-size:12px;line-height:1.7}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}.step{padding:13px;border:1px solid rgba(168,85,247,.16);border-radius:13px;background:rgba(255,255,255,.025)}.step b{display:block;color:#d8b4fe;margin-bottom:7px;font-size:12px}.step span{color:#91879e;font-size:10px;line-height:1.5}.contact-btn{margin-top:16px;width:100%}
 /* FOOTER */
@@ -111,13 +111,13 @@ header{position:sticky;top:0;z-index:100;background:rgba(6,4,13,.84);backdrop-fi
 /* HERO */
 .hero{position:relative;max-width:1180px;margin:12px auto 0;padding:30px 35px 34px;overflow:hidden;border:1px solid var(--border);border-radius:28px;background:linear-gradient(110deg,rgba(14,7,31,.97),rgba(42,16,72,.55)),radial-gradient(circle at 75% 40%,rgba(168,85,247,.36),transparent 38%);box-shadow:0 25px 80px rgba(0,0,0,.35)}
 .hero:after{content:"";position:absolute;width:500px;height:500px;right:-180px;top:-160px;border-radius:50%;border:1px solid rgba(216,180,254,.18);box-shadow:0 0 0 35px rgba(216,180,254,.035),0 0 0 70px rgba(216,180,254,.025);pointer-events:none}
-.hero-content{position:relative;z-index:2;max-width:700px}.hero-mark{display:flex;align-items:center;gap:12px;margin-bottom:14px}.hero-mark img{width:82px;height:82px;object-fit:cover;border-radius:16px;border:1px solid rgba(216,180,254,.3);background:#05030a}.badge{display:inline-flex;padding:8px 13px;border:1px solid rgba(216,180,254,.28);border-radius:999px;background:rgba(139,92,246,.11);color:var(--light);font-size:10px;font-weight:800;letter-spacing:1.5px}.hero h1{font-size:clamp(34px,6.2vw,64px);line-height:1.02;letter-spacing:-2px;margin-bottom:12px}.gradient-text{background:linear-gradient(90deg,#fff,#d8b4fe,#a855f7,#f0abfc);-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{max-width:650px;color:#c0b8cf;line-height:1.6;font-size:14px}.hero-buttons{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 20px;border-radius:13px;text-decoration:none;font-size:13px;font-weight:800;border:1px solid transparent;transition:.2s}.btn-primary{background:linear-gradient(135deg,#a855f7,#6d28d9);color:#fff;box-shadow:0 12px 35px rgba(124,58,237,.3)}.btn-secondary{background:rgba(255,255,255,.04);border-color:var(--border);color:#fff}.btn:hover{transform:translateY(-1px)}
+.hero-content{position:relative;z-index:2;max-width:700px}.hero-mark{display:flex;align-items:center;gap:12px;margin-bottom:14px}.hero-mark img{width:82px;height:82px;object-fit:cover;border-radius:0;border:0;background:transparent;box-shadow:none}.badge{display:inline-flex;padding:8px 13px;border:1px solid rgba(216,180,254,.28);border-radius:999px;background:rgba(139,92,246,.11);color:var(--light);font-size:10px;font-weight:800;letter-spacing:1.5px}.hero h1{font-size:clamp(34px,6.2vw,64px);line-height:1.02;letter-spacing:-2px;margin-bottom:12px}.gradient-text{background:linear-gradient(90deg,#fff,#d8b4fe,#a855f7,#f0abfc);-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{max-width:650px;color:#c0b8cf;line-height:1.6;font-size:14px}.hero-buttons{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 20px;border-radius:13px;text-decoration:none;font-size:13px;font-weight:800;border:1px solid transparent;transition:.2s}.btn-primary{background:linear-gradient(135deg,#a855f7,#6d28d9);color:#fff;box-shadow:0 12px 35px rgba(124,58,237,.3)}.btn-secondary{background:rgba(255,255,255,.04);border-color:var(--border);color:#fff}.btn:hover{transform:translateY(-1px)}
 .hero-orb{position:absolute;right:7%;bottom:8%;width:230px;height:230px;border-radius:50%;background:radial-gradient(circle,rgba(192,132,252,.28),transparent 62%);filter:blur(2px)}.hero-orb:before,.hero-orb:after{content:"";position:absolute;border:1px solid rgba(216,180,254,.24);transform:rotate(30deg)}.hero-orb:before{inset:20px}.hero-orb:after{inset:45px;transform:rotate(-30deg)}
 /* TRUST */
 .trust{max-width:1180px;margin:10px auto 8px;padding:0 20px;display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.trust-item{padding:10px 11px;border:1px solid var(--border);border-radius:16px;background:rgba(18,10,39,.68);display:flex;align-items:center;gap:12px}.trust-item strong{width:30px;height:30px;border-radius:12px;display:grid;place-items:center;background:rgba(168,85,247,.13);color:#e9d5ff;font-size:18px}.trust-item span{font-size:10px;color:#d7cfe2}.trust-item small{display:block;color:#7f768d;font-size:8px;margin-top:3px}
 /* CATALOG */
 .section{max-width:1180px;margin:auto;padding:50px 20px;display:flex;flex-direction:column}.section-header{display:flex;justify-content:space-between;align-items:end;margin-bottom:14px;order:2}.search{order:1;width:100%;margin:0 auto 14px;max-width:760px}.search input{width:100%;height:38px;padding:0 14px;color:#fff;background:rgba(14,8,29,.88);border:1px solid var(--border);border-radius:11px;outline:none;font-size:12px}.section-title{font-size:28px}.section-subtitle{color:var(--muted);font-size:12px;margin-top:7px}.section-kicker{color:var(--pink);font-size:10px;font-weight:900;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}.search input:focus{border-color:#a855f7;box-shadow:0 0 0 3px rgba(168,85,247,.08)}
-.products{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.product{overflow:hidden;background:linear-gradient(160deg,rgba(27,14,53,.92),rgba(10,7,20,.96));border:1px solid var(--border);border-radius:18px;transition:.22s;box-shadow:0 10px 30px rgba(0,0,0,.22)}.product:hover{transform:translateY(-3px);border-color:rgba(216,180,254,.48);box-shadow:0 16px 40px rgba(124,58,237,.15)}.product-image{height:220px;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle,rgba(139,92,246,.25),transparent 60%),#0b0714;overflow:hidden;color:#625c70;font-size:11px}.product-image img{width:100%;height:100%;object-fit:cover}.product-content{padding:16px}.status{display:inline-block;padding:5px 9px;border-radius:999px;background:rgba(34,197,94,.11);color:#86efac;font-size:9px;font-weight:900;letter-spacing:.6px;margin-bottom:10px}.product h3{font-size:15px;margin-bottom:10px}.details{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}.tag{padding:6px 8px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07);border-radius:8px;color:#aaa1b8;font-size:10px}.product-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px}.price{color:#d8b4fe;font-size:17px;font-weight:900}.detail-btn{padding:9px 12px;border-radius:10px;border:1px solid rgba(168,85,247,.3);background:rgba(168,85,247,.1);color:#fff;text-decoration:none;font-size:10px;font-weight:900;cursor:pointer}
+.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.product{overflow:hidden;background:linear-gradient(160deg,rgba(27,14,53,.92),rgba(10,7,20,.96));border:1px solid var(--border);border-radius:18px;transition:.22s;box-shadow:0 10px 30px rgba(0,0,0,.22)}.product:hover{transform:translateY(-3px);border-color:rgba(216,180,254,.48);box-shadow:0 16px 40px rgba(124,58,237,.15)}.product-image{height:220px;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle,rgba(139,92,246,.25),transparent 60%),#0b0714;overflow:hidden;color:#625c70;font-size:11px}.product-image img{width:100%;height:100%;object-fit:cover}.product-content{padding:16px}.status{display:inline-block;padding:5px 9px;border-radius:999px;background:rgba(34,197,94,.11);color:#86efac;font-size:9px;font-weight:900;letter-spacing:.6px;margin-bottom:10px}.product h3{font-size:15px;margin-bottom:10px}.details{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}.tag{padding:6px 8px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07);border-radius:8px;color:#aaa1b8;font-size:10px}.product-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px}.price{color:#d8b4fe;font-size:17px;font-weight:900}.detail-btn{padding:9px 12px;border-radius:10px;border:1px solid rgba(168,85,247,.3);background:rgba(168,85,247,.1);color:#fff;text-decoration:none;font-size:10px;font-weight:900;cursor:pointer}
 /* INFO */
 .info-grid{max-width:1180px;margin:auto;padding:0 20px 60px;display:grid;grid-template-columns:1.3fr .7fr;gap:16px}.info-card{padding:24px;border:1px solid var(--border);border-radius:20px;background:linear-gradient(145deg,rgba(23,11,45,.9),rgba(10,7,19,.94));position:relative;overflow:hidden}.info-card h2{font-size:20px;margin-bottom:8px}.info-card p{color:var(--muted);font-size:12px;line-height:1.7}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}.step{padding:13px;border:1px solid rgba(168,85,247,.16);border-radius:13px;background:rgba(255,255,255,.025)}.step b{display:block;color:#d8b4fe;margin-bottom:7px;font-size:12px}.step span{color:#91879e;font-size:10px;line-height:1.5}.contact-btn{margin-top:16px;width:100%}
 /* FOOTER */
@@ -181,13 +181,13 @@ header{position:sticky;top:0;z-index:100;background:rgba(6,4,13,.84);backdrop-fi
 /* HERO */
 .hero{position:relative;max-width:1180px;margin:12px auto 0;padding:30px 35px 34px;overflow:hidden;border:1px solid var(--border);border-radius:28px;background:linear-gradient(110deg,rgba(14,7,31,.97),rgba(42,16,72,.55)),radial-gradient(circle at 75% 40%,rgba(168,85,247,.36),transparent 38%);box-shadow:0 25px 80px rgba(0,0,0,.35)}
 .hero:after{content:"";position:absolute;width:500px;height:500px;right:-180px;top:-160px;border-radius:50%;border:1px solid rgba(216,180,254,.18);box-shadow:0 0 0 35px rgba(216,180,254,.035),0 0 0 70px rgba(216,180,254,.025);pointer-events:none}
-.hero-content{position:relative;z-index:2;max-width:700px}.hero-mark{display:flex;align-items:center;gap:12px;margin-bottom:14px}.hero-mark img{width:82px;height:82px;object-fit:cover;border-radius:16px;border:1px solid rgba(216,180,254,.3);background:#05030a}.badge{display:inline-flex;padding:8px 13px;border:1px solid rgba(216,180,254,.28);border-radius:999px;background:rgba(139,92,246,.11);color:var(--light);font-size:10px;font-weight:800;letter-spacing:1.5px}.hero h1{font-size:clamp(34px,6.2vw,64px);line-height:1.02;letter-spacing:-2px;margin-bottom:12px}.gradient-text{background:linear-gradient(90deg,#fff,#d8b4fe,#a855f7,#f0abfc);-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{max-width:650px;color:#c0b8cf;line-height:1.6;font-size:14px}.hero-buttons{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 20px;border-radius:13px;text-decoration:none;font-size:13px;font-weight:800;border:1px solid transparent;transition:.2s}.btn-primary{background:linear-gradient(135deg,#a855f7,#6d28d9);color:#fff;box-shadow:0 12px 35px rgba(124,58,237,.3)}.btn-secondary{background:rgba(255,255,255,.04);border-color:var(--border);color:#fff}.btn:hover{transform:translateY(-1px)}
+.hero-content{position:relative;z-index:2;max-width:700px}.hero-mark{display:flex;align-items:center;gap:12px;margin-bottom:14px}.hero-mark img{width:82px;height:82px;object-fit:cover;border-radius:0;border:0;background:transparent;box-shadow:none}.badge{display:inline-flex;padding:8px 13px;border:1px solid rgba(216,180,254,.28);border-radius:999px;background:rgba(139,92,246,.11);color:var(--light);font-size:10px;font-weight:800;letter-spacing:1.5px}.hero h1{font-size:clamp(34px,6.2vw,64px);line-height:1.02;letter-spacing:-2px;margin-bottom:12px}.gradient-text{background:linear-gradient(90deg,#fff,#d8b4fe,#a855f7,#f0abfc);-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{max-width:650px;color:#c0b8cf;line-height:1.6;font-size:14px}.hero-buttons{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 20px;border-radius:13px;text-decoration:none;font-size:13px;font-weight:800;border:1px solid transparent;transition:.2s}.btn-primary{background:linear-gradient(135deg,#a855f7,#6d28d9);color:#fff;box-shadow:0 12px 35px rgba(124,58,237,.3)}.btn-secondary{background:rgba(255,255,255,.04);border-color:var(--border);color:#fff}.btn:hover{transform:translateY(-1px)}
 .hero-orb{position:absolute;right:7%;bottom:8%;width:230px;height:230px;border-radius:50%;background:radial-gradient(circle,rgba(192,132,252,.28),transparent 62%);filter:blur(2px)}.hero-orb:before,.hero-orb:after{content:"";position:absolute;border:1px solid rgba(216,180,254,.24);transform:rotate(30deg)}.hero-orb:before{inset:20px}.hero-orb:after{inset:45px;transform:rotate(-30deg)}
 /* TRUST */
 .trust{max-width:1180px;margin:10px auto 8px;padding:0 20px;display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.trust-item{padding:10px 11px;border:1px solid var(--border);border-radius:16px;background:rgba(18,10,39,.68);display:flex;align-items:center;gap:12px}.trust-item strong{width:30px;height:30px;border-radius:12px;display:grid;place-items:center;background:rgba(168,85,247,.13);color:#e9d5ff;font-size:18px}.trust-item span{font-size:10px;color:#d7cfe2}.trust-item small{display:block;color:#7f768d;font-size:8px;margin-top:3px}
 /* CATALOG */
 .section{max-width:1180px;margin:auto;padding:50px 20px;display:flex;flex-direction:column}.section-header{display:flex;justify-content:space-between;align-items:end;margin-bottom:14px;order:2}.search{order:1;width:100%;margin:0 auto 14px;max-width:760px}.search input{width:100%;height:38px;padding:0 14px;color:#fff;background:rgba(14,8,29,.88);border:1px solid var(--border);border-radius:11px;outline:none;font-size:12px}.section-title{font-size:28px}.section-subtitle{color:var(--muted);font-size:12px;margin-top:7px}.section-kicker{color:var(--pink);font-size:10px;font-weight:900;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}.search input:focus{border-color:#a855f7;box-shadow:0 0 0 3px rgba(168,85,247,.08)}
-.products{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.product{overflow:hidden;background:linear-gradient(160deg,rgba(27,14,53,.92),rgba(10,7,20,.96));border:1px solid var(--border);border-radius:18px;transition:.22s;box-shadow:0 10px 30px rgba(0,0,0,.22)}.product:hover{transform:translateY(-3px);border-color:rgba(216,180,254,.48);box-shadow:0 16px 40px rgba(124,58,237,.15)}.product-image{height:220px;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle,rgba(139,92,246,.25),transparent 60%),#0b0714;overflow:hidden;color:#625c70;font-size:11px}.product-image img{width:100%;height:100%;object-fit:cover}.product-content{padding:16px}.status{display:inline-block;padding:5px 9px;border-radius:999px;background:rgba(34,197,94,.11);color:#86efac;font-size:9px;font-weight:900;letter-spacing:.6px;margin-bottom:10px}.product h3{font-size:15px;margin-bottom:10px}.details{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}.tag{padding:6px 8px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07);border-radius:8px;color:#aaa1b8;font-size:10px}.product-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px}.price{color:#d8b4fe;font-size:17px;font-weight:900}.detail-btn{padding:9px 12px;border-radius:10px;border:1px solid rgba(168,85,247,.3);background:rgba(168,85,247,.1);color:#fff;text-decoration:none;font-size:10px;font-weight:900;cursor:pointer}
+.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.product{overflow:hidden;background:linear-gradient(160deg,rgba(27,14,53,.92),rgba(10,7,20,.96));border:1px solid var(--border);border-radius:18px;transition:.22s;box-shadow:0 10px 30px rgba(0,0,0,.22)}.product:hover{transform:translateY(-3px);border-color:rgba(216,180,254,.48);box-shadow:0 16px 40px rgba(124,58,237,.15)}.product-image{height:220px;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle,rgba(139,92,246,.25),transparent 60%),#0b0714;overflow:hidden;color:#625c70;font-size:11px}.product-image img{width:100%;height:100%;object-fit:cover}.product-content{padding:16px}.status{display:inline-block;padding:5px 9px;border-radius:999px;background:rgba(34,197,94,.11);color:#86efac;font-size:9px;font-weight:900;letter-spacing:.6px;margin-bottom:10px}.product h3{font-size:15px;margin-bottom:10px}.details{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}.tag{padding:6px 8px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07);border-radius:8px;color:#aaa1b8;font-size:10px}.product-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px}.price{color:#d8b4fe;font-size:17px;font-weight:900}.detail-btn{padding:9px 12px;border-radius:10px;border:1px solid rgba(168,85,247,.3);background:rgba(168,85,247,.1);color:#fff;text-decoration:none;font-size:10px;font-weight:900;cursor:pointer}
 /* INFO */
 .info-grid{max-width:1180px;margin:auto;padding:0 20px 60px;display:grid;grid-template-columns:1.3fr .7fr;gap:16px}.info-card{padding:24px;border:1px solid var(--border);border-radius:20px;background:linear-gradient(145deg,rgba(23,11,45,.9),rgba(10,7,19,.94));position:relative;overflow:hidden}.info-card h2{font-size:20px;margin-bottom:8px}.info-card p{color:var(--muted);font-size:12px;line-height:1.7}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}.step{padding:13px;border:1px solid rgba(168,85,247,.16);border-radius:13px;background:rgba(255,255,255,.025)}.step b{display:block;color:#d8b4fe;margin-bottom:7px;font-size:12px}.step span{color:#91879e;font-size:10px;line-height:1.5}.contact-btn{margin-top:16px;width:100%}
 /* FOOTER */
@@ -292,32 +292,147 @@ footer{border-top:1px solid var(--border);background:#07050d;padding:35px 20px;t
 .order-lookup-form{max-width:560px}.order-lookup-form label{display:block;font-size:11px;font-weight:800;margin:11px 0 6px}.order-lookup-form input{width:100%;height:44px;padding:0 12px;background:#0d0a15;color:#fff;border:1px solid var(--border);border-radius:10px;outline:none}.order-lookup-form input:focus{border-color:#a855f7}.status-lookup-btn{width:100%;margin-top:13px}.history-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:18px 0 10px;padding-top:16px;border-top:1px solid var(--border)}.history-head strong{font-size:14px}.order-history-list{display:grid;gap:10px}.history-item{padding:14px;border:1px solid var(--border);border-radius:13px;background:rgba(255,255,255,.025)}.history-item-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}.history-item-code{font-size:12px;font-weight:900}.history-item-date{font-size:9px;color:#777082;margin-top:4px}.history-badge{display:inline-block;padding:5px 8px;border-radius:999px;font-size:8px;font-weight:900;white-space:nowrap}.history-badge.paid{background:rgba(34,197,94,.1);color:#86efac}.history-badge.pending{background:rgba(234,179,8,.1);color:#fde68a}.history-badge.rejected{background:rgba(239,68,68,.1);color:#fca5a5}.history-product{margin-top:10px;font-size:12px;font-weight:800}.history-price{margin-top:5px;color:#d8b4fe;font-size:13px;font-weight:900}.history-payment{margin-top:5px;color:var(--muted);font-size:10px}.delivery-box{margin-top:11px;padding:11px;border:1px solid rgba(34,197,94,.2);border-radius:11px;background:rgba(34,197,94,.05)}.delivery-box strong{font-size:11px;color:#86efac}.delivery-row{margin-top:7px;font-size:10px;line-height:1.5;word-break:break-word}.delivery-row b{color:#fff}.delivery-note{margin-top:8px;color:var(--muted);font-size:9px;line-height:1.5;white-space:pre-wrap}.delivery-wait{margin-top:10px;padding:9px;border-radius:9px;background:rgba(168,85,247,.07);color:#bfb5ca;font-size:10px;line-height:1.5}
 @media(max-width:650px){.order-status-card{padding:14px}.history-item-top{align-items:flex-start}.history-badge{font-size:7px}.menu-panel{right:10px;width:185px}}
 </style>
+
+<style id="akemi-revisi-1-5">
+.hero-cart-slot{
+  position:absolute;
+  right:30px;
+  bottom:28px;
+  z-index:7;
+}
+.hero-cart-slot .cart-header-btn{
+  width:54px;height:54px;border-radius:15px;
+  border:1px solid rgba(190,145,255,.58);
+  background:linear-gradient(145deg,rgba(168,85,247,.20),rgba(109,40,217,.12));
+  color:#fff;font-size:21px;cursor:pointer;
+  box-shadow:0 0 0 1px rgba(168,85,247,.10),0 0 25px rgba(139,92,246,.28);
+  transition:.2s;
+}
+.hero-cart-slot .cart-header-btn:hover{
+  border-color:rgba(220,190,255,.82);
+  background:linear-gradient(145deg,rgba(168,85,247,.30),rgba(109,40,217,.18));
+  transform:translateY(-2px);
+}
+.product-image{height:190px}
+.product-content{padding:13px}
+.product h3{font-size:14px;margin-bottom:8px}
+.details{gap:5px;margin-bottom:12px}
+.tag{padding:5px 7px;font-size:9px}
+.price{font-size:16px}
+.detail-btn{padding:8px 10px;font-size:9px}
+.search{
+  border-radius:13px;
+  box-shadow:0 0 0 1px rgba(168,85,247,.14),0 0 20px rgba(139,92,246,.10);
+}
+.search input{
+  border-color:rgba(168,85,247,.42);
+  box-shadow:0 0 0 1px rgba(168,85,247,.05),0 0 18px rgba(139,92,246,.12);
+  transition:border-color .2s ease,box-shadow .2s ease,filter .2s ease;
+}
+.search input:hover{border-color:rgba(190,145,255,.65)}
+.search input:focus{
+  border-color:#c084fc;
+  box-shadow:0 0 0 3px rgba(168,85,247,.13),0 0 24px rgba(139,92,246,.20);
+}
+.step-payment{
+  border-color:rgba(168,85,247,.42);
+  background:linear-gradient(145deg,rgba(168,85,247,.10),rgba(255,255,255,.025));
+  box-shadow:0 0 18px rgba(139,92,246,.10);
+}
+.step-payment em{
+  display:inline-block;margin-top:8px;padding:5px 7px;border-radius:7px;
+  border:1px solid rgba(216,180,254,.25);
+  background:rgba(168,85,247,.09);
+  color:#d8b4fe;font-size:8px;font-style:normal;font-weight:800;
+}
+@media(max-width:650px){
+  .hero-cart-slot{
+    position:relative;right:auto;bottom:auto;
+    display:flex;justify-content:flex-end;margin-top:10px;
+  }
+  .hero-cart-slot .cart-header-btn{width:46px;height:46px;border-radius:13px;font-size:18px}
+  .products{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .product-image{height:138px}
+  .product-content{padding:10px}
+  .product h3{font-size:11px}
+  .details{margin-bottom:10px}
+  .price{font-size:13px}
+  .detail-btn{padding:7px 8px;font-size:8px}
+  .steps{grid-template-columns:1fr 1fr}
+}
+</style>
+
+
+<style id="akemi-cyber-icons">
+.cyber-icon{display:inline-flex;align-items:center;justify-content:center;width:1.05em;height:1.05em;vertical-align:-.16em;color:#d8b4fe;filter:drop-shadow(0 0 5px rgba(168,85,247,.28));}
+.cyber-icon svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.trust-item strong .cyber-icon{width:18px;height:18px;}
+.menu-floating .cyber-icon{width:21px;height:21px;}
+</style>
+<style id="akemi-revisi-poin-1-3">
+/* REVISI BARU — POIN 1 & 2 */
+/* POIN 1: tiga menu hero mengikuti tinggi KERANJANG yang sudah ada.
+   Ukuran keranjang sengaja TIDAK disentuh di blok ini. */
+.hero-buttons .btn{
+  height:54px;
+  min-height:54px;
+}
+
+/* Logo mendapat ruang lebih besar, judul/deskripsi diturunkan tanpa mengubah ukuran font. */
+.hero-mark img{width:200px;height:200px;border-radius:28px;}
+.hero h1{padding-top:208px;}
+
+/* POIN 2: teks tiga trust box dibuat lebih terbaca tanpa membesarkan ikon/kotaknya. */
+.hero-trust .trust-item span{font-size:12px;}
+
+/* POIN 3 yang sudah selesai: tombol Admin tetap berada di Harga Terbaik. */
+.menu-secret{
+  display:grid;place-items:center;width:30px;height:30px;padding:0;margin:0;
+  border:1px solid rgba(190,145,255,.48);border-radius:9px;
+  background:rgba(168,85,247,.10);color:#fff;cursor:pointer;
+  box-shadow:0 0 12px rgba(139,92,246,.18);
+}
+.menu-secret .cyber-icon{width:16px;height:16px;}
+.menu-secret:hover{border-color:rgba(220,190,255,.82);background:rgba(168,85,247,.18);}
+
+@media(max-width:900px){
+  .hero-mark img{width:180px;height:180px;}
+  .hero h1{padding-top:188px;}
+  .hero-buttons .btn{height:46px;min-height:46px;}
+  .hero-trust .trust-item span{font-size:11px;}
+}
+@media(max-width:650px){
+  .hero-mark img{width:150px;height:150px;border-radius:24px;}
+  .hero h1{padding-top:160px;}
+  .hero-buttons .btn{height:46px;min-height:46px;}
+  .hero-trust .trust-item span{font-size:10px;}
+  .menu-secret{width:25px;height:25px;border-radius:8px;}
+  .menu-secret .cyber-icon{width:14px;height:14px;}
+}
+</style>
+<style id="akemi-revisi-poin-1-2-final-guard">
+/* Final guard: only the three menu links follow the existing cart height. */
+.hero-buttons > .btn{height:54px;min-height:54px;}
+@media(max-width:900px){
+  .hero-buttons > .btn{height:46px;min-height:46px;}
+}
+</style>
+
+<style id="akemi-revisi-poin-3-alignment">
+/* POIN 3 — Hanya menyamakan tinggi dan baseline menu hero di mobile.
+   Fungsi/markup/JavaScript/backend tidak diubah. Ukuran keranjang tetap. */
+@media(max-width:650px){
+  .hero-buttons{align-items:center;}
+  .hero-buttons > .btn{height:46px;min-height:46px;}
+  .hero-cart-slot{margin-top:0;align-self:center;}
+}
+</style>
 </head>
 
 <body>
 
     <!-- HEADER -->
-    <header>
-      <div class="nav">
-        <div class="logo">
-          <div class="logo-icon"><img src="logo.png" alt="AKEMI STARSHOP"></div>
-        </div>
-        <nav class="nav-links">
-          <a href="#beranda">Beranda</a>
-          <a href="#katalog">Produk</a>
-          <a href="#cara-membeli">Cara Membeli</a>
-          <a href="#faq">FAQ</a>
-          <a href="#tentang">Tentang</a>
-        </nav>
-        <input class="nav-search" type="search" placeholder="Cari akun, server, AR..." aria-label="Cari akun">
-        <div class="nav-actions"><button class="icon-btn cart-header-btn" id="cartOpenBtn" type="button" aria-label="Buka keranjang">🛒<span id="cartBadge" style="display:none;position:absolute;top:-5px;right:-5px;min-width:17px;height:17px;padding:0 4px;border-radius:999px;background:#a855f7;color:#fff;font-size:9px;font-weight:900;align-items:center;justify-content:center"></span></button></div>
-        <button class="menu" id="menuBtn" type="button" aria-label="Buka menu" aria-expanded="false">☰</button>
-      </div>
-    </header>
-
-    <div class="menu-panel" id="menuPanel" aria-hidden="true">
-      <a href="admin.html" id="adminLink">🔐 Admin</a>
-    </div>
+    <header aria-hidden="true"></header>
 
     <!-- HERO -->
     <section class="hero" id="beranda">
@@ -328,22 +443,23 @@ footer{border-top:1px solid var(--border);background:#07050d;padding:35px 20px;t
         <h1>Starter Akun <span class="gradient-text">Berkualitas</span></h1>
         <p>Akun Berkualitas - Diproduksi Manual Tanpa Menggunakan Aplikasi Pihak KeTiga</p>
         <div class="hero-buttons">
-          <a href="#katalog" class="btn btn-primary">⚡ Lihat Produk</a>
-          <a href="#cara-membeli" class="btn btn-secondary">📖 Cara Membeli</a>
-          <a href="#cek-status" class="btn btn-secondary">📦 Pembelian Saya</a>
-        </div>
+          <a href="#katalog" class="btn btn-primary"><span class="cyber-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 5 13h6l-1 9 8-12h-6l1-8Z"/></svg></span> Lihat Produk</a>
+          <a href="#cara-membeli" class="btn btn-secondary"><span class="cyber-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v17H6.5A2.5 2.5 0 0 0 4 22V5.5ZM4 5.5V22M8 7h8M8 11h8"/></svg></span> Cara Membeli</a>
+          <a href="#cek-status" class="btn btn-secondary"><span class="cyber-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3ZM4.5 7.8 12 12l7.5-4.2M12 12v9"/></svg></span> Pembelian Saya</a>
+        
+        <div class="hero-cart-slot"><button class="icon-btn cart-header-btn" id="cartOpenBtn" type="button" aria-label="Buka keranjang"><span class="cyber-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2 12h11l2-8H6M9 20a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM18 20a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg></span><span id="cartBadge" style="display:none;position:absolute;top:-5px;right:-5px;min-width:17px;height:17px;padding:0 4px;border-radius:999px;background:#a855f7;color:#fff;font-size:9px;font-weight:900;align-items:center;justify-content:center"></span></button></div></div>
       </div>
       <section class="trust hero-trust">
-        <div class="trust-item"><strong>🛡️</strong><div><span>Akun 100% Aman</span><small>Detail diperiksa sebelum order</small></div></div>
-        <div class="trust-item"><strong>⚡</strong><div><span>Proses Cepat</span><small>Informasi order jelas</small></div></div>
-        <div class="trust-item"><strong>💎</strong><div><span>Harga Terbaik</span><small>Pilihan sesuai budget</small></div></div>
+        <div class="trust-item"><strong><span class="cyber-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 20 6v5c0 5-3.2 8.3-8 10-4.8-1.7-8-5-8-10V6l8-3ZM9 12l2 2 4-4"/></svg></span></strong><div><span>Akun 100% Aman</span><small>Detail diperiksa sebelum order</small></div></div>
+        <div class="trust-item"><strong><span class="cyber-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 5 13h6l-1 9 8-12h-6l1-8Z"/></svg></span></strong><div><span>Proses Cepat</span><small>Informasi order jelas</small></div></div>
+        <div class="trust-item"><strong><button class="menu-secret" id="menuBtn" type="button" aria-label="Akses Admin"><span class="cyber-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></span></button></strong><div><span>Harga Terbaik</span><small>Pilihan sesuai budget</small></div></div>
       </section>
       <div class="hero-orb"></div>
     </section>
 
     <!-- CATALOG -->
     <section class="section" id="katalog">
-      <div class="search"><input id="searchInput" type="search" placeholder="🔎 Cari akun, server, AR, atau jumlah 5★..."></div>
+      <div class="search"><input id="searchInput" type="search" placeholder="Cari akun, server, AR, atau jumlah 5★..."></div>
       <div class="section-header">
         <div><div class="section-kicker">Koleksi terbaru</div><h2 class="section-title">Akun Tersedia</h2><p class="section-subtitle">Pilih akun yang sesuai dengan kebutuhanmu.</p></div>
       </div>
@@ -358,24 +474,26 @@ footer{border-top:1px solid var(--border);background:#07050d;padding:35px 20px;t
     <!-- STORE INFO -->
     <section class="info-grid">
       <div class="info-card" id="cara-membeli">
-        <div class="section-kicker">Simple & jelas</div><h2>✨ Cara Membeli</h2>
-        <p>Ikuti empat langkah berikut untuk melakukan pembelian akun.</p>
+        <div class="section-kicker">Simple & jelas</div>
+        <h2><span class="cyber-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v17H6.5A2.5 2.5 0 0 0 4 22V5.5ZM4 5.5V22M8 7h8M8 11h8"/></svg></span> Cara Membeli</h2>
+        <p>Ikuti 5 langkah mudah untuk membeli akun dengan aman.</p>
         <div class="steps">
-          <div class="step"><b>01 · Pilih Akun</b><span>Pilih akun yang cocok dari katalog.</span></div>
-          <div class="step"><b>02 · Checkout</b><span>Isi nama, email, dan WhatsApp.</span></div>
-          <div class="step"><b>03 · Pembayaran</b><span>Transfer sesuai nominal dan upload bukti.</span></div>
-          <div class="step"><b>04 · Konfirmasi</b><span>Admin memeriksa pembayaran dan memproses order.</span></div>
+          <div class="step"><b>01 · Pilih Akun</b><span>Pilih akun Genshin yang tersedia dari katalog, lalu lihat detail akun sebelum membeli.</span></div>
+          <div class="step"><b>02 · Buat Pesanan</b><span>Isi nama, email, dan WhatsApp untuk membuat pesanan. Akun otomatis berstatus DIPESAN.</span></div>
+          <div class="step step-payment"><b>03 · Selesaikan Pembayaran</b><span>Pilih metode pembayaran dan selesaikan pembayaran dalam waktu <strong>15 menit</strong>.</span><em>⏱️ Batas pembayaran 15 menit</em></div>
+          <div class="step"><b>04 · Upload Bukti</b><span>Upload bukti pembayaran untuk dikirim ke admin. Pesanan menunggu pemeriksaan pembayaran.</span></div>
+          <div class="step"><b>05 · Terima Akun</b><span>Setelah pembayaran dikonfirmasi, informasi login tersedia di Pembelian Saya.</span></div>
         </div>
       </div>
       <div class="info-card" id="tentang">
-        <div class="section-kicker">Tentang toko</div><h2>⚡ AKEMI STARSHOP</h2>
-        <p>Marketplace akun Genshin Impact dengan fokus pada informasi produk yang jelas, proses order sederhana, dan pengalaman nyaman di HP.</p>
-        <a class="btn btn-primary contact-btn" href="https://wa.me/628997887007" target="_blank" rel="noopener">💬 Hubungi WhatsApp</a>
+        <div class="section-kicker">Tentang toko</div><h2><span class="cyber-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 5 13h6l-1 9 8-12h-6l1-8Z"/></svg></span> AKEMI STARSHOP</h2>
+        <p>AKEMI STARSHOP adalah store Genshin Impact yang menyediakan akun-akun pilihan dengan informasi produk yang jelas dan transparan. Setiap akun dibuat secara manual dan dikelola secara pribadi tanpa menggunakan cheat atau program ilegal.</p>
+        <a class="btn btn-primary contact-btn" href="https://wa.me/628997887007" target="_blank" rel="noopener"><span class="cyber-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h14v10H9l-4 4V5ZM8 9h8M8 12h5"/></svg></span> Hubungi WhatsApp</a>
       </div>
     </section>
 
     <section class="info-grid" id="faq">
-      <div class="info-card"><div class="section-kicker">FAQ</div><h2>❓ Pertanyaan Umum</h2><p><strong>Apa yang harus disiapkan?</strong><br>Data kontak yang aktif dan bukti pembayaran setelah transfer.</p><p style="margin-top:12px"><strong>Bagaimana status pesanan?</strong><br>Admin memeriksa pembayaran dari panel admin sebelum pesanan diproses.</p></div>
+      <div class="info-card"><div class="section-kicker">FAQ</div><h2><span class="cyber-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M9.5 9a2.6 2.6 0 1 1 4.4 1.9c-1.2 1.1-1.9 1.5-1.9 3M12 17h.01"/></svg></span> Pertanyaan Umum</h2><p><strong>Apa yang harus disiapkan?</strong><br>Data kontak yang aktif dan bukti pembayaran setelah transfer.</p><p style="margin-top:12px"><strong>Bagaimana status pesanan?</strong><br>Admin memeriksa pembayaran dari panel admin sebelum pesanan diproses.</p></div>
       <div class="info-card"><div class="section-kicker">Support</div><h2>🎧 Butuh Bantuan?</h2><p>Jika ada kendala saat checkout atau pembayaran, hubungi toko melalui WhatsApp.</p><a class="btn btn-secondary contact-btn" href="https://wa.me/628997887007" target="_blank" rel="noopener">Buka WhatsApp</a></div>
     </section>
 
@@ -415,7 +533,7 @@ footer{border-top:1px solid var(--border);background:#07050d;padding:35px 20px;t
                 </div>
 
                 <button class="buy-btn" id="buyBtn" type="button">
-                    🛒 Beli Akun Ini
+                    <span class="cyber-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2 12h11l2-8H6M9 20a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM18 20a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg></span> Beli Akun Ini
                 </button>
 
                 <p class="modal-note">
@@ -477,7 +595,7 @@ footer{border-top:1px solid var(--border);background:#07050d;padding:35px 20px;t
   <div class="cart-box" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
     <button class="modal-close" id="cartClose" type="button" aria-label="Tutup">×</button>
     <div class="cart-head">
-      <div><h2 id="cartTitle">🛒 Keranjang</h2><div class="cart-count" id="cartCountText">0 akun</div></div>
+      <div><h2 id="cartTitle"><span class="cyber-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2 12h11l2-8H6M9 20a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM18 20a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg></span> Keranjang</h2><div class="cart-count" id="cartCountText">0 akun</div></div>
     </div>
     <div id="cartItems"></div>
     <div class="cart-total"><span>Total pilihan</span><strong id="cartTotal">Rp 0</strong></div>
@@ -535,7 +653,7 @@ footer{border-top:1px solid var(--border);background:#07050d;padding:35px 20px;t
           <input id="proofFile" type="file" accept="image/*" required>
 
           <button class="payment-submit" id="paymentSubmit" type="submit">
-            📤 Kirim Bukti Pembayaran
+            <span class="cyber-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V4M8 8l4-4 4 4M5 14v5h14v-5"/></svg></span> Kirim Bukti Pembayaran
           </button>
 
           <div class="payment-message" id="paymentMessage"></div>
@@ -549,13 +667,12 @@ footer{border-top:1px solid var(--border);background:#07050d;padding:35px 20px;t
     <!-- FOOTER -->
 
     <section class="section" id="cek-status" style="padding-top:20px;">
-  <div class="section-header"><div><div class="section-kicker">Pembelian Saya</div><h2 class="section-title">Riwayat Pembelian</h2><p class="section-subtitle">Pesanan yang kamu buat dari perangkat ini akan tampil otomatis di sini.</p></div></div>
   <div class="order-status-card" id="orderStatusCard">
     <div id="orderHistoryContent">
-      <div class="history-head" style="margin-top:0;padding-top:0;border-top:0;"><strong>📦 Pembelian Saya</strong><button type="button" class="status-refresh-btn" id="refreshOrderHistory">↻ Refresh</button></div>
+      <div class="history-head" style="margin-top:0;padding-top:0;border-top:0;"><strong><span class="cyber-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3ZM4.5 7.8 12 12l7.5-4.2M12 12v9"/></svg></span> Pembelian Saya</strong><button type="button" class="status-refresh-btn" id="refreshOrderHistory">↻ Refresh</button></div>
       <div id="orderHistoryList" class="order-history-list"></div>
     </div>
-    <button type="button" id="showOrderRecovery" class="btn" style="margin-top:12px;width:100%;font-size:10px;">🔐 Pulihkan Riwayat di Perangkat Lain</button>
+    
     <div id="orderLookupMsg" class="checkout-message" style="display:none"></div>
     <div id="orderRecoveryBox" class="hidden" style="margin-top:14px;padding-top:14px;border-top:1px solid var(--border);">
       <div style="font-size:10px;color:var(--muted);margin-bottom:8px;">Jika riwayat tidak muncul setelah berganti perangkat/browser, pulihkan dengan data transaksi:</div>
@@ -573,7 +690,7 @@ footer{border-top:1px solid var(--border);background:#07050d;padding:35px 20px;t
     <footer>
 
         <div class="footer-logo">
-            ⚡ AKEMI STARSHOP
+            <span class="cyber-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 5 13h6l-1 9 8-12h-6l1-8Z"/></svg></span> AKEMI STARSHOP
         </div>
 
         <p>
@@ -600,7 +717,7 @@ const supabaseClient = window.supabase.createClient(
 
 let allProducts = [];
 let currentProductPage = 1;
-const PRODUCTS_PER_PAGE = 4;
+const PRODUCTS_PER_PAGE = 6;
 let selectedProduct = null;
 let cartItems = JSON.parse(localStorage.getItem("akemi_cart") || "[]");
 
@@ -669,7 +786,7 @@ function removeFromCart(id){ cartItems=cartItems.filter(x=>String(x.id)!==String
 function renderCart(){
   const box=document.getElementById("cartItems"), total=document.getElementById("cartTotal");
   if(!box||!total)return;
-  if(!cartItems.length){ box.innerHTML='<div class="cart-empty">Keranjang masih kosong.<br>Pilih akun dari katalog lalu tekan tombol 🛒.</div>'; total.textContent="Rp 0"; return; }
+  if(!cartItems.length){ box.innerHTML='<div class="cart-empty">Keranjang masih kosong.<br>Pilih akun dari katalog lalu tekan tombol keranjang.</div>'; total.textContent="Rp 0"; return; }
   box.innerHTML=cartItems.map(item=>`<div class="cart-item">${item.image_url?`<img src="${escapeHtml(item.image_url)}" alt="${escapeHtml(item.name)}">`:`<div style="width:100%;height:58px;border-radius:9px;background:#0b0714;display:grid;place-items:center;color:#625c70;font-size:9px">FOTO</div>`}<div><h3>${escapeHtml(item.name)}</h3><p>${escapeHtml(item.server)} · AR ${escapeHtml(item.ar)} · ${escapeHtml(item.five_star_count)} 5★</p><div class="cart-item-actions"><button type="button" data-cart-checkout="${escapeHtml(item.id)}">Checkout</button><button type="button" class="remove" data-cart-remove="${escapeHtml(item.id)}">Hapus</button></div></div><strong>${rupiah(item.price)}</strong></div>`).join("");
   total.textContent=rupiah(cartItems.reduce((sum,x)=>sum+Number(x.price||0),0));
   box.querySelectorAll("[data-cart-remove]").forEach(b=>b.onclick=()=>removeFromCart(b.dataset.cartRemove));
@@ -704,8 +821,8 @@ function renderProducts(products, resetPage = false) {
           <div class="product-content">
             <span class="status" style="${statusStyle}">● ${escapeHtml(status.toUpperCase())}</span>
             <h3>${escapeHtml(product.name || "Akun Genshin")}</h3>
-            <div class="details"><span class="tag">🌎 ${escapeHtml(product.server || "Asia")}</span><span class="tag">⭐ AR ${escapeHtml(product.ar ?? "-")}</span><span class="tag">💎 ${escapeHtml(product.five_star_count ?? 0)} 5★</span></div>
-            <div class="product-bottom"><div class="price">${rupiah(product.price)}</div><div style="display:flex;gap:5px;align-items:center"><button type="button" class="cart-add-btn" data-cart-product-id="${escapeHtml(product.id)}" ${status !== "tersedia" ? "disabled" : ""}>🛒</button><button type="button" class="detail-btn" data-product-id="${escapeHtml(product.id)}">DETAIL →</button></div></div>
+            <div class="details"><span class="tag">${cyberIcon("globe")} ${escapeHtml(product.server || "Asia")}</span><span class="tag">${cyberIcon("star")} AR ${escapeHtml(product.ar ?? "-")}</span><span class="tag">${cyberIcon("gem")} ${escapeHtml(product.five_star_count ?? 0)} 5★</span></div>
+            <div class="product-bottom"><div class="price">${rupiah(product.price)}</div><div style="display:flex;gap:5px;align-items:center"><button type="button" class="cart-add-btn" data-cart-product-id="${escapeHtml(product.id)}" ${status !== "tersedia" ? "disabled" : ""}>${cyberIcon("cart")}</button><button type="button" class="detail-btn" data-product-id="${escapeHtml(product.id)}">DETAIL →</button></div></div>
           </div>
         </article>`;
     }).join("");
@@ -815,10 +932,10 @@ function openDetail(product) {
     const status = String(product.status || "tersedia").toLowerCase();
 
     buyBtn.disabled = status !== "tersedia";
-    buyBtn.textContent =
+    buyBtn.innerHTML =
         status === "tersedia"
-        ? "🛒 Beli Akun Ini"
-        : "🔒 Akun Tidak Tersedia";
+        ? cyberIcon("cart") + " Beli Akun Ini"
+        : cyberIcon("lock") + " Akun Tidak Tersedia";
 
     detailModal.classList.add("show");
     detailModal.setAttribute("aria-hidden", "false");
@@ -1040,6 +1157,26 @@ loadProducts();
 
 
 <script>
+const CYBER_ICONS={
+menu:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>',
+bolt:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 5 13h6l-1 9 8-12h-6l1-8Z"/></svg>',
+book:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v17H6.5A2.5 2.5 0 0 0 4 22V5.5ZM4 5.5V22M8 7h8M8 11h8"/></svg>',
+box:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3ZM4.5 7.8 12 12l7.5-4.2M12 12v9"/></svg>',
+cart:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2 12h11l2-8H6M9 20a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM18 20a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>',
+shield:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 20 6v5c0 5-3.2 8.3-8 10-4.8-1.7-8-5-8-10V6l8-3ZM9 12l2 2 4-4"/></svg>',
+gem:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 4-4 5 9 11 9-11-4-5H7ZM3 9h18M8 4l4 5 4-5M8 9l4 11 4-11"/></svg>',
+globe:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.2 2.4 3.3 5.2 3.3 8.5s-1.1 6.1-3.3 8.5c-2.2-2.4-3.3-5.2-3.3-8.5S9.8 5.9 12 3.5Z"/></svg>',
+star:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.5 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3Z"/></svg>',
+lock:'<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3"/></svg>',
+gift:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10h16v10H4V10ZM3 7h18v3H3V7ZM12 7v13M12 7H8.5A2.5 2.5 0 1 1 11 4.5L12 7ZM12 7h3.5A2.5 2.5 0 1 0 13 4.5L12 7Z"/></svg>',
+clock:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3 2"/></svg>',
+chat:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h14v10H9l-4 4V5ZM8 9h8M8 12h5"/></svg>',
+question:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M9.5 9a2.6 2.6 0 1 1 4.4 1.9c-1.2 1.1-1.9 1.5-1.9 3M12 17h.01"/></svg>',
+receipt:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3ZM9 8h6M9 12h6M9 16h3"/></svg>',
+upload:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V4M8 8l4-4 4 4M5 14v5h14v-5"/></svg>'
+};
+function cyberIcon(name){return '<span class="cyber-icon">'+(CYBER_ICONS[name]||'')+'</span>';}
+
 // AKEMI STARSHOP — menu + riwayat/status pesanan pembeli
 // Bridge untuk kompatibilitas checkout lama: pemanggilan ini aman walau
 // fungsi riwayat didefinisikan pada script berikutnya.
@@ -1055,32 +1192,12 @@ function startOrderStatusTracking(){
   },0);
 }
 const menuBtn = document.getElementById("menuBtn");
-const menuPanel = document.getElementById("menuPanel");
-function closeMenu(){
-  if(!menuPanel || !menuBtn) return;
-  menuPanel.classList.remove("show");
-  menuPanel.setAttribute("aria-hidden","true");
-  menuBtn.setAttribute("aria-expanded","false");
-}
-menuBtn?.addEventListener("click",e=>{
-  e.stopPropagation();
-  const open=menuPanel.classList.toggle("show");
-  menuPanel.setAttribute("aria-hidden",String(!open));
-  menuBtn.setAttribute("aria-expanded",String(open));
-});
-menuPanel?.addEventListener("click",e=>e.stopPropagation());
-document.querySelectorAll("[data-menu-close]").forEach(a=>a.addEventListener("click",closeMenu));
-
-// Admin navigation: force a fresh document on every open. This prevents preview/browser
-// caching/history from swallowing the second navigation after Admin logout.
-const adminLink = document.getElementById("adminLink");
-adminLink?.addEventListener("click", e => {
+// Admin access remains the same, but the button is now hidden inside Harga Terbaik.
+menuBtn?.addEventListener("click", e => {
   e.preventDefault();
   e.stopPropagation();
-  closeMenu();
   window.location.assign("admin.html#admin_open=" + Date.now());
 });
-document.addEventListener("click",closeMenu);
 
 let trackedOrders = JSON.parse(localStorage.getItem("akemi_tracked_orders") || "null");
 if (!Array.isArray(trackedOrders)) {
@@ -1097,8 +1214,6 @@ const orderLookupMsg=document.getElementById("orderLookupMsg");
 const orderHistoryContent=document.getElementById("orderHistoryContent");
 const orderHistoryList=document.getElementById("orderHistoryList");
 const orderRecoveryBox=document.getElementById("orderRecoveryBox");
-const showOrderRecovery=document.getElementById("showOrderRecovery");
-showOrderRecovery?.addEventListener("click",()=>{orderRecoveryBox?.classList.toggle("hidden");});
 function saveTrackedOrder(orderCode,whatsapp){
   const code=String(orderCode||"").trim();
   const wa=String(whatsapp||"").trim();
@@ -1124,7 +1239,7 @@ function renderOrderHistory(rows){
     return ["diterima","paid","lunas"].includes(ps) || ["dibayar","selesai"].includes(os);
   }).map(r=>String(r.product_id||"")));
   if(paidProductIds.size){cartItems=cartItems.filter(x=>!paidProductIds.has(String(x.id)));saveCart();}
-  if(!rows?.length){orderHistoryList.innerHTML='<div class="order-status-empty"><div class="order-status-icon">📭</div><strong>Belum ada pembelian</strong><span>Setelah kamu checkout, produk yang dibeli akan muncul otomatis di sini.</span></div>';return;}
+  if(!rows?.length){orderHistoryList.innerHTML='<div class="order-status-empty"><div class="order-status-icon">'+cyberIcon("receipt")+'</div><strong>Belum ada pembelian</strong><span>Setelah kamu checkout, produk yang dibeli akan muncul otomatis di sini.</span></div>';return;}
   orderHistoryList.innerHTML=rows.map(r=>{
     const rawPaymentStatus=String(r.payment_status||"pending").toLowerCase();
     const rawOrderStatus=String(r.status||"pending").toLowerCase();
@@ -1145,10 +1260,10 @@ function renderOrderHistory(rows){
     const hasDelivery=paid && hasDeliveryData;
     return `<div class="history-item">
       <div class="history-item-top"><div><div class="history-item-code">${escapeHtml(r.order_code||"-")}</div><div class="history-item-date">${r.created_at?new Date(r.created_at).toLocaleString("id-ID"):"-"}</div></div><span class="history-badge ${historyBadgeClass(displayOrderStatus)}">${historyStatusLabel(displayOrderStatus)}</span></div>
-      <div class="history-product">🎮 ${escapeHtml(r.product_name||"Akun Genshin")}</div>
+      <div class="history-product">${cyberIcon("gem")} ${escapeHtml(r.product_name||"Akun Genshin")}</div>
       <div class="history-price">${rupiah(r.total_price)}</div>
       <div class="history-payment">${paymentHistoryLabel(displayPaymentStatus)}</div>
-      ${hasDelivery?`<div class="delivery-box"><strong>🎁 Detail Akun yang Dibeli</strong>${r.delivery_login?`<div class="delivery-row"><b>Login/Email:</b> ${escapeHtml(r.delivery_login)}</div>`:""}${r.delivery_password?`<div class="delivery-row"><b>Password:</b> ${escapeHtml(r.delivery_password)}</div>`:""}${r.delivery_note?`<div class="delivery-note">${escapeHtml(r.delivery_note)}</div>`:""}</div>`:(paid?`<div class="delivery-wait">✅ Pembayaran sudah diterima. Detail akun akan muncul setelah admin menyelesaikan penyerahan akun.</div>`:`<div class="delivery-wait">ℹ️ Detail akun hanya tampil setelah pembayaran dikonfirmasi admin.</div>`)}
+      ${hasDelivery?`<div class="delivery-box"><strong>${cyberIcon("gift")} Detail Akun yang Dibeli</strong>${r.delivery_login?`<div class="delivery-row"><b>Login/Email:</b> ${escapeHtml(r.delivery_login)}</div>`:""}${r.delivery_password?`<div class="delivery-row"><b>Password:</b> ${escapeHtml(r.delivery_password)}</div>`:""}${r.delivery_note?`<div class="delivery-note">${escapeHtml(r.delivery_note)}</div>`:""}</div>`:(paid?`<div class="delivery-wait">✅ Pembayaran sudah diterima. Detail akun akan muncul setelah admin menyelesaikan penyerahan akun.</div>`:`<div class="delivery-wait">ℹ️ Detail akun hanya tampil setelah pembayaran dikonfirmasi admin.</div>`)}
     </div>`;
   }).join("");
 }
@@ -1165,7 +1280,7 @@ async function fetchOrderHistory(codeOverride,waOverride,silent=false){
   let lookups=[];
   if(manualCode){
     if(!manualWa){
-      if(orderHistoryList)orderHistoryList.innerHTML='<div class="order-status-empty"><div class="order-status-icon">🛍️</div><strong>WhatsApp diperlukan</strong><span>Masukkan nomor WhatsApp untuk verifikasi pesanan.</span></div>';
+      if(orderHistoryList)orderHistoryList.innerHTML='<div class="order-status-empty"><div class="order-status-icon">'+cyberIcon("cart")+'</div><strong>WhatsApp diperlukan</strong><span>Masukkan nomor WhatsApp untuk verifikasi pesanan.</span></div>';
       return;
     }
     lookups=[{orderCode:manualCode,whatsapp:manualWa}];
@@ -1184,7 +1299,7 @@ async function fetchOrderHistory(codeOverride,waOverride,silent=false){
   }
 
   if(!lookups.length){
-    if(orderHistoryList)orderHistoryList.innerHTML='<div class="order-status-empty"><div class="order-status-icon">🛍️</div><strong>Belum ada pembelian di perangkat ini</strong><span>Masukkan nomor WhatsApp untuk memulihkan riwayat pembelian.</span></div>';
+    if(orderHistoryList)orderHistoryList.innerHTML='<div class="order-status-empty"><div class="order-status-icon">'+cyberIcon("cart")+'</div><strong>Belum ada pembelian di perangkat ini</strong><span>Masukkan nomor WhatsApp untuk memulihkan riwayat pembelian.</span></div>';
     return;
   }
 
@@ -1298,7 +1413,7 @@ function paymentInfoHtml(method, totalPrice) {
             '<div class="payment-line">Total pembayaran: <strong>' + total + '</strong></div>';
     }
     if (method === "QRIS") {
-        return '<div class="payment-line"><strong>📲 Pembayaran QRIS</strong></div>' +
+        return '<div class="payment-line"><strong>' + cyberIcon("receipt") + ' Pembayaran QRIS</strong></div>' +
             '<div class="payment-line">Scan QRIS <strong>AKEMI STARSHOP</strong> menggunakan aplikasi pembayaran yang mendukung QRIS.</div>' +
             '<div class="qris-wrap">' +
               '<div class="qris-title">QRIS AKEMI STARSHOP</div>' +
@@ -1443,7 +1558,7 @@ paymentForm.addEventListener("submit", async (event) => {
         paymentMessage.style.display = "block";
         paymentMessage.textContent = "Gagal mengirim pembayaran: " + (error.message || "Terjadi kesalahan.");
         paymentSubmit.disabled = false;
-        paymentSubmit.textContent = "📤 Kirim Bukti Pembayaran";
+        paymentSubmit.innerHTML = cyberIcon("upload") + " Kirim Bukti Pembayaran";
     }
 });
 </script>
@@ -1500,11 +1615,7 @@ paymentForm.addEventListener("submit", async (event) => {
 .hero-trust .trust-item small{
   display:none;
 }
-.hero-mark img{
-  width:180px;
-  height:180px;
-  border-radius:25px;
-}
+.hero-mark img{width:180px;height:180px;border-radius:0;border:0;background:transparent;box-shadow:none;}
 .hero h1{
   white-space:nowrap;
   max-width:none;
@@ -1512,7 +1623,7 @@ paymentForm.addEventListener("submit", async (event) => {
   letter-spacing:-1.5px;
 }
 @media(max-width:900px){
-  .hero-mark img{width:160px;height:160px;}
+  .hero-mark img{width:160px;height:160px;border-radius:0;border:0;background:transparent;box-shadow:none;}
   .hero-trust{width:160px;right:20px;top:38px;}
   .hero-trust .trust-item{width:160px;min-width:160px;max-width:160px;}
   .hero h1{white-space:nowrap;font-size:24px;}
@@ -1521,7 +1632,7 @@ paymentForm.addEventListener("submit", async (event) => {
   .hero{padding:24px 18px 30px;}
   .hero-content{padding-right:0;}
   .hero-mark{left:0;top:0;}
-  .hero-mark img{width:148px;height:148px;border-radius:22px;}
+  .hero-mark img{width:148px;height:148px;border-radius:0;border:0;background:transparent;box-shadow:none;}
   .hero-trust{
     top:18px;
     right:0;
@@ -1567,4 +1678,6 @@ paymentForm.addEventListener("submit", async (event) => {
 /* FINAL MOBILE MENU FIX */
 @media(max-width:900px){.nav{position:relative}.menu{display:flex!important;margin-left:auto;flex:0 0 42px}.nav-actions{margin-left:auto}.menu-panel{top:62px}}
 @media(min-width:901px){.menu-panel{display:none!important}}
+.menu-floating{position:fixed;top:14px;right:14px;z-index:1500;width:42px;height:42px;border:1px solid rgba(168,85,247,.42);border-radius:12px;background:rgba(10,7,20,.82);backdrop-filter:blur(10px);box-shadow:0 0 20px rgba(139,92,246,.16);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;}
+@media(min-width:901px){.menu-floating{display:none!important}}
 </style>
