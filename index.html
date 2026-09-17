@@ -1035,10 +1035,8 @@ searchInput.addEventListener("input", () => {
 });
 
 async function loadProducts(showLoading = true) {
-    // Loading hanya ditampilkan saat katalog pertama kali dimuat.
-    // Sinkronisasi berkala berjalan di background agar katalog tidak berkedip
-    // menjadi "Memuat akun..." setiap beberapa detik.
-    if (showLoading) {
+    // Loading hanya ditampilkan pada pemuatan katalog pertama.
+    if (showLoading && (!allProducts || allProducts.length === 0)) {
         container.innerHTML = "<p>Memuat akun...</p>";
     }
 
@@ -1052,22 +1050,34 @@ async function loadProducts(showLoading = true) {
 
     if (error) {
         console.error("Gagal mengambil produk:", error);
-        if (showLoading) {
-            container.innerHTML =
-                "<p>Gagal memuat akun. Silakan refresh halaman.</p>";
+        if (showLoading && (!allProducts || allProducts.length === 0)) {
+            container.innerHTML = "<p>Gagal memuat akun. Silakan refresh halaman.</p>";
         }
         return;
     }
 
-    allProducts = data || [];
-    renderProducts(allProducts, true);
+    const nextProducts = data || [];
+    // Jangan sentuh DOM jika data katalog tidak berubah. Ini mencegah
+    // kartu katalog berkedip saat sinkronisasi/background refresh berjalan.
+    const productSignature = (list) => JSON.stringify((list || []).map(p => ({
+        id:p.id, status:p.status, name:p.name, price:p.price, server:p.server,
+        ar:p.ar, five_star:p.five_star, image_url:p.image_url, images:p.images,
+        description:p.description, created_at:p.created_at
+    })));
+
+    const changed = productSignature(allProducts) !== productSignature(nextProducts);
+    allProducts = nextProducts;
+
+    if (changed) {
+        renderProducts(allProducts, true);
+    }
     syncCartWithProducts();
 }
 
 loadProducts();
 
-// Sinkronisasi katalog tetap berjalan, tetapi tanpa mengganti tampilan
-// menjadi "Memuat akun..." setiap 15 detik.
+// Sinkronisasi tetap berjalan, tetapi jika data sama sekali tidak berubah,
+// DOM katalog tidak dirender ulang sehingga tampilan tetap stabil.
 setInterval(() => {
     loadProducts(false);
 }, 15000);
@@ -1211,7 +1221,7 @@ function refreshHistoryReservationTimers(){
     }
   });
   if(expiredSeen){
-    supabaseClient.rpc("expire_unpaid_orders").then(()=>{fetchOrderHistory();loadProducts();}).catch(()=>{});
+    supabaseClient.rpc("expire_unpaid_orders").then(()=>{fetchOrderHistory();loadProducts(false);}).catch(()=>{});
   }
   if(!active && historyReservationInterval){
     clearInterval(historyReservationInterval);
@@ -1501,7 +1511,7 @@ function renderPaymentTimer(){
         if(paymentCountdown) paymentCountdown.textContent="00:00";
         if(paymentTimerInterval){clearInterval(paymentTimerInterval);paymentTimerInterval=null;}
         paymentExpiryAt=null;
-        supabaseClient.rpc("expire_unpaid_orders").then(()=>{fetchOrderHistory();loadProducts();}).catch(()=>{fetchOrderHistory();loadProducts();});
+        supabaseClient.rpc("expire_unpaid_orders").then(()=>{fetchOrderHistory();loadProducts(false);}).catch(()=>{fetchOrderHistory();loadProducts(false);});
         return;
     }
 }
