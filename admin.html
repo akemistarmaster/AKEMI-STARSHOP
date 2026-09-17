@@ -318,7 +318,7 @@ $("forgotForm").addEventListener("submit",async e=>{
   if(!email){msg.textContent="Email admin wajib diisi.";return;}
   btn.disabled=true;btn.textContent="⏳ Mengirim...";msg.textContent="";
   try{
-    const redirectTo="https://akemistarshop.netlify.app/reset-password.html";
+    const redirectTo=window.location.origin+window.location.pathname;
     const {error}=await supabaseClient.auth.resetPasswordForEmail(email,{redirectTo});
     if(error) throw error;
     await akemiNotice("Link Reset Terkirim","Jika email tersebut terdaftar sebagai akun admin, link untuk membuat password baru sudah dikirim. Periksa Inbox atau Spam.","success");

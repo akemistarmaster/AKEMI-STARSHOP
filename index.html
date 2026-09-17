@@ -58,8 +58,7 @@ footer{border-top:1px solid var(--border);background:#07050d;padding:35px 20px;t
 /* MODALS */
 .modal,.checkout-modal,.payment-modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:18px}.modal{z-index:1000}.checkout-modal{z-index:1100}.payment-modal{z-index:1200}.modal.show,.checkout-modal.show,.payment-modal.show{display:flex}.modal-backdrop,.checkout-backdrop,.payment-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.82);backdrop-filter:blur(9px)}.modal-box,.checkout-box,.payment-box{position:relative;z-index:2;width:min(680px,100%);max-height:92vh;overflow-y:auto;background:linear-gradient(145deg,#1a1030,#0c0815);border:1px solid var(--border);border-radius:22px;box-shadow:0 30px 90px rgba(0,0,0,.62)}.modal-close{position:absolute;right:12px;top:12px;z-index:5;width:40px;height:40px;border:1px solid rgba(255,255,255,.12);border-radius:50%;background:rgba(8,7,13,.78);color:#fff;font-size:25px;cursor:pointer}.modal-image{min-height:250px;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle,rgba(139,92,246,.3),transparent 60%),#0c0a12;color:#625c70;font-size:13px}.modal-image img{width:100%;max-height:390px;object-fit:contain;display:block}.modal-content{padding:22px}.modal-content h2{font-size:24px;margin:5px 0 14px}.modal-price{color:#d8b4fe;font-size:25px;font-weight:900;margin:8px 0 20px}.modal-description{border-top:1px solid var(--border);padding-top:18px}.modal-description h3{font-size:15px;margin-bottom:8px}.modal-description p{color:var(--muted);line-height:1.7;white-space:pre-wrap}.buy-btn{width:100%;min-height:52px;margin-top:22px;border:0;border-radius:13px;color:#fff;background:linear-gradient(135deg,#a855f7,#6d28d9);font-size:15px;font-weight:900;cursor:pointer}.buy-btn:disabled{opacity:.55;cursor:not-allowed}.modal-note{margin-top:10px;color:#716c7e;text-align:center;font-size:10px;line-height:1.5}
 .checkout-box,.payment-box{width:min(560px,100%)}.checkout-content,.payment-content{padding:25px 22px}.checkout-badge{display:inline-block;padding:6px 10px;border-radius:8px;background:rgba(139,92,246,.11);color:#d8b4fe;font-size:10px;font-weight:900;margin-bottom:10px}.checkout-content h2,.payment-content h2{font-size:25px;margin-bottom:7px}.checkout-subtitle,.payment-subtitle{color:var(--muted);font-size:13px;line-height:1.6;margin-bottom:18px}.checkout-product{padding:14px;margin-bottom:18px;border:1px solid var(--border);border-radius:12px;background:rgba(255,255,255,.025)}.checkout-product strong{display:block;margin-bottom:5px;font-size:15px}.checkout-product span{color:var(--muted);font-size:12px}#checkoutForm label{display:block;margin:13px 0 7px;font-size:12px;font-weight:700}#checkoutForm input{width:100%;height:48px;padding:0 14px;border:1px solid var(--border);border-radius:10px;outline:none;background:#0d0a15;color:#fff;font-size:14px}#checkoutForm input:focus{border-color:#a855f7}.checkout-total{display:flex;align-items:center;justify-content:space-between;margin-top:20px;padding:15px 0;border-top:1px solid var(--border)}.checkout-total span{color:var(--muted);font-size:13px}.checkout-total strong{color:#d8b4fe;font-size:20px}.checkout-submit,.payment-submit{width:100%;min-height:52px;border:0;border-radius:12px;background:linear-gradient(135deg,#a855f7,#6d28d9);color:#fff;font-size:14px;font-weight:900;cursor:pointer}.checkout-submit:disabled,.payment-submit:disabled{opacity:.55;cursor:not-allowed}.checkout-message,.payment-message{display:none;margin-top:12px;padding:11px;border-radius:9px;background:rgba(255,255,255,.04);color:var(--muted);font-size:12px;line-height:1.5}
-.payment-methods{display:grid;gap:10px;margin:15px 0}.payment-method{width:100%;padding:15px;text-align:left;border:1px solid var(--border);border-radius:12px;background:rgba(255,255,255,.025);color:#fff;cursor:pointer}.payment-method.selected{border-color:#a855f7;background:rgba(139,92,246,.1)}.payment-method strong{display:block;font-size:15px;margin-bottom:4px}.payment-method span{font-size:11px;color:var(--muted)}.payment-detail{display:none;padding:16px;margin-top:12px;border:1px solid var(--border);border-radius:13px;background:rgba(255,255,255,.025)}.payment-detail.show{display:block}.payment-line{font-size:13px;color:#d8d4e8;margin:7px 0}.payment-number{font-size:20px;font-weight:900;letter-spacing:.5px;margin:9px 0;color:#f1ddff}.payment-note{font-size:11px;color:#aaa5b8;line-height:1.55;margin-top:10px}#proofFile{width:100%;margin-top:10px;color:#fff}.payment-success{text-align:center;padding:18px 0}.payment-success .icon{font-size:44px;margin-bottom:10px}.payment-close{position:absolute;right:12px;top:12px;z-index:3}
-.confirm-modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:18px;z-index:1600}.confirm-modal.show{display:flex}.confirm-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.84);backdrop-filter:blur(12px)}.confirm-box{position:relative;z-index:2;width:min(430px,100%);padding:24px;border:1px solid rgba(168,85,247,.42);border-radius:22px;background:linear-gradient(145deg,#1d1037,#0c0815);box-shadow:0 30px 90px rgba(0,0,0,.7),0 0 45px rgba(124,58,237,.12)}.confirm-icon{width:48px;height:48px;border-radius:15px;display:grid;place-items:center;margin-bottom:13px;background:rgba(168,85,247,.13);border:1px solid rgba(216,180,254,.2);font-size:23px}.confirm-box h3{font-size:21px;margin-bottom:7px}.confirm-box p{color:var(--muted);font-size:12px;line-height:1.6}.confirm-product{margin-top:14px;padding:13px;border:1px solid var(--border);border-radius:13px;background:rgba(255,255,255,.025)}.confirm-product strong{display:block;font-size:13px;margin-bottom:5px}.confirm-product span{color:var(--muted);font-size:11px}.confirm-total{display:flex;justify-content:space-between;align-items:center;margin-top:10px;padding-top:10px;border-top:1px solid rgba(168,85,247,.16);font-size:11px;color:var(--muted)}.confirm-total strong{color:#d8b4fe;font-size:16px}.confirm-actions{display:grid;grid-template-columns:1fr 1.25fr;gap:9px;margin-top:18px}.confirm-btn{min-height:46px;border-radius:12px;font-size:12px;font-weight:900;cursor:pointer}.confirm-cancel{border:1px solid var(--border);background:rgba(255,255,255,.035);color:#fff}.confirm-ok{border:1px solid transparent;background:linear-gradient(135deg,#a855f7,#6d28d9);color:#fff;box-shadow:0 10px 28px rgba(124,58,237,.25)}.confirm-btn:active{transform:translateY(1px)}@media(max-width:650px){.confirm-modal{padding:12px}.confirm-box{padding:20px;border-radius:18px}.confirm-actions{grid-template-columns:1fr 1.2fr}}
+.payment-methods{display:grid;gap:10px;margin:15px 0}.payment-method{width:100%;padding:15px;text-align:left;border:1px solid var(--border);border-radius:12px;background:rgba(255,255,255,.025);color:#fff;cursor:pointer;transition:.18s}.payment-method:hover{border-color:rgba(168,85,247,.65);background:rgba(139,92,246,.06)}.payment-method.selected{border-color:#a855f7;background:linear-gradient(135deg,rgba(168,85,247,.15),rgba(109,40,217,.08));box-shadow:0 0 0 1px rgba(168,85,247,.12)}.payment-method strong{display:block;font-size:15px;margin-bottom:4px}.payment-method span{font-size:11px;color:var(--muted)}.payment-detail{display:none;padding:16px;margin-top:12px;border:1px solid var(--border);border-radius:13px;background:rgba(255,255,255,.025)}.payment-detail.show{display:block}.payment-line{font-size:13px;color:#d8d4e8;margin:7px 0}.payment-number{font-size:20px;font-weight:900;letter-spacing:.5px;margin:9px 0;color:#f1ddff}.payment-note{font-size:11px;color:#aaa5b8;line-height:1.55;margin-top:10px}.qris-wrap{margin:14px 0 4px;padding:14px;border:1px solid rgba(168,85,247,.28);border-radius:16px;background:rgba(0,0,0,.22);text-align:center}.qris-title{font-size:12px;font-weight:900;margin-bottom:10px;color:#eee}.qris-image-box{width:min(310px,100%);margin:0 auto;padding:10px;border-radius:14px;background:#fff;box-shadow:0 12px 35px rgba(0,0,0,.28)}.qris-image{display:block;width:100%;height:auto;max-height:360px;object-fit:contain;border-radius:8px}.qris-caption{margin-top:10px;font-size:10px;line-height:1.55;color:#aaa5b8}.qris-fallback{display:none;padding:22px 12px;color:#6b6573;font-size:11px;line-height:1.5}.qris-amount{display:inline-block;margin-top:8px;padding:7px 10px;border-radius:8px;background:rgba(168,85,247,.1);color:#d8b4fe;font-size:12px;font-weight:900}#proofFile{width:100%;margin-top:10px;color:#fff}.payment-success{text-align:center;padding:18px 0}.payment-success .icon{font-size:44px;margin-bottom:10px}.payment-close{position:absolute;right:12px;top:12px;z-index:3}
 @media(max-width:900px){.nav-links{display:none}.nav-search{display:none}.menu{display:block}.products{grid-template-columns:repeat(2,1fr)}.hero{margin:18px 16px 0}.trust{grid-template-columns:repeat(3,1fr)}.info-grid{grid-template-columns:1fr}}
 @media(max-width:650px){.nav{min-height:52px;padding:6px 12px}.logo-icon{width:34px;height:34px}.logo-text{font-size:12px}.hero{padding:24px 18px 30px;border-radius:22px}.hero h1{font-size:38px;letter-spacing:-1.5px}.hero p{font-size:13px}.hero-orb{right:-60px;bottom:-40px;width:220px;height:220px}.hero-mark img{width:68px;height:68px}.trust{grid-template-columns:repeat(3,1fr);padding:0 14px}.trust-item{padding:13px 10px}.trust-item strong{width:32px;height:32px;font-size:14px}.trust-item span{font-size:9px}.section{padding:28px 14px}.search{margin-bottom:10px;max-width:none}.search input{height:34px;font-size:11px}.section-title{font-size:23px}.products{grid-template-columns:1fr 1fr;gap:10px}.product-image{height:145px}.product-content{padding:12px}.product h3{font-size:12px}.tag{font-size:9px;padding:5px 6px}.price{font-size:13px}.detail-btn{font-size:9px;padding:8px}.steps{grid-template-columns:1fr 1fr}.info-grid{padding:0 14px 45px}.modal,.checkout-modal,.payment-modal{padding:10px}.modal-box,.checkout-box,.payment-box{max-height:95vh;border-radius:18px}.modal-content,.checkout-content,.payment-content{padding:18px 16px}}
 
@@ -317,7 +316,7 @@ footer{border-top:1px solid var(--border);background:#07050d;padding:35px 20px;t
     </header>
 
     <div class="menu-panel" id="menuPanel" aria-hidden="true">
-      <a href="admin.html">🔐 Admin</a>
+      <a href="admin.html" id="adminLink">🔐 Admin</a>
     </div>
 
     <!-- HERO -->
@@ -363,7 +362,7 @@ footer{border-top:1px solid var(--border);background:#07050d;padding:35px 20px;t
         <p>Ikuti empat langkah berikut untuk melakukan pembelian akun.</p>
         <div class="steps">
           <div class="step"><b>01 · Pilih Akun</b><span>Pilih akun yang cocok dari katalog.</span></div>
-          <div class="step"><b>02 · Checkout</b><span>Isi nama dan WhatsApp. Email opsional.</span></div>
+          <div class="step"><b>02 · Checkout</b><span>Isi nama, email, dan WhatsApp.</span></div>
           <div class="step"><b>03 · Pembayaran</b><span>Transfer sesuai nominal dan upload bukti.</span></div>
           <div class="step"><b>04 · Konfirmasi</b><span>Admin memeriksa pembayaran dan memproses order.</span></div>
         </div>
@@ -376,7 +375,7 @@ footer{border-top:1px solid var(--border);background:#07050d;padding:35px 20px;t
     </section>
 
     <section class="info-grid" id="faq">
-      <div class="info-card"><div class="section-kicker">FAQ</div><h2>❓ Pertanyaan Umum</h2><p><strong>Apa yang harus disiapkan?</strong><br>Nama, WhatsApp yang aktif, dan bukti pembayaran setelah transfer. Email bersifat opsional.</p><p style="margin-top:12px"><strong>Bagaimana status pesanan?</strong><br>Admin memeriksa pembayaran dari panel admin sebelum pesanan diproses.</p></div>
+      <div class="info-card"><div class="section-kicker">FAQ</div><h2>❓ Pertanyaan Umum</h2><p><strong>Apa yang harus disiapkan?</strong><br>Data kontak yang aktif dan bukti pembayaran setelah transfer.</p><p style="margin-top:12px"><strong>Bagaimana status pesanan?</strong><br>Admin memeriksa pembayaran dari panel admin sebelum pesanan diproses.</p></div>
       <div class="info-card"><div class="section-kicker">Support</div><h2>🎧 Butuh Bantuan?</h2><p>Jika ada kendala saat checkout atau pembayaran, hubungi toko melalui WhatsApp.</p><a class="btn btn-secondary contact-btn" href="https://wa.me/628997887007" target="_blank" rel="noopener">Buka WhatsApp</a></div>
     </section>
 
@@ -427,25 +426,6 @@ footer{border-top:1px solid var(--border);background:#07050d;padding:35px 20px;t
     </div>
 
 
-    <!-- CUSTOM CONFIRM MODAL -->
-    <div class="confirm-modal" id="confirmModal" aria-hidden="true">
-        <div class="confirm-backdrop" id="confirmBackdrop"></div>
-        <div class="confirm-box" role="dialog" aria-modal="true" aria-labelledby="confirmTitle">
-            <div class="confirm-icon" id="confirmIcon">🛒</div>
-            <h3 id="confirmTitle">Konfirmasi Pesanan</h3>
-            <p id="confirmText">Periksa kembali sebelum dilanjutkan.</p>
-            <div class="confirm-product">
-                <strong id="confirmProductName">Akun Genshin</strong>
-                <span id="confirmProductMeta">Asia · AR - · 0 5★</span>
-                <div class="confirm-total"><span>Total</span><strong id="confirmTotal">Rp 0</strong></div>
-            </div>
-            <div class="confirm-actions">
-                <button type="button" class="confirm-btn confirm-cancel" id="confirmCancel">Batal</button>
-                <button type="button" class="confirm-btn confirm-ok" id="confirmOk">Ya, Buat Pesanan</button>
-            </div>
-        </div>
-    </div>
-
     <!-- CHECKOUT MODAL -->
     <div class="checkout-modal" id="checkoutModal" aria-hidden="true">
         <div class="checkout-backdrop" id="checkoutBackdrop"></div>
@@ -462,14 +442,14 @@ footer{border-top:1px solid var(--border);background:#07050d;padding:35px 20px;t
 
                 <div class="checkout-product" id="checkoutProduct"></div>
 
-                <form id="checkoutForm" novalidate>
+                <form id="checkoutForm">
                     <label for="customerName">Nama</label>
                     <input id="customerName" name="customerName" type="text"
                            placeholder="Nama kamu" required>
 
                     <label for="customerEmail">Email <span class="optional-label">(opsional)</span></label>
                     <input id="customerEmail" name="customerEmail" type="email"
-                           placeholder="email@contoh.com" autocomplete="email">
+                           placeholder="email@contoh.com">
 
                     <label for="customerWhatsapp">WhatsApp</label>
                     <input id="customerWhatsapp" name="customerWhatsapp"
@@ -565,6 +545,7 @@ footer{border-top:1px solid var(--border);background:#07050d;padding:35px 20px;t
   </div>
 </div>
 
+
     <!-- FOOTER -->
 
     <section class="section" id="cek-status" style="padding-top:20px;">
@@ -574,16 +555,16 @@ footer{border-top:1px solid var(--border);background:#07050d;padding:35px 20px;t
       <div class="history-head" style="margin-top:0;padding-top:0;border-top:0;"><strong>📦 Pembelian Saya</strong><button type="button" class="status-refresh-btn" id="refreshOrderHistory">↻ Refresh</button></div>
       <div id="orderHistoryList" class="order-history-list"></div>
     </div>
-    <button type="button" id="showOrderRecovery" class="btn" style="margin-top:12px;width:100%;font-size:10px;">🔐 Cari / Pulihkan Riwayat</button>
+    <button type="button" id="showOrderRecovery" class="btn" style="margin-top:12px;width:100%;font-size:10px;">🔐 Pulihkan Riwayat di Perangkat Lain</button>
     <div id="orderLookupMsg" class="checkout-message" style="display:none"></div>
     <div id="orderRecoveryBox" class="hidden" style="margin-top:14px;padding-top:14px;border-top:1px solid var(--border);">
-      <div style="font-size:10px;color:var(--muted);margin-bottom:8px;">Masukkan WhatsApp saat checkout. Nomor pesanan hanya opsional untuk mempersempit pencarian.</div>
+      <div style="font-size:10px;color:var(--muted);margin-bottom:8px;">Jika riwayat tidak muncul setelah berganti perangkat/browser, pulihkan dengan data transaksi:</div>
       <div class="order-lookup-form">
-        <label for="statusOrderCode">Nomor Pesanan <span style="color:var(--muted);font-weight:400;">(opsional)</span></label>
-        <input id="statusOrderCode" placeholder="Boleh dikosongkan" autocomplete="off">
-        <label for="statusWhatsapp">WhatsApp saat checkout <span style="color:#f0a0ff;">*</span></label>
-        <input id="statusWhatsapp" type="tel" placeholder="08xxxxxxxxxx" autocomplete="tel" required>
-        <button type="button" class="btn status-lookup-btn" id="checkOrderHistory">🔐 Cari Pembelian</button>
+        <label for="statusOrderCode">Nomor Pesanan</label>
+        <input id="statusOrderCode" placeholder="Contoh: AKS-20260916-XXXXXXX" autocomplete="off" tabindex="0">
+        <label for="statusWhatsapp">WhatsApp saat checkout</label>
+        <input id="statusWhatsapp" type="tel" placeholder="08xxxxxxxxxx" autocomplete="tel" inputmode="tel" tabindex="0">
+        <button type="button" class="btn status-lookup-btn" id="checkOrderHistory">🔐 Pulihkan Pembelian</button>
       </div>
     </div>
   </div>
@@ -642,63 +623,6 @@ const checkoutForm = document.getElementById("checkoutForm");
 const checkoutSubmit = document.getElementById("checkoutSubmit");
 const checkoutMessage = document.getElementById("checkoutMessage");
 
-const confirmModal = document.getElementById("confirmModal");
-const confirmBackdrop = document.getElementById("confirmBackdrop");
-const confirmCancel = document.getElementById("confirmCancel");
-const confirmOk = document.getElementById("confirmOk");
-let confirmResolver = null;
-
-function closeConfirm(result = false){
-    if(!confirmModal) return;
-    confirmModal.classList.remove("show");
-    confirmModal.setAttribute("aria-hidden", "true");
-    const resolver = confirmResolver;
-    confirmResolver = null;
-    if(resolver) resolver(result);
-}
-
-function openConfirm(options = {}){
-    if(!confirmModal) return Promise.resolve(true);
-    document.getElementById("confirmIcon").textContent = options.icon || "✨";
-    document.getElementById("confirmTitle").textContent = options.title || "Konfirmasi";
-    document.getElementById("confirmText").textContent = options.text || "Periksa kembali sebelum dilanjutkan.";
-    const productBox = document.querySelector(".confirm-product");
-    if(options.showProduct === false){
-        productBox.style.display = "none";
-    } else {
-        productBox.style.display = "block";
-        document.getElementById("confirmProductName").textContent = options.productName || "Akun Genshin";
-        document.getElementById("confirmProductMeta").textContent = options.productMeta || "";
-        document.getElementById("confirmTotal").textContent = options.total != null ? rupiah(options.total) : "";
-    }
-    confirmCancel.textContent = options.cancelText || "Batal";
-    confirmOk.textContent = options.okText || "OK";
-    confirmModal.classList.add("show");
-    confirmModal.setAttribute("aria-hidden", "false");
-    setTimeout(() => confirmCancel?.focus(), 30);
-    return new Promise(resolve => { confirmResolver = resolve; });
-}
-
-function openOrderConfirm(product, total){
-    return openConfirm({
-        icon: "🛒",
-        title: "Konfirmasi Pesanan",
-        text: "Pastikan data pesanan sudah benar sebelum membuat pesanan.",
-        productName: product?.name || "Akun Genshin",
-        productMeta: `${product?.server || "-"} · AR ${product?.ar ?? "-"} · ${product?.five_star_count ?? 0} 5★`,
-        total,
-        cancelText: "Batal",
-        okText: "Ya, Buat Pesanan"
-    });
-}
-
-confirmCancel?.addEventListener("click", () => closeConfirm(false));
-confirmOk?.addEventListener("click", () => closeConfirm(true));
-confirmBackdrop?.addEventListener("click", () => closeConfirm(false));
-document.addEventListener("keydown", event => {
-    if(event.key === "Escape" && confirmModal?.classList.contains("show")) closeConfirm(false);
-});
-
 function rupiah(value) {
     return "Rp " + Number(value || 0).toLocaleString("id-ID");
 }
@@ -741,21 +665,7 @@ function addToCart(product){
   saveCart();
   openCart();
 }
-async function removeFromCart(id){
-  const item=cartItems.find(x=>String(x.id)===String(id));
-  if(!item) return;
-  const ok=await openConfirm({
-    icon:"🗑️",
-    title:"Hapus dari Keranjang?",
-    text:"Akun ini akan dihapus dari keranjang di perangkat ini.",
-    productName:item.name || "Akun Genshin",
-    productMeta:`${item.server || "-"} · AR ${item.ar ?? "-"} · ${item.five_star_count ?? 0} 5★`,
-    total:item.price,
-    cancelText:"Batal",
-    okText:"Ya, Hapus"
-  });
-  if(ok){ cartItems=cartItems.filter(x=>String(x.id)!==String(id)); saveCart(); renderCart(); }
-}
+function removeFromCart(id){ cartItems=cartItems.filter(x=>String(x.id)!==String(id)); saveCart(); }
 function renderCart(){
   const box=document.getElementById("cartItems"), total=document.getElementById("cartTotal");
   if(!box||!total)return;
@@ -946,6 +856,8 @@ function openCheckout() {
     checkoutMessage.style.display = "none";
     checkoutMessage.textContent = "";
     checkoutForm.reset();
+    checkoutSubmit.disabled = false;
+    checkoutSubmit.textContent = "✅ Buat Pesanan";
 
     checkoutModal.classList.add("show");
     checkoutModal.setAttribute("aria-hidden", "false");
@@ -1001,9 +913,6 @@ checkoutForm.addEventListener("submit", async event => {
         if (!customerName || !customerWhatsapp) {
             throw new Error("Nama dan WhatsApp wajib diisi.");
         }
-        if (customerEmail && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(customerEmail)) {
-            throw new Error("Format email belum benar. Kosongkan email jika tidak ingin mengisinya.");
-        }
 
         const { data: latestProduct, error: productError } = await supabaseClient
             .from("products")
@@ -1022,37 +931,43 @@ checkoutForm.addEventListener("submit", async event => {
             crypto.randomUUID().split("-")[0].toUpperCase();
         const totalPrice = Number(latestProduct.price || 0);
 
-        const confirmed = await openOrderConfirm(latestProduct, totalPrice);
-        if (!confirmed) {
-            checkoutSubmit.disabled = false;
-            checkoutSubmit.textContent = "✅ Buat Pesanan";
-            return;
-        }
-
         checkoutSubmit.textContent = "⏳ Membuat pesanan...";
         checkoutMessage.style.display = "block";
         checkoutMessage.textContent = "Menghubungi server...";
 
-        const insertPromise = supabaseClient.from("orders").insert({
-            order_code: orderCode,
-            product_id: latestProduct.id,
-            customer_name: customerName,
-            customer_email: customerEmail || null,
-            customer_whatsapp: customerWhatsapp,
-            status: "pending",
-            total_price: totalPrice
+        // Buat order + kunci akun TERSEDIA -> DIPESAN secara atomik di database.
+        // Ini mencegah dua pembeli berhasil memesan akun yang sama secara bersamaan.
+        const reservePromise = supabaseClient.rpc("create_order_and_reserve_browser", {
+            p_order_code: orderCode,
+            p_product_id: latestProduct.id,
+            p_customer_name: customerName,
+            p_customer_email: customerEmail || null,
+            p_customer_whatsapp: customerWhatsapp,
+            p_total_price: totalPrice,
+            p_browser_id: browserOrderId
         });
 
         const timeoutPromise = new Promise((_, reject) =>
             setTimeout(() => reject(new Error("Server terlalu lama merespons. Periksa koneksi internet lalu coba lagi.")), 15000)
         );
 
-        const { error } = await Promise.race([insertPromise, timeoutPromise]);
+        const { data: reserveResult, error } = await Promise.race([reservePromise, timeoutPromise]);
         if (error) throw error;
+        if (reserveResult !== true) throw new Error("Pesanan tidak berhasil dibuat.");
 
-        // Pesanan berhasil dibuat. Simpan identitas transaksi untuk Pembelian Saya.
+        // Pesanan langsung diikat ke browser melalui browser_order_id.
+        // Daftar trackedOrders juga disimpan sebagai cadangan untuk kompatibilitas.
         saveTrackedOrder(orderCode, customerWhatsapp);
-        startOrderStatusTracking();
+
+        // Sinkronkan katalog secara langsung agar kartu produk berubah
+        // TERSEDIA -> DIPESAN tanpa menunggu refresh halaman.
+        allProducts = allProducts.map(product =>
+            String(product.id) === String(latestProduct.id)
+                ? { ...product, status: "dipesan" }
+                : product
+        );
+        selectedProduct = { ...selectedProduct, status: "dipesan" };
+        renderProducts(allProducts, true);
 
         // Jangan biarkan produk yang sudah dipesan tetap berada di keranjang.
         cartItems = cartItems.filter(x => String(x.id) !== String(latestProduct.id));
@@ -1066,7 +981,7 @@ checkoutForm.addEventListener("submit", async event => {
         setTimeout(() => {
             closeCheckout();
             closeDetail();
-            openPaymentModal(null, orderCode, totalPrice);
+            openPaymentModal(null, orderCode, totalPrice, latestProduct.id);
         }, 500);
     } catch (error) {
         console.error("Gagal membuat order:", error);
@@ -1131,7 +1046,9 @@ loadProducts();
 // fungsi riwayat didefinisikan pada script berikutnya.
 function startOrderStatusTracking(){
   setTimeout(()=>{
-    if(typeof fetchOrderHistory === "function") fetchOrderHistory();
+    if(typeof fetchOrderHistory === "function"){
+      fetchOrderHistory();
+    }
   },0);
 }
 const menuBtn = document.getElementById("menuBtn");
@@ -1150,9 +1067,29 @@ menuBtn?.addEventListener("click",e=>{
 });
 menuPanel?.addEventListener("click",e=>e.stopPropagation());
 document.querySelectorAll("[data-menu-close]").forEach(a=>a.addEventListener("click",closeMenu));
+
+// Admin navigation: force a fresh document on every open. This prevents preview/browser
+// caching/history from swallowing the second navigation after Admin logout.
+const adminLink = document.getElementById("adminLink");
+adminLink?.addEventListener("click", e => {
+  e.preventDefault();
+  e.stopPropagation();
+  closeMenu();
+  window.location.assign("admin.html#admin_open=" + Date.now());
+});
 document.addEventListener("click",closeMenu);
 
-let trackedOrder = JSON.parse(localStorage.getItem("akemi_tracked_order") || "null");
+let browserOrderId = String(localStorage.getItem("akemi_browser_order_id") || "").trim();
+if(!browserOrderId){
+  browserOrderId = (crypto.randomUUID ? crypto.randomUUID() : ("akemi-"+Date.now()+"-"+Math.random().toString(36).slice(2))).toUpperCase();
+  localStorage.setItem("akemi_browser_order_id", browserOrderId);
+}
+let trackedOrders = JSON.parse(localStorage.getItem("akemi_tracked_orders") || "null");
+if (!Array.isArray(trackedOrders)) {
+  const legacyTracked = JSON.parse(localStorage.getItem("akemi_tracked_order") || "null");
+  trackedOrders = legacyTracked?.orderCode ? [legacyTracked] : [];
+}
+let trackedOrder = trackedOrders[trackedOrders.length - 1] || null;
 let historyTimer = null;
 const statusOrderCodeInput=document.getElementById("statusOrderCode");
 const statusWhatsappInput=document.getElementById("statusWhatsapp");
@@ -1163,62 +1100,179 @@ const orderHistoryContent=document.getElementById("orderHistoryContent");
 const orderHistoryList=document.getElementById("orderHistoryList");
 const orderRecoveryBox=document.getElementById("orderRecoveryBox");
 const showOrderRecovery=document.getElementById("showOrderRecovery");
-showOrderRecovery?.addEventListener("click",()=>{
-  orderRecoveryBox?.classList.toggle("hidden");
-  if(!orderRecoveryBox?.classList.contains("hidden")){
-    setTimeout(()=>statusWhatsappInput?.focus(),50);
-  }
-});
-function saveTrackedOrder(orderCode,whatsapp){trackedOrder={orderCode:String(orderCode||"").trim(),whatsapp:String(whatsapp||"").trim()};localStorage.setItem("akemi_tracked_order",JSON.stringify(trackedOrder));}
+showOrderRecovery?.addEventListener("click",()=>{orderRecoveryBox?.classList.toggle("hidden");});
+function saveTrackedOrder(orderCode,whatsapp){
+  const code=String(orderCode||"").trim();
+  const wa=String(whatsapp||"").trim();
+  if(!code || !wa) return;
+  const existing=Array.isArray(trackedOrders)?trackedOrders:[];
+  const idx=existing.findIndex(x=>String(x?.orderCode||"").trim()===code);
+  const item={orderCode:code,whatsapp:wa};
+  if(idx>=0) existing[idx]=item; else existing.push(item);
+  trackedOrders=existing;
+  trackedOrder=item;
+  localStorage.setItem("akemi_tracked_orders",JSON.stringify(trackedOrders));
+  // Tetap simpan format lama untuk kompatibilitas versi sebelumnya.
+  localStorage.setItem("akemi_tracked_order",JSON.stringify(item));
+}
+
+async function claimLegacyBrowserOrders(){
+  const list=Array.isArray(trackedOrders)?trackedOrders:[];
+  const valid=list.map(x=>({
+    orderCode:String(x?.orderCode||"").trim(),
+    whatsapp:String(x?.whatsapp||"").trim()
+  })).filter(x=>x.orderCode&&x.whatsapp);
+
+  if(!valid.length) return;
+
+  // Order lama yang belum punya browser_order_id akan diklaim
+  // otomatis ke browser ini setelah diverifikasi dengan order_code + WA.
+  // Tidak ada input manual untuk pembeli yang masih memakai browser yang sama.
+  await Promise.all(valid.map(async item=>{
+    const {error}=await supabaseClient.rpc("claim_browser_order",{
+      p_order_code:item.orderCode,
+      p_whatsapp:item.whatsapp,
+      p_browser_id:browserOrderId
+    });
+    if(error) console.warn("Legacy order claim:", item.orderCode, error);
+  }));
+}
 function historyStatusLabel(s){s=String(s||"pending").toLowerCase();if(s==="selesai")return "SELESAI";if(s==="dibayar")return "PEMBAYARAN DITERIMA";if(s==="diproses")return "DIPROSES";if(s==="dibatalkan")return "DIBATALKAN";return "MENUNGGU";}
 function historyBadgeClass(s){s=String(s||"pending").toLowerCase();if(["selesai","dibayar"].includes(s))return "paid";if(s==="dibatalkan")return "rejected";return "pending";}
 function paymentHistoryLabel(s){s=String(s||"pending").toLowerCase();if(["diterima","paid","lunas"].includes(s))return "Pembayaran: DITERIMA";if(["ditolak","rejected"].includes(s))return "Pembayaran: DITOLAK";return "Pembayaran: MENUNGGU KONFIRMASI";}
 function renderOrderHistory(rows){
   if(!orderHistoryList)return;
-  const paidProductIds=new Set(rows.filter(r=>["diterima","paid","lunas"].includes(String(r.payment_status||"").toLowerCase())).map(r=>String(r.product_id||"")));
+  const paidProductIds=new Set(rows.filter(r=>{
+    const ps=String(r.payment_status||"").toLowerCase();
+    const os=String(r.status||"").toLowerCase();
+    return ["diterima","paid","lunas"].includes(ps) || ["dibayar","selesai"].includes(os);
+  }).map(r=>String(r.product_id||"")));
   if(paidProductIds.size){cartItems=cartItems.filter(x=>!paidProductIds.has(String(x.id)));saveCart();}
   if(!rows?.length){orderHistoryList.innerHTML='<div class="order-status-empty"><div class="order-status-icon">📭</div><strong>Belum ada pembelian</strong><span>Setelah kamu checkout, produk yang dibeli akan muncul otomatis di sini.</span></div>';return;}
   orderHistoryList.innerHTML=rows.map(r=>{
-    const paid=["diterima","paid","lunas"].includes(String(r.payment_status||"").toLowerCase());
-    const hasDelivery=paid && (r.delivery_login || r.delivery_password || r.delivery_note);
+    const rawPaymentStatus=String(r.payment_status||"pending").toLowerCase();
+    const rawOrderStatus=String(r.status||"pending").toLowerCase();
+    const hasDeliveryData=Boolean(
+      String(r.delivery_login||"").trim() ||
+      String(r.delivery_password||"").trim() ||
+      String(r.delivery_note||"").trim()
+    );
+    // Jika admin sudah menyerahkan akun, transaksi dianggap selesai meskipun
+    // payment_status lama di database masih tertulis pending.
+    const paid=["diterima","paid","lunas"].includes(rawPaymentStatus) ||
+      ["dibayar","selesai"].includes(rawOrderStatus) ||
+      hasDeliveryData;
+    const displayPaymentStatus=paid ? "diterima" : rawPaymentStatus;
+    const displayOrderStatus=(rawOrderStatus==="selesai" || hasDeliveryData)
+      ? "selesai"
+      : (paid && rawOrderStatus==="pending" ? "dibayar" : rawOrderStatus);
+    const hasDelivery=paid && hasDeliveryData;
     return `<div class="history-item">
-      <div class="history-item-top"><div><div class="history-item-code">${escapeHtml(r.order_code||"-")}</div><div class="history-item-date">${r.created_at?new Date(r.created_at).toLocaleString("id-ID"):"-"}</div></div><span class="history-badge ${historyBadgeClass(r.status)}">${historyStatusLabel(r.status)}</span></div>
+      <div class="history-item-top"><div><div class="history-item-code">${escapeHtml(r.order_code||"-")}</div><div class="history-item-date">${r.created_at?new Date(r.created_at).toLocaleString("id-ID"):"-"}</div></div><span class="history-badge ${historyBadgeClass(displayOrderStatus)}">${historyStatusLabel(displayOrderStatus)}</span></div>
       <div class="history-product">🎮 ${escapeHtml(r.product_name||"Akun Genshin")}</div>
       <div class="history-price">${rupiah(r.total_price)}</div>
-      <div class="history-payment">${paymentHistoryLabel(r.payment_status)}</div>
+      <div class="history-payment">${paymentHistoryLabel(displayPaymentStatus)}</div>
       ${hasDelivery?`<div class="delivery-box"><strong>🎁 Detail Akun yang Dibeli</strong>${r.delivery_login?`<div class="delivery-row"><b>Login/Email:</b> ${escapeHtml(r.delivery_login)}</div>`:""}${r.delivery_password?`<div class="delivery-row"><b>Password:</b> ${escapeHtml(r.delivery_password)}</div>`:""}${r.delivery_note?`<div class="delivery-note">${escapeHtml(r.delivery_note)}</div>`:""}</div>`:(paid?`<div class="delivery-wait">✅ Pembayaran sudah diterima. Detail akun akan muncul setelah admin menyelesaikan penyerahan akun.</div>`:`<div class="delivery-wait">ℹ️ Detail akun hanya tampil setelah pembayaran dikonfirmasi admin.</div>`)}
     </div>`;
   }).join("");
 }
 async function fetchOrderHistory(codeOverride,waOverride){
-  const code=(codeOverride ?? statusOrderCodeInput?.value ?? trackedOrder?.orderCode ?? "").trim();
-  const wa=(waOverride ?? statusWhatsappInput?.value ?? trackedOrder?.whatsapp ?? "").trim();
-  if(!wa){
-    if(orderLookupMsg){orderLookupMsg.style.display="block";orderLookupMsg.textContent="Nomor WhatsApp wajib diisi.";}
-    statusWhatsappInput?.focus();
-    return;
-  }
+  // IDENTITAS RIWAYAT NORMAL = browser ID yang disimpan di localStorage.
+  // WhatsApp hanya data masing-masing order, bukan identitas pembeli/browser.
+  const manualCode=String(codeOverride||statusOrderCodeInput?.value||"").trim();
+  const manualWa=String(waOverride||statusWhatsappInput?.value||"").trim();
+
   if(checkOrderHistoryBtn){checkOrderHistoryBtn.disabled=true;checkOrderHistoryBtn.textContent="⏳ Memuat...";}
-  if(orderLookupMsg){orderLookupMsg.style.display="block";orderLookupMsg.textContent="Memuat pembelian...";}
+  if(orderLookupMsg){orderLookupMsg.style.display="block";orderLookupMsg.textContent="Memuat semua pembelian...";}
+
   try{
-    const {data,error}=await supabaseClient.rpc("check_order_history",{p_order_code:code||null,p_whatsapp:wa});
-    if(error)throw error;
-    if(!Array.isArray(data)||!data.length||data[0]?.found===false)throw new Error("Pembelian tidak ditemukan. Pastikan nomor WhatsApp sesuai dengan saat checkout.");
-    const rows=data.filter(x=>x.order_code);
-    renderOrderHistory(rows);
-    saveTrackedOrder(code,wa);
-    if(orderLookupMsg){orderLookupMsg.style.display="block";orderLookupMsg.textContent=`✅ ${rows.length} pembelian ditemukan.`;}
-    if(orderRecoveryBox)orderRecoveryBox.classList.add("hidden");
+    let rows=[];
+
+    if(manualCode){
+      if(!manualWa) throw new Error("Masukkan WhatsApp untuk memulihkan pesanan.");
+      const {data,error}=await supabaseClient.rpc("check_order_history",{
+        p_order_code:manualCode,
+        p_whatsapp:manualWa
+      });
+      if(error) throw error;
+      rows=Array.isArray(data)?data.filter(x=>x&&x.order_code&&x.found!==false):[];
+    }else{
+      // Normal: satu browser dapat memiliki banyak order dengan WA berbeda.
+      // Sebelum membaca riwayat, klaim otomatis order lama yang sudah
+      // tersimpan di browser tetapi belum mempunyai browser_order_id.
+      await claimLegacyBrowserOrders();
+
+      const {data,error}=await supabaseClient.rpc("get_browser_order_history",{
+        p_browser_id:browserOrderId
+      });
+      if(error) throw error;
+      rows=Array.isArray(data)?data.filter(x=>x&&x.order_code&&x.found!==false):[];
+
+      // Safety fallback untuk order lama apabila claim tidak berhasil.
+      // Ini tetap memakai pasangan order_code + WhatsApp masing-masing.
+      if(Array.isArray(trackedOrders) && trackedOrders.length){
+        const known=new Set(rows.map(x=>String(x?.order_code||"").trim()));
+        const lookups=trackedOrders.map(x=>({
+          orderCode:String(x?.orderCode||"").trim(),
+          whatsapp:String(x?.whatsapp||"").trim()
+        })).filter(x=>x.orderCode&&x.whatsapp&&!known.has(x.orderCode));
+
+        if(lookups.length){
+          const results=await Promise.all(lookups.map(async item=>{
+            const {data,error}=await supabaseClient.rpc("check_order_history",{
+              p_order_code:item.orderCode,
+              p_whatsapp:item.whatsapp
+            });
+            if(error) throw error;
+            return Array.isArray(data)?data:[];
+          }));
+          rows=rows.concat(results.flat().filter(x=>x&&x.order_code&&x.found!==false));
+        }
+      }
+    }
+
+    const uniqueRows=Array.from(new Map(rows.map(row=>[String(row.order_code),row])).values());
+    uniqueRows.sort((a,b)=>new Date(b.created_at||0)-new Date(a.created_at||0));
+
+    if(!uniqueRows.length){
+      renderOrderHistory([]);
+      if(orderLookupMsg)orderLookupMsg.textContent=manualCode
+        ? "❌ Pesanan tidak ditemukan atau data verifikasi tidak cocok."
+        : "📭 Belum ada pembelian di browser ini.";
+      return;
+    }
+
+    renderOrderHistory(uniqueRows);
+
+    // Sinkronkan pasangan order_code + WA untuk kompatibilitas/pemulihan.
+    uniqueRows.forEach(row=>{
+      const existing=Array.isArray(trackedOrders)?trackedOrders:[];
+      const known=existing.find(x=>String(x?.orderCode||"").trim()===String(row.order_code||"").trim());
+      const wa=manualCode ? manualWa : (known?.whatsapp || "");
+      if(wa) saveTrackedOrder(row.order_code,wa);
+    });
+
+    if(orderLookupMsg){
+      orderLookupMsg.style.display="block";
+      orderLookupMsg.textContent=`✅ ${uniqueRows.length} pembelian ditemukan.`;
+    }
+    if(orderRecoveryBox && !manualCode) orderRecoveryBox.classList.add("hidden");
     if(historyTimer)clearInterval(historyTimer);
     historyTimer=setInterval(()=>fetchOrderHistory(),15000);
   }catch(err){
     console.error("Order history error:",err);
     if(orderLookupMsg){orderLookupMsg.style.display="block";orderLookupMsg.textContent=err.message||"Gagal memuat pembelian.";}
-  }finally{if(checkOrderHistoryBtn){checkOrderHistoryBtn.disabled=false;checkOrderHistoryBtn.textContent="🔐 Pulihkan Pembelian";}}
+  }finally{
+    if(checkOrderHistoryBtn){checkOrderHistoryBtn.disabled=false;checkOrderHistoryBtn.textContent="🔐 Pulihkan Pembelian";}
+  }
 }
-checkOrderHistoryBtn?.addEventListener("click",()=>fetchOrderHistory());
+checkOrderHistoryBtn?.addEventListener("click",()=>{
+  // Jangan focus/scroll ke kolom WhatsApp secara otomatis.
+  fetchOrderHistory();
+});
 refreshOrderHistoryBtn?.addEventListener("click",()=>fetchOrderHistory());
-if(trackedOrder?.whatsapp){fetchOrderHistory(trackedOrder.orderCode||null,trackedOrder.whatsapp);}
+// Riwayat browser dimuat otomatis saat halaman dibuka kembali.
+ // Pemulihan manual hanya diperlukan jika customer berpindah perangkat/browser.
 
 // Bersihkan keranjang otomatis jika produk sudah TERJUAL atau sudah menjadi order milik pembeli.
 function syncCartWithProducts(){
@@ -1264,14 +1318,25 @@ function paymentInfoHtml(method, totalPrice) {
             '<div class="payment-line">Atas nama: <strong>Puja Paujan Muktafa</strong></div>' +
             '<div class="payment-line">Total pembayaran: <strong>' + total + '</strong></div>';
     }
-    return '<div class="payment-line"><strong>QRIS AKEMI STARSHOP</strong></div>' +
-        '<img src="qris-akemi-starshop.png" alt="QRIS AKEMI STARSHOP" style="display:block;width:min(100%,360px);margin:12px auto;border-radius:14px;background:#fff;padding:8px;box-sizing:border-box">' +
-        '' +
-        '<div class="payment-line">Total pembayaran: <strong>' + total + '</strong></div>';
+    if (method === "QRIS") {
+        return '<div class="payment-line"><strong>📲 Pembayaran QRIS</strong></div>' +
+            '<div class="payment-line">Scan QRIS <strong>AKEMI STARSHOP</strong> menggunakan aplikasi pembayaran yang mendukung QRIS.</div>' +
+            '<div class="qris-wrap">' +
+              '<div class="qris-title">QRIS AKEMI STARSHOP</div>' +
+              '<div class="qris-image-box">' +
+                '<img class="qris-image" src="qris-akemi-starshop.png" alt="QRIS AKEMI STARSHOP" onerror="this.style.display=&quot;none&quot;;this.nextElementSibling.style.display=&quot;block&quot;;">' +
+                '<div class="qris-fallback">QRIS belum ditemukan.<br>Pastikan file <strong>qris-akemi-starshop.png</strong> berada di folder yang sama dengan index.html.</div>' +
+              '</div>' +
+              '<div class="qris-amount">Nominal: ' + total + '</div>' +
+              '<div class="qris-caption">Jika QRIS bersifat statis, masukkan nominal pembayaran sesuai total di atas sebelum membayar.</div>' +
+            '</div>' +
+            '<div class="payment-line">Total pembayaran: <strong>' + total + '</strong></div>';
+    }
+    return '';
 }
 
-function openPaymentModal(orderId, orderCode, totalPrice) {
-    paymentOrder = { id: orderId, code: orderCode, total: totalPrice };
+function openPaymentModal(orderId, orderCode, totalPrice, productId = null) {
+    paymentOrder = { id: orderId, code: orderCode, total: totalPrice, productId };
     selectedPaymentMethod = "";
 
     document.getElementById("paymentOrderCode").textContent = orderCode;
@@ -1282,9 +1347,9 @@ function openPaymentModal(orderId, orderCode, totalPrice) {
     paymentMessage.style.display = "none";
     paymentMessage.textContent = "";
     paymentForm.reset();
-    paymentSubmit.style.display = "block";
+    paymentSubmit.style.display = "";
     paymentSubmit.disabled = false;
-    paymentSubmit.textContent = "📤 Kirim Bukti Pembayaran";
+    proofFile.disabled = false;
 
     paymentModal.classList.add("show");
     paymentModal.setAttribute("aria-hidden", "false");
@@ -1321,7 +1386,6 @@ paymentForm.addEventListener("submit", async (event) => {
         paymentMessage.textContent = "Data pesanan tidak ditemukan.";
         return;
     }
-
     if (!selectedPaymentMethod) {
         paymentMessage.style.display = "block";
         paymentMessage.textContent = "Silakan pilih metode pembayaran terlebih dahulu.";
@@ -1362,15 +1426,19 @@ paymentForm.addEventListener("submit", async (event) => {
         if (uploadError) throw uploadError;
 
         paymentMessage.textContent = "Menyimpan data pembayaran...";
+        const { data: paymentResult, error: paymentError } =
+            await supabaseClient.rpc("submit_payment_and_reserve", {
+                p_order_code: paymentOrder.code,
+                p_product_id: paymentOrder.productId,
+                p_payment_method: selectedPaymentMethod,
+                p_amount: Number(paymentOrder.total || 0),
+                p_proof_url: path
+            });
 
-        const { error: paymentError } = await supabaseClient.from("payments").insert({
-            order_code: paymentOrder.code,
-            payment_method: selectedPaymentMethod,
-            amount: Number(paymentOrder.total || 0),
-            proof_url: path,
-            status: "pending"
-        });
         if (paymentError) throw paymentError;
+        if (paymentResult !== true) {
+            throw new Error("Data pembayaran tidak berhasil disimpan.");
+        }
 
         paymentMessage.innerHTML =
             '<div class="payment-success">' +
@@ -1383,7 +1451,14 @@ paymentForm.addEventListener("submit", async (event) => {
 
         paymentSubmit.style.display = "none";
         proofFile.disabled = true;
-        setTimeout(() => closePaymentModal(), 3500);
+
+        // Baru setelah bukti pembayaran berhasil tersimpan, tampilkan pesanan
+        // di "Pembelian Saya" dan mulai memantau statusnya.
+        const paymentTracked = (Array.isArray(trackedOrders)?trackedOrders:[]).find(x=>String(x?.orderCode||"").trim()===String(paymentOrder.code||"").trim());
+        saveTrackedOrder(paymentOrder.code, paymentTracked?.whatsapp || trackedOrder?.whatsapp || "");
+        startOrderStatusTracking();
+
+        setTimeout(closePaymentModal, 3500);
     } catch (error) {
         console.error("Payment error:", error);
         paymentMessage.style.display = "block";
@@ -1394,6 +1469,7 @@ paymentForm.addEventListener("submit", async (event) => {
 });
 </script>
 
+<!-- AKEMI STARSHOP FINAL FIX: checkout, history, payment, reservation flow unified -->
 </body>
 </html>
 
