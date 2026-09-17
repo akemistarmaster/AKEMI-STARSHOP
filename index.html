@@ -1168,12 +1168,13 @@ function renderOrderHistory(rows){
       : (paid && rawOrderStatus==="pending" ? "dibayar" : rawOrderStatus);
     const hasDelivery=paid && hasDeliveryData;
     const canResumePayment=!paid && rawOrderStatus !== "dibatalkan";
+    const canCancelOrder=!paid && rawOrderStatus !== "dibatalkan";
     return `<div class="history-item">
       <div class="history-item-top"><div><div class="history-item-code">${escapeHtml(r.order_code||"-")}</div><div class="history-item-date">${r.created_at?new Date(r.created_at).toLocaleString("id-ID"):"-"}</div></div><span class="history-badge ${historyBadgeClass(displayOrderStatus)}">${historyStatusLabel(displayOrderStatus)}</span></div>
       <div class="history-product">🎮 ${escapeHtml(r.product_name||"Akun Genshin")}</div>
       <div class="history-price">${rupiah(r.total_price)}</div>
       <div class="history-payment">${paymentHistoryLabel(displayPaymentStatus)}</div>
-      ${hasDelivery?`<div class="delivery-box"><strong>🎁 Detail Akun yang Dibeli</strong>${r.delivery_login?`<div class="delivery-row"><b>Login/Email:</b> ${escapeHtml(r.delivery_login)}</div>`:""}${r.delivery_password?`<div class="delivery-row"><b>Password:</b> ${escapeHtml(r.delivery_password)}</div>`:""}${r.delivery_note?`<div class="delivery-note">${escapeHtml(r.delivery_note)}</div>`:""}</div>`:(paid?`<div class="delivery-wait">✅ Pembayaran sudah diterima. Detail akun akan muncul setelah admin menyelesaikan penyerahan akun.</div>`:`<div class="delivery-wait">💳 Pesanan belum dibayar. Silakan lanjutkan pembayaran dan kirim bukti transfer.</div>${canResumePayment?`<button type="button" class="btn btn-primary resume-payment-btn" data-resume-order="${escapeHtml(r.order_code||"")}" data-resume-product="${escapeHtml(r.product_id||"")}" data-resume-total="${escapeHtml(r.total_price||0)}" style="width:100%;margin-top:10px;min-height:42px;font-size:11px;">💳 Lanjutkan Pembayaran</button>`:""}`)}
+      ${hasDelivery?`<div class="delivery-box"><strong>🎁 Detail Akun yang Dibeli</strong>${r.delivery_login?`<div class="delivery-row"><b>Login/Email:</b> ${escapeHtml(r.delivery_login)}</div>`:""}${r.delivery_password?`<div class="delivery-row"><b>Password:</b> ${escapeHtml(r.delivery_password)}</div>`:""}${r.delivery_note?`<div class="delivery-note">${escapeHtml(r.delivery_note)}</div>`:""}</div>`:(paid?`<div class="delivery-wait">✅ Pembayaran sudah diterima. Detail akun akan muncul setelah admin menyelesaikan penyerahan akun.</div>`:`<div class="delivery-wait">💳 Pesanan belum dibayar. Silakan lanjutkan pembayaran dan kirim bukti transfer.</div>${canResumePayment?`<button type="button" class="btn btn-primary resume-payment-btn" data-resume-order="${escapeHtml(r.order_code||"")}" data-resume-product="${escapeHtml(r.product_id||"")}" data-resume-total="${escapeHtml(r.total_price||0)}" style="width:100%;margin-top:10px;min-height:42px;font-size:11px;">💳 Lanjutkan Pembayaran</button>`:""}${canCancelOrder?`<button type="button" class="btn cancel-order-btn" data-cancel-order="${escapeHtml(r.order_code||"")}" data-cancel-product="${escapeHtml(r.product_id||"")}" style="width:100%;margin-top:8px;min-height:40px;font-size:11px;background:#fff0f0;color:#b42318;border:1px solid #f2b8b5;">✖ Batalkan Pesanan</button>`:""}`)}
     </div>`;
   }).join("");
 
@@ -1185,7 +1186,42 @@ function renderOrderHistory(rows){
       if(code) openPaymentModal(null,code,total,productId);
     });
   });
+
+  orderHistoryList.querySelectorAll("[data-cancel-order]").forEach(btn=>{
+    btn.addEventListener("click",async()=>{
+      const code=String(btn.dataset.cancelOrder||"").trim();
+      const productId=btn.dataset.cancelProduct ? Number(btn.dataset.cancelProduct) : null;
+      if(!code || !productId) return;
+      if(!confirm("Batalkan pesanan ini? Produk akan dikembalikan menjadi TERSEDIA.")) return;
+      btn.disabled=true;
+      btn.textContent="⏳ Membatalkan...";
+      try{
+        const {data,error}=await supabaseClient.rpc("cancel_unpaid_order",{
+          p_order_code:code,
+          p_product_id:productId,
+          p_browser_id:browserOrderId
+        });
+        if(error) throw error;
+        if(data!==true) throw new Error("Pesanan tidak dapat dibatalkan. Jika pembayaran sudah dikirim, tunggu konfirmasi admin.");
+
+        trackedOrders=(Array.isArray(trackedOrders)?trackedOrders:[]).filter(x=>String(x?.orderCode||"").trim()!==code);
+        localStorage.setItem("akemi_tracked_orders",JSON.stringify(trackedOrders));
+        const latest=trackedOrders[trackedOrders.length-1]||null;
+        trackedOrder=latest;
+        if(latest) localStorage.setItem("akemi_tracked_order",JSON.stringify(latest));
+        else localStorage.removeItem("akemi_tracked_order");
+
+        await fetchOrderHistory();
+      }catch(err){
+        console.error("Cancel order error:",err);
+        btn.disabled=false;
+        btn.textContent="✖ Batalkan Pesanan";
+        alert(err.message||"Pesanan gagal dibatalkan.");
+      }
+    });
+  });
 }
+
 async function fetchOrderHistory(codeOverride,waOverride){
   // IDENTITAS RIWAYAT NORMAL = browser ID yang disimpan di localStorage.
   // WhatsApp hanya data masing-masing order, bukan identitas pembeli/browser.
