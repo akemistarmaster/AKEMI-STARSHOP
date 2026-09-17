@@ -58,19 +58,6 @@ footer{border-top:1px solid var(--border);background:#07050d;padding:35px 20px;t
 /* MODALS */
 .modal,.checkout-modal,.payment-modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:18px}.modal{z-index:1000}.checkout-modal{z-index:1100}.payment-modal{z-index:1200}.modal.show,.checkout-modal.show,.payment-modal.show{display:flex}.modal-backdrop,.checkout-backdrop,.payment-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.82);backdrop-filter:blur(9px)}.modal-box,.checkout-box,.payment-box{position:relative;z-index:2;width:min(680px,100%);max-height:92vh;overflow-y:auto;background:linear-gradient(145deg,#1a1030,#0c0815);border:1px solid var(--border);border-radius:22px;box-shadow:0 30px 90px rgba(0,0,0,.62)}.modal-close{position:absolute;right:12px;top:12px;z-index:5;width:40px;height:40px;border:1px solid rgba(255,255,255,.12);border-radius:50%;background:rgba(8,7,13,.78);color:#fff;font-size:25px;cursor:pointer}.modal-image{min-height:250px;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle,rgba(139,92,246,.3),transparent 60%),#0c0a12;color:#625c70;font-size:13px}.modal-image img{width:100%;max-height:390px;object-fit:contain;display:block}.modal-content{padding:22px}.modal-content h2{font-size:24px;margin:5px 0 14px}.modal-price{color:#d8b4fe;font-size:25px;font-weight:900;margin:8px 0 20px}.modal-description{border-top:1px solid var(--border);padding-top:18px}.modal-description h3{font-size:15px;margin-bottom:8px}.modal-description p{color:var(--muted);line-height:1.7;white-space:pre-wrap}.buy-btn{width:100%;min-height:52px;margin-top:22px;border:0;border-radius:13px;color:#fff;background:linear-gradient(135deg,#a855f7,#6d28d9);font-size:15px;font-weight:900;cursor:pointer}.buy-btn:disabled{opacity:.55;cursor:not-allowed}.modal-note{margin-top:10px;color:#716c7e;text-align:center;font-size:10px;line-height:1.5}
 .checkout-box,.payment-box{width:min(560px,100%)}.checkout-content,.payment-content{padding:25px 22px}.checkout-badge{display:inline-block;padding:6px 10px;border-radius:8px;background:rgba(139,92,246,.11);color:#d8b4fe;font-size:10px;font-weight:900;margin-bottom:10px}.checkout-content h2,.payment-content h2{font-size:25px;margin-bottom:7px}.checkout-subtitle,.payment-subtitle{color:var(--muted);font-size:13px;line-height:1.6;margin-bottom:18px}.checkout-product{padding:14px;margin-bottom:18px;border:1px solid var(--border);border-radius:12px;background:rgba(255,255,255,.025)}.checkout-product strong{display:block;margin-bottom:5px;font-size:15px}.checkout-product span{color:var(--muted);font-size:12px}#checkoutForm label{display:block;margin:13px 0 7px;font-size:12px;font-weight:700}#checkoutForm input{width:100%;height:48px;padding:0 14px;border:1px solid var(--border);border-radius:10px;outline:none;background:#0d0a15;color:#fff;font-size:14px}#checkoutForm input:focus{border-color:#a855f7}.checkout-total{display:flex;align-items:center;justify-content:space-between;margin-top:20px;padding:15px 0;border-top:1px solid var(--border)}.checkout-total span{color:var(--muted);font-size:13px}.checkout-total strong{color:#d8b4fe;font-size:20px}.checkout-submit,.payment-submit{width:100%;min-height:52px;border:0;border-radius:12px;background:linear-gradient(135deg,#a855f7,#6d28d9);color:#fff;font-size:14px;font-weight:900;cursor:pointer}.checkout-submit:disabled,.payment-submit:disabled{opacity:.55;cursor:not-allowed}.checkout-message,.payment-message{display:none;margin-top:12px;padding:11px;border-radius:9px;background:rgba(255,255,255,.04);color:var(--muted);font-size:12px;line-height:1.5}
-.payment-reservation-timer{margin:14px 0 16px;padding:14px 14px 12px;border:1px solid #f0c36a;border-radius:14px;background:#fff8e8;color:#3b2a0a;text-align:center;font-size:12px;line-height:1.45;box-shadow:0 8px 24px rgba(0,0,0,.16)}
-.payment-reservation-title{font-weight:900;color:#5b3b00;letter-spacing:.2px}
-.payment-reservation-text{margin-top:4px;color:#4a3310}
-.payment-reservation-text strong{display:inline-block;min-width:78px;margin-left:3px;color:#6d28d9;font-size:28px;line-height:1.1;letter-spacing:1px}
-.payment-reservation-note{margin-top:5px;color:#6b5a3b;font-size:10px}
-.payment-reservation-timer.is-danger{background:#fff0f0;border-color:#efb0b0;color:#7f1d1d}
-.payment-reservation-timer.is-danger .payment-reservation-title,.payment-reservation-timer.is-danger .payment-reservation-text,.payment-reservation-timer.is-danger .payment-reservation-note{color:#991b1b}
-.payment-reservation-timer.is-danger .payment-reservation-text strong{color:#dc2626}
-.history-payment-timer{margin-top:9px;padding:9px 10px;border:1px solid rgba(240,195,106,.45);border-radius:10px;background:rgba(255,248,232,.96);color:#4a3310;font-size:10px;line-height:1.45;text-align:center}
-.history-payment-timer strong{color:#6d28d9;font-size:16px;letter-spacing:.5px}
-.history-payment-timer.expired{background:#fff0f0;border-color:#efb0b0;color:#991b1b}
-.history-payment-timer.expired strong{color:#dc2626}
-@media(max-width:650px){.payment-reservation-timer{padding:13px 10px}.payment-reservation-text strong{font-size:25px;min-width:72px}.history-payment-timer strong{font-size:15px}}
 .payment-methods{display:grid;gap:10px;margin:15px 0}.payment-method{width:100%;padding:15px;text-align:left;border:1px solid var(--border);border-radius:12px;background:rgba(255,255,255,.025);color:#fff;cursor:pointer;transition:.18s}.payment-method:hover{border-color:rgba(168,85,247,.65);background:rgba(139,92,246,.06)}.payment-method.selected{border-color:#a855f7;background:linear-gradient(135deg,rgba(168,85,247,.15),rgba(109,40,217,.08));box-shadow:0 0 0 1px rgba(168,85,247,.12)}.payment-method strong{display:block;font-size:15px;margin-bottom:4px}.payment-method span{font-size:11px;color:var(--muted)}.payment-detail{display:none;padding:16px;margin-top:12px;border:1px solid var(--border);border-radius:13px;background:rgba(255,255,255,.025)}.payment-detail.show{display:block}.payment-line{font-size:13px;color:#d8d4e8;margin:7px 0}.payment-number{font-size:20px;font-weight:900;letter-spacing:.5px;margin:9px 0;color:#f1ddff}.payment-note{font-size:11px;color:#aaa5b8;line-height:1.55;margin-top:10px}.qris-wrap{margin:14px 0 4px;padding:14px;border:1px solid rgba(168,85,247,.28);border-radius:16px;background:rgba(0,0,0,.22);text-align:center}.qris-title{font-size:12px;font-weight:900;margin-bottom:10px;color:#eee}.qris-image-box{width:min(310px,100%);margin:0 auto;padding:10px;border-radius:14px;background:#fff;box-shadow:0 12px 35px rgba(0,0,0,.28)}.qris-image{display:block;width:100%;height:auto;max-height:360px;object-fit:contain;border-radius:8px}.qris-caption{margin-top:10px;font-size:10px;line-height:1.55;color:#aaa5b8}.qris-fallback{display:none;padding:22px 12px;color:#6b6573;font-size:11px;line-height:1.5}.qris-amount{display:inline-block;margin-top:8px;padding:7px 10px;border-radius:8px;background:rgba(168,85,247,.1);color:#d8b4fe;font-size:12px;font-weight:900}#proofFile{width:100%;margin-top:10px;color:#fff}.payment-success{text-align:center;padding:18px 0}.payment-success .icon{font-size:44px;margin-bottom:10px}.payment-close{position:absolute;right:12px;top:12px;z-index:3}
 @media(max-width:900px){.nav-links{display:none}.nav-search{display:none}.menu{display:block}.products{grid-template-columns:repeat(2,1fr)}.hero{margin:18px 16px 0}.trust{grid-template-columns:repeat(3,1fr)}.info-grid{grid-template-columns:1fr}}
 @media(max-width:650px){.nav{min-height:52px;padding:6px 12px}.logo-icon{width:34px;height:34px}.logo-text{font-size:12px}.hero{padding:24px 18px 30px;border-radius:22px}.hero h1{font-size:38px;letter-spacing:-1.5px}.hero p{font-size:13px}.hero-orb{right:-60px;bottom:-40px;width:220px;height:220px}.hero-mark img{width:68px;height:68px}.trust{grid-template-columns:repeat(3,1fr);padding:0 14px}.trust-item{padding:13px 10px}.trust-item strong{width:32px;height:32px;font-size:14px}.trust-item span{font-size:9px}.section{padding:28px 14px}.search{margin-bottom:10px;max-width:none}.search input{height:34px;font-size:11px}.section-title{font-size:23px}.products{grid-template-columns:1fr 1fr;gap:10px}.product-image{height:145px}.product-content{padding:12px}.product h3{font-size:12px}.tag{font-size:9px;padding:5px 6px}.price{font-size:13px}.detail-btn{font-size:9px;padding:8px}.steps{grid-template-columns:1fr 1fr}.info-grid{padding:0 14px 45px}.modal,.checkout-modal,.payment-modal{padding:10px}.modal-box,.checkout-box,.payment-box{max-height:95vh;border-radius:18px}.modal-content,.checkout-content,.payment-content{padding:18px 16px}}
@@ -511,11 +498,6 @@ footer{border-top:1px solid var(--border);background:#07050d;padding:35px 20px;t
         Pesanan <strong id="paymentOrderCode">-</strong><br>
         Total <strong id="paymentTotal">Rp 0</strong>
       </p>
-      <div id="paymentReservationTimer" class="payment-reservation-timer">
-        <div class="payment-reservation-title">⚠️ BATAS WAKTU PEMBAYARAN</div>
-        <div class="payment-reservation-text">Pesanan akan dibatalkan dalam <strong id="paymentCountdown">15:00</strong></div>
-        <div class="payment-reservation-note">Selesaikan pembayaran dan kirim bukti sebelum waktu habis.</div>
-      </div>
 
       <div class="payment-methods">
         <button class="payment-method" data-method="GoPay" type="button">
@@ -955,14 +937,13 @@ checkoutForm.addEventListener("submit", async event => {
 
         // Buat order + kunci akun TERSEDIA -> DIPESAN secara atomik di database.
         // Ini mencegah dua pembeli berhasil memesan akun yang sama secara bersamaan.
-        const reservePromise = supabaseClient.rpc("create_order_and_reserve_browser", {
+        const reservePromise = supabaseClient.rpc("create_order_and_reserve", {
             p_order_code: orderCode,
             p_product_id: latestProduct.id,
             p_customer_name: customerName,
             p_customer_email: customerEmail || null,
             p_customer_whatsapp: customerWhatsapp,
-            p_total_price: totalPrice,
-            p_browser_id: browserOrderId
+            p_total_price: totalPrice
         });
 
         const timeoutPromise = new Promise((_, reject) =>
@@ -973,8 +954,8 @@ checkoutForm.addEventListener("submit", async event => {
         if (error) throw error;
         if (reserveResult !== true) throw new Error("Pesanan tidak berhasil dibuat.");
 
-        // Pesanan langsung diikat ke browser melalui browser_order_id.
-        // Daftar trackedOrders juga disimpan sebagai cadangan untuk kompatibilitas.
+        // Pesanan berhasil dibuat, tetapi JANGAN tampilkan di "Pembelian Saya" dulu.
+        // Customer harus menyelesaikan pembayaran dan mengirim bukti terlebih dahulu.
         saveTrackedOrder(orderCode, customerWhatsapp);
 
         // Sinkronkan katalog secara langsung agar kartu produk berubah
@@ -1034,14 +1015,8 @@ searchInput.addEventListener("input", () => {
     renderProducts(filtered, true);
 });
 
-async function loadProducts(showLoading = true) {
-    // Loading hanya ditampilkan pada pemuatan katalog pertama.
-    if (showLoading && (!allProducts || allProducts.length === 0)) {
-        container.innerHTML = "<p>Memuat akun...</p>";
-    }
-
-    // Lepaskan reservasi yang sudah kedaluwarsa sebelum membaca katalog.
-    try { await supabaseClient.rpc("expire_unpaid_orders"); } catch (e) { console.warn("Auto-expire check:", e); }
+async function loadProducts() {
+    container.innerHTML = "<p>Memuat akun...</p>";
 
     const { data, error } = await supabaseClient
         .from("products")
@@ -1050,37 +1025,17 @@ async function loadProducts(showLoading = true) {
 
     if (error) {
         console.error("Gagal mengambil produk:", error);
-        if (showLoading && (!allProducts || allProducts.length === 0)) {
-            container.innerHTML = "<p>Gagal memuat akun. Silakan refresh halaman.</p>";
-        }
+        container.innerHTML =
+            "<p>Gagal memuat akun. Silakan refresh halaman.</p>";
         return;
     }
 
-    const nextProducts = data || [];
-    // Jangan sentuh DOM jika data katalog tidak berubah. Ini mencegah
-    // kartu katalog berkedip saat sinkronisasi/background refresh berjalan.
-    const productSignature = (list) => JSON.stringify((list || []).map(p => ({
-        id:p.id, status:p.status, name:p.name, price:p.price, server:p.server,
-        ar:p.ar, five_star:p.five_star, image_url:p.image_url, images:p.images,
-        description:p.description, created_at:p.created_at
-    })));
-
-    const changed = productSignature(allProducts) !== productSignature(nextProducts);
-    allProducts = nextProducts;
-
-    if (changed) {
-        renderProducts(allProducts, true);
-    }
+    allProducts = data || [];
+    renderProducts(allProducts, true);
     syncCartWithProducts();
 }
 
 loadProducts();
-
-// Sinkronisasi tetap berjalan, tetapi jika data sama sekali tidak berubah,
-// DOM katalog tidak dirender ulang sehingga tampilan tetap stabil.
-setInterval(() => {
-    loadProducts(false);
-}, 15000);
 </script>
 
 
@@ -1090,7 +1045,11 @@ setInterval(() => {
 // fungsi riwayat didefinisikan pada script berikutnya.
 function startOrderStatusTracking(){
   setTimeout(()=>{
-    if(typeof fetchOrderHistory === "function"){
+    if(
+      Array.isArray(trackedOrders) &&
+      trackedOrders.length &&
+      typeof fetchOrderHistory === "function"
+    ){
       fetchOrderHistory();
     }
   },0);
@@ -1123,11 +1082,6 @@ adminLink?.addEventListener("click", e => {
 });
 document.addEventListener("click",closeMenu);
 
-let browserOrderId = String(localStorage.getItem("akemi_browser_order_id") || "").trim();
-if(!browserOrderId){
-  browserOrderId = (crypto.randomUUID ? crypto.randomUUID() : ("akemi-"+Date.now()+"-"+Math.random().toString(36).slice(2))).toUpperCase();
-  localStorage.setItem("akemi_browser_order_id", browserOrderId);
-}
 let trackedOrders = JSON.parse(localStorage.getItem("akemi_tracked_orders") || "null");
 if (!Array.isArray(trackedOrders)) {
   const legacyTracked = JSON.parse(localStorage.getItem("akemi_tracked_order") || "null");
@@ -1159,81 +1113,9 @@ function saveTrackedOrder(orderCode,whatsapp){
   // Tetap simpan format lama untuk kompatibilitas versi sebelumnya.
   localStorage.setItem("akemi_tracked_order",JSON.stringify(item));
 }
-
-async function claimLegacyBrowserOrders(){
-  const list=Array.isArray(trackedOrders)?trackedOrders:[];
-  const valid=list.map(x=>({
-    orderCode:String(x?.orderCode||"").trim(),
-    whatsapp:String(x?.whatsapp||"").trim()
-  })).filter(x=>x.orderCode&&x.whatsapp);
-
-  if(!valid.length) return;
-
-  // Order lama yang belum punya browser_order_id akan diklaim
-  // otomatis ke browser ini setelah diverifikasi dengan order_code + WA.
-  // Tidak ada input manual untuk pembeli yang masih memakai browser yang sama.
-  await Promise.all(valid.map(async item=>{
-    const {error}=await supabaseClient.rpc("claim_browser_order",{
-      p_order_code:item.orderCode,
-      p_whatsapp:item.whatsapp,
-      p_browser_id:browserOrderId
-    });
-    if(error) console.warn("Legacy order claim:", item.orderCode, error);
-  }));
-}
 function historyStatusLabel(s){s=String(s||"pending").toLowerCase();if(s==="selesai")return "SELESAI";if(s==="dibayar")return "PEMBAYARAN DITERIMA";if(s==="diproses")return "DIPROSES";if(s==="dibatalkan")return "DIBATALKAN";return "MENUNGGU";}
 function historyBadgeClass(s){s=String(s||"pending").toLowerCase();if(["selesai","dibayar"].includes(s))return "paid";if(s==="dibatalkan")return "rejected";return "pending";}
 function paymentHistoryLabel(s){s=String(s||"pending").toLowerCase();if(["diterima","paid","lunas"].includes(s))return "Pembayaran: DITERIMA";if(["ditolak","rejected"].includes(s))return "Pembayaran: DITOLAK";return "Pembayaran: MENUNGGU KONFIRMASI";}
-let historyReservationInterval = null;
-
-function formatRemaining(ms){
-  const safe=Math.max(0,Number(ms)||0);
-  const total=Math.ceil(safe/1000);
-  const mm=String(Math.floor(total/60)).padStart(2,"0");
-  const ss=String(total%60).padStart(2,"0");
-  return `${mm}:${ss}`;
-}
-function refreshHistoryReservationTimers(){
-  const nodes=document.querySelectorAll("[data-history-expiry]");
-  if(!nodes.length){
-    if(historyReservationInterval){clearInterval(historyReservationInterval);historyReservationInterval=null;}
-    return;
-  }
-  let active=false;
-  let expiredSeen=false;
-  nodes.forEach(node=>{
-    const expiry=String(node.dataset.historyExpiry||"").trim();
-    const value=node.querySelector("strong");
-    if(!value) return;
-    if(!expiry){
-      value.textContent="BELUM DIMULAI";
-      return;
-    }
-    const remaining=new Date(expiry).getTime()-Date.now();
-    if(remaining<=0){
-      value.textContent="00:00";
-      node.classList.add("expired");
-      expiredSeen=true;
-    }else{
-      value.textContent=formatRemaining(remaining);
-      node.classList.remove("expired");
-      active=true;
-    }
-  });
-  if(expiredSeen){
-    supabaseClient.rpc("expire_unpaid_orders").then(()=>{fetchOrderHistory();loadProducts(false);}).catch(()=>{});
-  }
-  if(!active && historyReservationInterval){
-    clearInterval(historyReservationInterval);
-    historyReservationInterval=null;
-  }
-}
-function startHistoryReservationTimers(){
-  if(historyReservationInterval) clearInterval(historyReservationInterval);
-  refreshHistoryReservationTimers();
-  if(document.querySelector("[data-history-expiry]")) historyReservationInterval=setInterval(refreshHistoryReservationTimers,1000);
-}
-
 function renderOrderHistory(rows){
   if(!orderHistoryList)return;
   const paidProductIds=new Set(rows.filter(r=>{
@@ -1261,152 +1143,105 @@ function renderOrderHistory(rows){
       ? "selesai"
       : (paid && rawOrderStatus==="pending" ? "dibayar" : rawOrderStatus);
     const hasDelivery=paid && hasDeliveryData;
-    const canResumePayment=!paid && rawOrderStatus !== "dibatalkan";
-    const canCancelOrder=!paid && rawOrderStatus !== "dibatalkan";
-    const historyExpiry = String(r.payment_expires_at||"").trim() ||
-      (r.payment_started_at ? new Date(new Date(r.payment_started_at).getTime()+15*60*1000).toISOString() : "");
     return `<div class="history-item">
       <div class="history-item-top"><div><div class="history-item-code">${escapeHtml(r.order_code||"-")}</div><div class="history-item-date">${r.created_at?new Date(r.created_at).toLocaleString("id-ID"):"-"}</div></div><span class="history-badge ${historyBadgeClass(displayOrderStatus)}">${historyStatusLabel(displayOrderStatus)}</span></div>
       <div class="history-product">🎮 ${escapeHtml(r.product_name||"Akun Genshin")}</div>
       <div class="history-price">${rupiah(r.total_price)}</div>
       <div class="history-payment">${paymentHistoryLabel(displayPaymentStatus)}</div>
-      ${hasDelivery?`<div class="delivery-box"><strong>🎁 Detail Akun yang Dibeli</strong>${r.delivery_login?`<div class="delivery-row"><b>Login/Email:</b> ${escapeHtml(r.delivery_login)}</div>`:""}${r.delivery_password?`<div class="delivery-row"><b>Password:</b> ${escapeHtml(r.delivery_password)}</div>`:""}${r.delivery_note?`<div class="delivery-note">${escapeHtml(r.delivery_note)}</div>`:""}</div>`:(paid?`<div class="delivery-wait">✅ Pembayaran sudah diterima. Detail akun akan muncul setelah admin menyelesaikan penyerahan akun.</div>`:`<div class="delivery-wait">💳 Pesanan belum dibayar. Silakan lanjutkan pembayaran dan kirim bukti transfer.</div><div class="history-payment-timer" data-history-expiry="${escapeHtml(historyExpiry)}">⏱️ Batas pembayaran: <strong>${historyExpiry?"--:--":"BELUM DIMULAI"}</strong></div>${canResumePayment?`<button type="button" class="btn btn-primary resume-payment-btn" data-resume-order="${escapeHtml(r.order_code||"")}" data-resume-product="${escapeHtml(r.product_id||"")}" data-resume-total="${escapeHtml(r.total_price||0)}" style="width:100%;margin-top:10px;min-height:42px;font-size:11px;">💳 Lanjutkan Pembayaran</button>`:""}${canCancelOrder?`<button type="button" class="btn cancel-order-btn" data-cancel-order="${escapeHtml(r.order_code||"")}" data-cancel-product="${escapeHtml(r.product_id||"")}" style="width:100%;margin-top:8px;min-height:40px;font-size:11px;background:#fff0f0;color:#b42318;border:1px solid #f2b8b5;">✖ Batalkan Pesanan</button>`:""}`)}
+      ${hasDelivery?`<div class="delivery-box"><strong>🎁 Detail Akun yang Dibeli</strong>${r.delivery_login?`<div class="delivery-row"><b>Login/Email:</b> ${escapeHtml(r.delivery_login)}</div>`:""}${r.delivery_password?`<div class="delivery-row"><b>Password:</b> ${escapeHtml(r.delivery_password)}</div>`:""}${r.delivery_note?`<div class="delivery-note">${escapeHtml(r.delivery_note)}</div>`:""}</div>`:(paid?`<div class="delivery-wait">✅ Pembayaran sudah diterima. Detail akun akan muncul setelah admin menyelesaikan penyerahan akun.</div>`:`<div class="delivery-wait">ℹ️ Detail akun hanya tampil setelah pembayaran dikonfirmasi admin.</div>`)}
     </div>`;
   }).join("");
-  startHistoryReservationTimers();
-
-  orderHistoryList.querySelectorAll("[data-resume-order]").forEach(btn=>{
-    btn.addEventListener("click",()=>{
-      const code=String(btn.dataset.resumeOrder||"").trim();
-      const productId=btn.dataset.resumeProduct ? Number(btn.dataset.resumeProduct) : null;
-      const total=Number(btn.dataset.resumeTotal||0);
-      if(code) openPaymentModal(null,code,total,productId);
-    });
-  });
-
-  orderHistoryList.querySelectorAll("[data-cancel-order]").forEach(btn=>{
-    btn.addEventListener("click",async()=>{
-      const code=String(btn.dataset.cancelOrder||"").trim();
-      const productId=btn.dataset.cancelProduct ? Number(btn.dataset.cancelProduct) : null;
-      if(!code || !productId) return;
-      if(!confirm("Batalkan pesanan ini? Produk akan dikembalikan menjadi TERSEDIA.")) return;
-      btn.disabled=true;
-      btn.textContent="⏳ Membatalkan...";
-      try{
-        const {data,error}=await supabaseClient.rpc("cancel_unpaid_order",{
-          p_order_code:code,
-          p_product_id:productId,
-          p_browser_id:browserOrderId
-        });
-        if(error) throw error;
-        if(data!==true) throw new Error("Pesanan tidak dapat dibatalkan. Jika pembayaran sudah dikirim, tunggu konfirmasi admin.");
-
-        trackedOrders=(Array.isArray(trackedOrders)?trackedOrders:[]).filter(x=>String(x?.orderCode||"").trim()!==code);
-        localStorage.setItem("akemi_tracked_orders",JSON.stringify(trackedOrders));
-        const latest=trackedOrders[trackedOrders.length-1]||null;
-        trackedOrder=latest;
-        if(latest) localStorage.setItem("akemi_tracked_order",JSON.stringify(latest));
-        else localStorage.removeItem("akemi_tracked_order");
-
-        await fetchOrderHistory();
-      }catch(err){
-        console.error("Cancel order error:",err);
-        btn.disabled=false;
-        btn.textContent="✖ Batalkan Pesanan";
-        alert(err.message||"Pesanan gagal dibatalkan.");
-      }
-    });
-  });
 }
+let lastOrderHistorySignature = "";
 
-async function fetchOrderHistory(codeOverride,waOverride){
-  // IDENTITAS RIWAYAT NORMAL = browser ID yang disimpan di localStorage.
-  // WhatsApp hanya data masing-masing order, bukan identitas pembeli/browser.
+async function fetchOrderHistory(codeOverride,waOverride,silent=false){
+  // FIX DEFINITIF RIWAYAT MULTI-ORDER:
+  // Jangan bergantung pada satu hasil "semua order by WhatsApp".
+  // Setiap order yang sudah dibuat disimpan dengan order_code + WhatsApp,
+  // lalu dicek satu per satu memakai kode pesanan yang unik dan hasilnya digabung.
   const manualCode=String(codeOverride||statusOrderCodeInput?.value||"").trim();
-  const manualWa=String(waOverride||statusWhatsappInput?.value||"").trim();
+  const manualWa=String(waOverride||statusWhatsappInput?.value||trackedOrder?.whatsapp||"").trim();
 
-  if(checkOrderHistoryBtn){checkOrderHistoryBtn.disabled=true;checkOrderHistoryBtn.textContent="⏳ Memuat...";}
-  if(orderLookupMsg){orderLookupMsg.style.display="block";orderLookupMsg.textContent="Memuat semua pembelian...";}
+  let lookups=[];
+  if(manualCode){
+    if(!manualWa){
+      if(orderHistoryList)orderHistoryList.innerHTML='<div class="order-status-empty"><div class="order-status-icon">🛍️</div><strong>WhatsApp diperlukan</strong><span>Masukkan nomor WhatsApp untuk verifikasi pesanan.</span></div>';
+      return;
+    }
+    lookups=[{orderCode:manualCode,whatsapp:manualWa}];
+  }else{
+    const source=Array.isArray(trackedOrders)?trackedOrders:[];
+    const unique=new Map();
+    source.forEach(x=>{
+      const code=String(x?.orderCode||"").trim();
+      const wa=String(x?.whatsapp||"").trim();
+      if(code && wa) unique.set(code,{orderCode:code,whatsapp:wa});
+    });
+    // Jika user sedang memulihkan dengan WhatsApp, tambahkan lookup tanpa kode
+    // agar order yang belum sempat tersimpan di tracking tetap bisa ditemukan.
+    if(manualWa && !unique.size) lookups=[{orderCode:"",whatsapp:manualWa}];
+    else lookups=Array.from(unique.values());
+  }
+
+  if(!lookups.length){
+    if(orderHistoryList)orderHistoryList.innerHTML='<div class="order-status-empty"><div class="order-status-icon">🛍️</div><strong>Belum ada pembelian di perangkat ini</strong><span>Masukkan nomor WhatsApp untuk memulihkan riwayat pembelian.</span></div>';
+    return;
+  }
+
+  // Refresh background tidak boleh mengubah UI setiap interval.
+  if(!silent){
+    if(checkOrderHistoryBtn){checkOrderHistoryBtn.disabled=true;checkOrderHistoryBtn.textContent="⏳ Memuat...";}
+    if(orderLookupMsg){orderLookupMsg.style.display="block";orderLookupMsg.textContent="Memuat semua pembelian...";}
+  }
 
   try{
-    let rows=[];
-
-    if(manualCode){
-      if(!manualWa) throw new Error("Masukkan WhatsApp untuk memulihkan pesanan.");
-      const {data,error}=await supabaseClient.rpc("check_order_history_with_timer",{
-        p_order_code:manualCode,
-        p_whatsapp:manualWa
+    const results=await Promise.all(lookups.map(async item=>{
+      const {data,error}=await supabaseClient.rpc("check_order_history",{
+        p_order_code:item.orderCode || null,
+        p_whatsapp:item.whatsapp
       });
       if(error) throw error;
-      rows=Array.isArray(data)?data.filter(x=>x&&x.order_code&&x.found!==false):[];
-    }else{
-      // Normal: satu browser dapat memiliki banyak order dengan WA berbeda.
-      // Sebelum membaca riwayat, klaim otomatis order lama yang sudah
-      // tersimpan di browser tetapi belum mempunyai browser_order_id.
-      await claimLegacyBrowserOrders();
+      return Array.isArray(data)?data:[];
+    }));
 
-      const {data,error}=await supabaseClient.rpc("get_browser_order_history_with_timer",{
-        p_browser_id:browserOrderId
-      });
-      if(error) throw error;
-      rows=Array.isArray(data)?data.filter(x=>x&&x.order_code&&x.found!==false):[];
-
-      // Safety fallback untuk order lama apabila claim tidak berhasil.
-      // Ini tetap memakai pasangan order_code + WhatsApp masing-masing.
-      if(Array.isArray(trackedOrders) && trackedOrders.length){
-        const known=new Set(rows.map(x=>String(x?.order_code||"").trim()));
-        const lookups=trackedOrders.map(x=>({
-          orderCode:String(x?.orderCode||"").trim(),
-          whatsapp:String(x?.whatsapp||"").trim()
-        })).filter(x=>x.orderCode&&x.whatsapp&&!known.has(x.orderCode));
-
-        if(lookups.length){
-          const results=await Promise.all(lookups.map(async item=>{
-            const {data,error}=await supabaseClient.rpc("check_order_history",{
-              p_order_code:item.orderCode,
-              p_whatsapp:item.whatsapp
-            });
-            if(error) throw error;
-            return Array.isArray(data)?data:[];
-          }));
-          rows=rows.concat(results.flat().filter(x=>x&&x.order_code&&x.found!==false));
-        }
-      }
-    }
-
+    const rows=results.flat().filter(x=>x && x.order_code && x.found!==false);
     const uniqueRows=Array.from(new Map(rows.map(row=>[String(row.order_code),row])).values());
     uniqueRows.sort((a,b)=>new Date(b.created_at||0)-new Date(a.created_at||0));
 
-    if(!uniqueRows.length){
-      renderOrderHistory([]);
-      if(orderLookupMsg)orderLookupMsg.textContent=manualCode
-        ? "❌ Pesanan tidak ditemukan atau data verifikasi tidak cocok."
-        : "📭 Belum ada pembelian di browser ini.";
+    if(!uniqueRows.length) throw new Error("Pembelian tidak ditemukan atau data verifikasi tidak cocok.");
+
+    // Hanya render ulang jika isi riwayat benar-benar berubah.
+    const historySignature = JSON.stringify(uniqueRows.map(row=>({
+      order_code:row.order_code, status:row.status, payment_status:row.payment_status,
+      product_id:row.product_id, created_at:row.created_at, delivered_at:row.delivered_at,
+      delivery_login:row.delivery_login, delivery_password:row.delivery_password, delivery_note:row.delivery_note
+    })));
+    if(silent && historySignature===lastOrderHistorySignature){
       return;
     }
+    lastOrderHistorySignature = historySignature;
 
     renderOrderHistory(uniqueRows);
 
-    // Sinkronkan pasangan order_code + WA untuk kompatibilitas/pemulihan.
     uniqueRows.forEach(row=>{
-      const existing=Array.isArray(trackedOrders)?trackedOrders:[];
-      const known=existing.find(x=>String(x?.orderCode||"").trim()===String(row.order_code||"").trim());
-      const wa=manualCode ? manualWa : (known?.whatsapp || "");
+      const wa=lookups.find(x=>String(x.orderCode||"").trim()===String(row.order_code||"").trim())?.whatsapp || manualWa;
       if(wa) saveTrackedOrder(row.order_code,wa);
     });
 
-    if(orderLookupMsg){
-      orderLookupMsg.style.display="block";
-      orderLookupMsg.textContent=`✅ ${uniqueRows.length} pembelian ditemukan.`;
+    if(!silent){
+      if(orderLookupMsg){
+        orderLookupMsg.style.display="block";
+        orderLookupMsg.textContent=`✅ ${uniqueRows.length} pembelian ditemukan.`;
+      }
+      if(orderRecoveryBox)orderRecoveryBox.classList.add("hidden");
     }
-    if(orderRecoveryBox && !manualCode) orderRecoveryBox.classList.add("hidden");
     if(historyTimer)clearInterval(historyTimer);
-    historyTimer=setInterval(()=>fetchOrderHistory(),15000);
+    historyTimer=setInterval(()=>fetchOrderHistory(null,null,true),15000);
   }catch(err){
     console.error("Order history error:",err);
-    if(orderLookupMsg){orderLookupMsg.style.display="block";orderLookupMsg.textContent=err.message||"Gagal memuat pembelian.";}
+    if(!silent && orderLookupMsg){orderLookupMsg.style.display="block";orderLookupMsg.textContent=err.message||"Gagal memuat pembelian.";}
   }finally{
-    if(checkOrderHistoryBtn){checkOrderHistoryBtn.disabled=false;checkOrderHistoryBtn.textContent="🔐 Pulihkan Pembelian";}
+    if(!silent && checkOrderHistoryBtn){checkOrderHistoryBtn.disabled=false;checkOrderHistoryBtn.textContent="🔐 Pulihkan Pembelian";}
   }
 }
 checkOrderHistoryBtn?.addEventListener("click",()=>{
@@ -1414,8 +1249,9 @@ checkOrderHistoryBtn?.addEventListener("click",()=>{
   fetchOrderHistory();
 });
 refreshOrderHistoryBtn?.addEventListener("click",()=>fetchOrderHistory());
-// Riwayat browser dimuat otomatis saat halaman dibuka kembali.
- // Pemulihan manual hanya diperlukan jika customer berpindah perangkat/browser.
+// Riwayat tidak dipaksa terbuka saat halaman pertama kali dimuat.
+ // Jika ada transaksi baru, startOrderStatusTracking() akan memuatnya setelah checkout.
+ // Pemulihan di perangkat lain hanya berjalan setelah tombol "Pulihkan Pembelian" ditekan.
 
 // Bersihkan keranjang otomatis jika produk sudah TERJUAL atau sudah menjadi order milik pembeli.
 function syncCartWithProducts(){
@@ -1440,11 +1276,6 @@ const paymentForm = document.getElementById("paymentForm");
 const paymentSubmit = document.getElementById("paymentSubmit");
 const paymentMessage = document.getElementById("paymentMessage");
 const proofFile = document.getElementById("proofFile");
-const paymentReservationTimer = document.getElementById("paymentReservationTimer");
-const paymentCountdown = document.getElementById("paymentCountdown");
-let paymentExpiryAt = null;
-let paymentTimerInterval = null;
-let paymentTimerStarting = false;
 
 function paymentInfoHtml(method, totalPrice) {
     const total = rupiah(totalPrice);
@@ -1483,89 +1314,6 @@ function paymentInfoHtml(method, totalPrice) {
     return '';
 }
 
-function stopPaymentReservationTimer(){
-    if(paymentTimerInterval){ clearInterval(paymentTimerInterval); paymentTimerInterval=null; }
-    paymentExpiryAt=null;
-    paymentTimerStarting=false;
-}
-function setPaymentCountdown(seconds){
-    const safe=Math.max(0,Math.floor(Number(seconds)||0));
-    const mm=String(Math.floor(safe/60)).padStart(2,"0");
-    const ss=String(safe%60).padStart(2,"0");
-    if(paymentCountdown) paymentCountdown.textContent=`${mm}:${ss}`;
-}
-function renderPaymentTimer(){
-    if(!paymentExpiryAt) return;
-    const remaining=Math.max(0,new Date(paymentExpiryAt).getTime()-Date.now());
-    setPaymentCountdown(Math.ceil(remaining/1000));
-    if(remaining<=0){
-        if(paymentReservationTimer){
-            paymentReservationTimer.classList.add("is-danger");
-            const title=paymentReservationTimer.querySelector(".payment-reservation-title");
-            const message=paymentReservationTimer.querySelector(".payment-reservation-text");
-            const note=paymentReservationTimer.querySelector(".payment-reservation-note");
-            if(title) title.textContent="⏰ WAKTU PEMBAYARAN HABIS";
-            if(message) message.textContent="Pesanan dibatalkan.";
-            if(note) note.textContent="Akun dikembalikan ke katalog. Silakan buat pesanan baru.";
-        }
-        if(paymentCountdown) paymentCountdown.textContent="00:00";
-        if(paymentTimerInterval){clearInterval(paymentTimerInterval);paymentTimerInterval=null;}
-        paymentExpiryAt=null;
-        supabaseClient.rpc("expire_unpaid_orders").then(()=>{fetchOrderHistory();loadProducts(false);}).catch(()=>{fetchOrderHistory();loadProducts(false);});
-        return;
-    }
-}
-async function startPaymentReservationTimer(){
-    if(!paymentOrder?.code || !paymentOrder?.productId || paymentTimerStarting) return;
-    stopPaymentReservationTimer();
-    paymentTimerStarting=true;
-    if(paymentReservationTimer){
-        paymentReservationTimer.style.background="#fff8e8";
-        paymentReservationTimer.style.borderColor="#f0c36a";
-        const title=paymentReservationTimer.querySelector(".payment-reservation-title");
-        const message=paymentReservationTimer.querySelector(".payment-reservation-text");
-        const note=paymentReservationTimer.querySelector(".payment-reservation-note");
-        if(title) title.textContent="⚠️ BATAS WAKTU PEMBAYARAN";
-        if(message) {
-            // Jangan mengganti innerHTML karena itu akan membuat elemen
-            // #paymentCountdown lama terlepas dari DOM.
-            message.firstChild.textContent="Pesanan akan dibatalkan dalam ";
-        }
-        if(note) note.textContent="Memulai waktu pembayaran...";
-    }
-    setPaymentCountdown(15*60);
-    try{
-        const {data,error}=await supabaseClient.rpc("start_payment_reservation",{
-            p_order_code:paymentOrder.code,
-            p_product_id:paymentOrder.productId,
-            p_browser_id:browserOrderId
-        });
-        if(error) throw error;
-        if(!data) throw new Error("Pesanan tidak dapat dilanjutkan. Waktu pembayaran mungkin sudah habis.");
-        paymentExpiryAt=data;
-        if(paymentReservationTimer){
-            paymentReservationTimer.classList.remove("is-danger");
-            const title=paymentReservationTimer.querySelector(".payment-reservation-title");
-            const message=paymentReservationTimer.querySelector(".payment-reservation-text");
-            const note=paymentReservationTimer.querySelector(".payment-reservation-note");
-            if(title) title.textContent="⚠️ BATAS WAKTU PEMBAYARAN";
-            if(note) note.textContent="Selesaikan pembayaran dan kirim bukti sebelum waktu habis.";
-        }
-        renderPaymentTimer();
-        paymentTimerInterval=setInterval(renderPaymentTimer,1000);
-        // Sinkronkan timer yang sama ke kartu "Pembelian Saya".
-        fetchOrderHistory();
-    }catch(err){
-        console.error("Payment timer error:",err);
-        if(paymentReservationTimer){
-            paymentReservationTimer.style.background="#fff0f0";
-            paymentReservationTimer.style.borderColor="#efb0b0";
-            paymentReservationTimer.innerHTML='<div style="font-weight:800;">⚠️ PESANAN TIDAK DAPAT DILANJUTKAN</div><div style="margin-top:3px;">Silakan kembali ke Pembelian Saya atau katalog.</div>';
-        }
-        if(paymentSubmit) paymentSubmit.disabled=true;
-    }finally{ paymentTimerStarting=false; }
-}
-
 function openPaymentModal(orderId, orderCode, totalPrice, productId = null) {
     paymentOrder = { id: orderId, code: orderCode, total: totalPrice, productId };
     selectedPaymentMethod = "";
@@ -1585,11 +1333,9 @@ function openPaymentModal(orderId, orderCode, totalPrice, productId = null) {
     paymentModal.classList.add("show");
     paymentModal.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
-    startPaymentReservationTimer();
 }
 
 function closePaymentModal() {
-    stopPaymentReservationTimer();
     paymentModal.classList.remove("show");
     paymentModal.setAttribute("aria-hidden", "true");
     document.body.style.overflow = "";
