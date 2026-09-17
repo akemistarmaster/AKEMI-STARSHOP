@@ -1167,14 +1167,24 @@ function renderOrderHistory(rows){
       ? "selesai"
       : (paid && rawOrderStatus==="pending" ? "dibayar" : rawOrderStatus);
     const hasDelivery=paid && hasDeliveryData;
+    const canResumePayment=!paid && rawOrderStatus !== "dibatalkan";
     return `<div class="history-item">
       <div class="history-item-top"><div><div class="history-item-code">${escapeHtml(r.order_code||"-")}</div><div class="history-item-date">${r.created_at?new Date(r.created_at).toLocaleString("id-ID"):"-"}</div></div><span class="history-badge ${historyBadgeClass(displayOrderStatus)}">${historyStatusLabel(displayOrderStatus)}</span></div>
       <div class="history-product">🎮 ${escapeHtml(r.product_name||"Akun Genshin")}</div>
       <div class="history-price">${rupiah(r.total_price)}</div>
       <div class="history-payment">${paymentHistoryLabel(displayPaymentStatus)}</div>
-      ${hasDelivery?`<div class="delivery-box"><strong>🎁 Detail Akun yang Dibeli</strong>${r.delivery_login?`<div class="delivery-row"><b>Login/Email:</b> ${escapeHtml(r.delivery_login)}</div>`:""}${r.delivery_password?`<div class="delivery-row"><b>Password:</b> ${escapeHtml(r.delivery_password)}</div>`:""}${r.delivery_note?`<div class="delivery-note">${escapeHtml(r.delivery_note)}</div>`:""}</div>`:(paid?`<div class="delivery-wait">✅ Pembayaran sudah diterima. Detail akun akan muncul setelah admin menyelesaikan penyerahan akun.</div>`:`<div class="delivery-wait">ℹ️ Detail akun hanya tampil setelah pembayaran dikonfirmasi admin.</div>`)}
+      ${hasDelivery?`<div class="delivery-box"><strong>🎁 Detail Akun yang Dibeli</strong>${r.delivery_login?`<div class="delivery-row"><b>Login/Email:</b> ${escapeHtml(r.delivery_login)}</div>`:""}${r.delivery_password?`<div class="delivery-row"><b>Password:</b> ${escapeHtml(r.delivery_password)}</div>`:""}${r.delivery_note?`<div class="delivery-note">${escapeHtml(r.delivery_note)}</div>`:""}</div>`:(paid?`<div class="delivery-wait">✅ Pembayaran sudah diterima. Detail akun akan muncul setelah admin menyelesaikan penyerahan akun.</div>`:`<div class="delivery-wait">💳 Pesanan belum dibayar. Silakan lanjutkan pembayaran dan kirim bukti transfer.</div>${canResumePayment?`<button type="button" class="btn btn-primary resume-payment-btn" data-resume-order="${escapeHtml(r.order_code||"")}" data-resume-product="${escapeHtml(r.product_id||"")}" data-resume-total="${escapeHtml(r.total_price||0)}" style="width:100%;margin-top:10px;min-height:42px;font-size:11px;">💳 Lanjutkan Pembayaran</button>`:""}`)}
     </div>`;
   }).join("");
+
+  orderHistoryList.querySelectorAll("[data-resume-order]").forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      const code=String(btn.dataset.resumeOrder||"").trim();
+      const productId=btn.dataset.resumeProduct ? Number(btn.dataset.resumeProduct) : null;
+      const total=Number(btn.dataset.resumeTotal||0);
+      if(code) openPaymentModal(null,code,total,productId);
+    });
+  });
 }
 async function fetchOrderHistory(codeOverride,waOverride){
   // IDENTITAS RIWAYAT NORMAL = browser ID yang disimpan di localStorage.
