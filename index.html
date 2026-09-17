@@ -1034,8 +1034,14 @@ searchInput.addEventListener("input", () => {
     renderProducts(filtered, true);
 });
 
-async function loadProducts() {
-    container.innerHTML = "<p>Memuat akun...</p>";
+async function loadProducts(showLoading = true) {
+    // Loading hanya ditampilkan saat katalog pertama kali dimuat.
+    // Sinkronisasi berkala berjalan di background agar katalog tidak berkedip
+    // menjadi "Memuat akun..." setiap beberapa detik.
+    if (showLoading) {
+        container.innerHTML = "<p>Memuat akun...</p>";
+    }
+
     // Lepaskan reservasi yang sudah kedaluwarsa sebelum membaca katalog.
     try { await supabaseClient.rpc("expire_unpaid_orders"); } catch (e) { console.warn("Auto-expire check:", e); }
 
@@ -1046,8 +1052,10 @@ async function loadProducts() {
 
     if (error) {
         console.error("Gagal mengambil produk:", error);
-        container.innerHTML =
-            "<p>Gagal memuat akun. Silakan refresh halaman.</p>";
+        if (showLoading) {
+            container.innerHTML =
+                "<p>Gagal memuat akun. Silakan refresh halaman.</p>";
+        }
         return;
     }
 
@@ -1057,6 +1065,12 @@ async function loadProducts() {
 }
 
 loadProducts();
+
+// Sinkronisasi katalog tetap berjalan, tetapi tanpa mengganti tampilan
+// menjadi "Memuat akun..." setiap 15 detik.
+setInterval(() => {
+    loadProducts(false);
+}, 15000);
 </script>
 
 
@@ -1239,12 +1253,14 @@ function renderOrderHistory(rows){
     const hasDelivery=paid && hasDeliveryData;
     const canResumePayment=!paid && rawOrderStatus !== "dibatalkan";
     const canCancelOrder=!paid && rawOrderStatus !== "dibatalkan";
+    const historyExpiry = String(r.payment_expires_at||"").trim() ||
+      (r.payment_started_at ? new Date(new Date(r.payment_started_at).getTime()+15*60*1000).toISOString() : "");
     return `<div class="history-item">
       <div class="history-item-top"><div><div class="history-item-code">${escapeHtml(r.order_code||"-")}</div><div class="history-item-date">${r.created_at?new Date(r.created_at).toLocaleString("id-ID"):"-"}</div></div><span class="history-badge ${historyBadgeClass(displayOrderStatus)}">${historyStatusLabel(displayOrderStatus)}</span></div>
       <div class="history-product">🎮 ${escapeHtml(r.product_name||"Akun Genshin")}</div>
       <div class="history-price">${rupiah(r.total_price)}</div>
       <div class="history-payment">${paymentHistoryLabel(displayPaymentStatus)}</div>
-      ${hasDelivery?`<div class="delivery-box"><strong>🎁 Detail Akun yang Dibeli</strong>${r.delivery_login?`<div class="delivery-row"><b>Login/Email:</b> ${escapeHtml(r.delivery_login)}</div>`:""}${r.delivery_password?`<div class="delivery-row"><b>Password:</b> ${escapeHtml(r.delivery_password)}</div>`:""}${r.delivery_note?`<div class="delivery-note">${escapeHtml(r.delivery_note)}</div>`:""}</div>`:(paid?`<div class="delivery-wait">✅ Pembayaran sudah diterima. Detail akun akan muncul setelah admin menyelesaikan penyerahan akun.</div>`:`<div class="delivery-wait">💳 Pesanan belum dibayar. Silakan lanjutkan pembayaran dan kirim bukti transfer.</div><div class="history-payment-timer" data-history-expiry="${escapeHtml(r.payment_expires_at||"")}">⏱️ Batas pembayaran: <strong>${r.payment_expires_at?"--:--":"BELUM DIMULAI"}</strong></div>${canResumePayment?`<button type="button" class="btn btn-primary resume-payment-btn" data-resume-order="${escapeHtml(r.order_code||"")}" data-resume-product="${escapeHtml(r.product_id||"")}" data-resume-total="${escapeHtml(r.total_price||0)}" style="width:100%;margin-top:10px;min-height:42px;font-size:11px;">💳 Lanjutkan Pembayaran</button>`:""}${canCancelOrder?`<button type="button" class="btn cancel-order-btn" data-cancel-order="${escapeHtml(r.order_code||"")}" data-cancel-product="${escapeHtml(r.product_id||"")}" style="width:100%;margin-top:8px;min-height:40px;font-size:11px;background:#fff0f0;color:#b42318;border:1px solid #f2b8b5;">✖ Batalkan Pesanan</button>`:""}`)}
+      ${hasDelivery?`<div class="delivery-box"><strong>🎁 Detail Akun yang Dibeli</strong>${r.delivery_login?`<div class="delivery-row"><b>Login/Email:</b> ${escapeHtml(r.delivery_login)}</div>`:""}${r.delivery_password?`<div class="delivery-row"><b>Password:</b> ${escapeHtml(r.delivery_password)}</div>`:""}${r.delivery_note?`<div class="delivery-note">${escapeHtml(r.delivery_note)}</div>`:""}</div>`:(paid?`<div class="delivery-wait">✅ Pembayaran sudah diterima. Detail akun akan muncul setelah admin menyelesaikan penyerahan akun.</div>`:`<div class="delivery-wait">💳 Pesanan belum dibayar. Silakan lanjutkan pembayaran dan kirim bukti transfer.</div><div class="history-payment-timer" data-history-expiry="${escapeHtml(historyExpiry)}">⏱️ Batas pembayaran: <strong>${historyExpiry?"--:--":"BELUM DIMULAI"}</strong></div>${canResumePayment?`<button type="button" class="btn btn-primary resume-payment-btn" data-resume-order="${escapeHtml(r.order_code||"")}" data-resume-product="${escapeHtml(r.product_id||"")}" data-resume-total="${escapeHtml(r.total_price||0)}" style="width:100%;margin-top:10px;min-height:42px;font-size:11px;">💳 Lanjutkan Pembayaran</button>`:""}${canCancelOrder?`<button type="button" class="btn cancel-order-btn" data-cancel-order="${escapeHtml(r.order_code||"")}" data-cancel-product="${escapeHtml(r.product_id||"")}" style="width:100%;margin-top:8px;min-height:40px;font-size:11px;background:#fff0f0;color:#b42318;border:1px solid #f2b8b5;">✖ Batalkan Pesanan</button>`:""}`)}
     </div>`;
   }).join("");
   startHistoryReservationTimers();
@@ -1496,8 +1512,18 @@ async function startPaymentReservationTimer(){
     if(paymentReservationTimer){
         paymentReservationTimer.style.background="#fff8e8";
         paymentReservationTimer.style.borderColor="#f0c36a";
-        paymentReservationTimer.innerHTML='<div style="font-weight:800;">⚠️ BATAS WAKTU PEMBAYARAN</div><div style="margin-top:3px;">Memulai waktu pembayaran...</div>';
+        const title=paymentReservationTimer.querySelector(".payment-reservation-title");
+        const message=paymentReservationTimer.querySelector(".payment-reservation-text");
+        const note=paymentReservationTimer.querySelector(".payment-reservation-note");
+        if(title) title.textContent="⚠️ BATAS WAKTU PEMBAYARAN";
+        if(message) {
+            // Jangan mengganti innerHTML karena itu akan membuat elemen
+            // #paymentCountdown lama terlepas dari DOM.
+            message.firstChild.textContent="Pesanan akan dibatalkan dalam ";
+        }
+        if(note) note.textContent="Memulai waktu pembayaran...";
     }
+    setPaymentCountdown(15*60);
     try{
         const {data,error}=await supabaseClient.rpc("start_payment_reservation",{
             p_order_code:paymentOrder.code,
