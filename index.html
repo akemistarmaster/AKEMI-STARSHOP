@@ -498,6 +498,10 @@ footer{border-top:1px solid var(--border);background:#07050d;padding:35px 20px;t
         Pesanan <strong id="paymentOrderCode">-</strong><br>
         Total <strong id="paymentTotal">Rp 0</strong>
       </p>
+      <div id="paymentReservationTimer" style="margin:14px 0 16px;padding:12px 14px;border:1px solid #f0c36a;border-radius:12px;background:#fff8e8;text-align:center;font-size:12px;line-height:1.45;">
+        <div style="font-weight:800;">⚠️ BATAS WAKTU PEMBAYARAN</div>
+        <div style="margin-top:3px;">Pesanan akan dibatalkan dalam <strong id="paymentCountdown">15:00</strong></div>
+      </div>
 
       <div class="payment-methods">
         <button class="payment-method" data-method="GoPay" type="button">
@@ -1018,6 +1022,8 @@ searchInput.addEventListener("input", () => {
 
 async function loadProducts() {
     container.innerHTML = "<p>Memuat akun...</p>";
+    // Lepaskan reservasi yang sudah kedaluwarsa sebelum membaca katalog.
+    try { await supabaseClient.rpc("expire_unpaid_orders"); } catch (e) { console.warn("Auto-expire check:", e); }
 
     const { data, error } = await supabaseClient
         .from("products")
@@ -1343,6 +1349,11 @@ const paymentForm = document.getElementById("paymentForm");
 const paymentSubmit = document.getElementById("paymentSubmit");
 const paymentMessage = document.getElementById("paymentMessage");
 const proofFile = document.getElementById("proofFile");
+const paymentReservationTimer = document.getElementById("paymentReservationTimer");
+const paymentCountdown = document.getElementById("paymentCountdown");
+let paymentExpiryAt = null;
+let paymentTimerInterval = null;
+let paymentTimerStarting = false;
 
 function paymentInfoHtml(method, totalPrice) {
     const total = rupiah(totalPrice);
@@ -1381,6 +1392,69 @@ function paymentInfoHtml(method, totalPrice) {
     return '';
 }
 
+function stopPaymentReservationTimer(){
+    if(paymentTimerInterval){ clearInterval(paymentTimerInterval); paymentTimerInterval=null; }
+    paymentExpiryAt=null;
+    paymentTimerStarting=false;
+}
+function setPaymentCountdown(seconds){
+    const safe=Math.max(0,Math.floor(Number(seconds)||0));
+    const mm=String(Math.floor(safe/60)).padStart(2,"0");
+    const ss=String(safe%60).padStart(2,"0");
+    if(paymentCountdown) paymentCountdown.textContent=`${mm}:${ss}`;
+}
+function renderPaymentTimer(){
+    if(!paymentExpiryAt) return;
+    const remaining=Math.max(0,new Date(paymentExpiryAt).getTime()-Date.now());
+    setPaymentCountdown(Math.ceil(remaining/1000));
+    if(remaining<=0){
+        stopPaymentReservationTimer();
+        if(paymentCountdown) paymentCountdown.textContent="00:00";
+        if(paymentReservationTimer){
+            paymentReservationTimer.style.background="#fff0f0";
+            paymentReservationTimer.style.borderColor="#efb0b0";
+            paymentReservationTimer.innerHTML='<div style="font-weight:800;">⏰ WAKTU PEMBAYARAN HABIS</div><div style="margin-top:3px;">Pesanan dibatalkan dan akun dikembalikan ke katalog.</div>';
+        }
+        supabaseClient.rpc("expire_unpaid_orders").then(()=>fetchOrderHistory()).catch(()=>fetchOrderHistory());
+        return;
+    }
+}
+async function startPaymentReservationTimer(){
+    if(!paymentOrder?.code || !paymentOrder?.productId || paymentTimerStarting) return;
+    stopPaymentReservationTimer();
+    paymentTimerStarting=true;
+    if(paymentReservationTimer){
+        paymentReservationTimer.style.background="#fff8e8";
+        paymentReservationTimer.style.borderColor="#f0c36a";
+        paymentReservationTimer.innerHTML='<div style="font-weight:800;">⚠️ BATAS WAKTU PEMBAYARAN</div><div style="margin-top:3px;">Memulai waktu pembayaran...</div>';
+    }
+    try{
+        const {data,error}=await supabaseClient.rpc("start_payment_reservation",{
+            p_order_code:paymentOrder.code,
+            p_product_id:paymentOrder.productId,
+            p_browser_id:browserOrderId
+        });
+        if(error) throw error;
+        if(!data) throw new Error("Pesanan tidak dapat dilanjutkan. Waktu pembayaran mungkin sudah habis.");
+        paymentExpiryAt=data;
+        if(paymentReservationTimer){
+            paymentReservationTimer.style.background="#fff8e8";
+            paymentReservationTimer.style.borderColor="#f0c36a";
+            paymentReservationTimer.innerHTML='<div style="font-weight:800;">⚠️ BATAS WAKTU PEMBAYARAN</div><div style="margin-top:3px;">Pesanan akan dibatalkan dalam <strong id="paymentCountdown">15:00</strong></div>';
+        }
+        renderPaymentTimer();
+        paymentTimerInterval=setInterval(renderPaymentTimer,1000);
+    }catch(err){
+        console.error("Payment timer error:",err);
+        if(paymentReservationTimer){
+            paymentReservationTimer.style.background="#fff0f0";
+            paymentReservationTimer.style.borderColor="#efb0b0";
+            paymentReservationTimer.innerHTML='<div style="font-weight:800;">⚠️ PESANAN TIDAK DAPAT DILANJUTKAN</div><div style="margin-top:3px;">Silakan kembali ke Pembelian Saya atau katalog.</div>';
+        }
+        if(paymentSubmit) paymentSubmit.disabled=true;
+    }finally{ paymentTimerStarting=false; }
+}
+
 function openPaymentModal(orderId, orderCode, totalPrice, productId = null) {
     paymentOrder = { id: orderId, code: orderCode, total: totalPrice, productId };
     selectedPaymentMethod = "";
@@ -1400,9 +1474,11 @@ function openPaymentModal(orderId, orderCode, totalPrice, productId = null) {
     paymentModal.classList.add("show");
     paymentModal.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
+    startPaymentReservationTimer();
 }
 
 function closePaymentModal() {
+    stopPaymentReservationTimer();
     paymentModal.classList.remove("show");
     paymentModal.setAttribute("aria-hidden", "true");
     document.body.style.overflow = "";
