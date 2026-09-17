@@ -58,6 +58,19 @@ footer{border-top:1px solid var(--border);background:#07050d;padding:35px 20px;t
 /* MODALS */
 .modal,.checkout-modal,.payment-modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:18px}.modal{z-index:1000}.checkout-modal{z-index:1100}.payment-modal{z-index:1200}.modal.show,.checkout-modal.show,.payment-modal.show{display:flex}.modal-backdrop,.checkout-backdrop,.payment-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.82);backdrop-filter:blur(9px)}.modal-box,.checkout-box,.payment-box{position:relative;z-index:2;width:min(680px,100%);max-height:92vh;overflow-y:auto;background:linear-gradient(145deg,#1a1030,#0c0815);border:1px solid var(--border);border-radius:22px;box-shadow:0 30px 90px rgba(0,0,0,.62)}.modal-close{position:absolute;right:12px;top:12px;z-index:5;width:40px;height:40px;border:1px solid rgba(255,255,255,.12);border-radius:50%;background:rgba(8,7,13,.78);color:#fff;font-size:25px;cursor:pointer}.modal-image{min-height:250px;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle,rgba(139,92,246,.3),transparent 60%),#0c0a12;color:#625c70;font-size:13px}.modal-image img{width:100%;max-height:390px;object-fit:contain;display:block}.modal-content{padding:22px}.modal-content h2{font-size:24px;margin:5px 0 14px}.modal-price{color:#d8b4fe;font-size:25px;font-weight:900;margin:8px 0 20px}.modal-description{border-top:1px solid var(--border);padding-top:18px}.modal-description h3{font-size:15px;margin-bottom:8px}.modal-description p{color:var(--muted);line-height:1.7;white-space:pre-wrap}.buy-btn{width:100%;min-height:52px;margin-top:22px;border:0;border-radius:13px;color:#fff;background:linear-gradient(135deg,#a855f7,#6d28d9);font-size:15px;font-weight:900;cursor:pointer}.buy-btn:disabled{opacity:.55;cursor:not-allowed}.modal-note{margin-top:10px;color:#716c7e;text-align:center;font-size:10px;line-height:1.5}
 .checkout-box,.payment-box{width:min(560px,100%)}.checkout-content,.payment-content{padding:25px 22px}.checkout-badge{display:inline-block;padding:6px 10px;border-radius:8px;background:rgba(139,92,246,.11);color:#d8b4fe;font-size:10px;font-weight:900;margin-bottom:10px}.checkout-content h2,.payment-content h2{font-size:25px;margin-bottom:7px}.checkout-subtitle,.payment-subtitle{color:var(--muted);font-size:13px;line-height:1.6;margin-bottom:18px}.checkout-product{padding:14px;margin-bottom:18px;border:1px solid var(--border);border-radius:12px;background:rgba(255,255,255,.025)}.checkout-product strong{display:block;margin-bottom:5px;font-size:15px}.checkout-product span{color:var(--muted);font-size:12px}#checkoutForm label{display:block;margin:13px 0 7px;font-size:12px;font-weight:700}#checkoutForm input{width:100%;height:48px;padding:0 14px;border:1px solid var(--border);border-radius:10px;outline:none;background:#0d0a15;color:#fff;font-size:14px}#checkoutForm input:focus{border-color:#a855f7}.checkout-total{display:flex;align-items:center;justify-content:space-between;margin-top:20px;padding:15px 0;border-top:1px solid var(--border)}.checkout-total span{color:var(--muted);font-size:13px}.checkout-total strong{color:#d8b4fe;font-size:20px}.checkout-submit,.payment-submit{width:100%;min-height:52px;border:0;border-radius:12px;background:linear-gradient(135deg,#a855f7,#6d28d9);color:#fff;font-size:14px;font-weight:900;cursor:pointer}.checkout-submit:disabled,.payment-submit:disabled{opacity:.55;cursor:not-allowed}.checkout-message,.payment-message{display:none;margin-top:12px;padding:11px;border-radius:9px;background:rgba(255,255,255,.04);color:var(--muted);font-size:12px;line-height:1.5}
+.payment-reservation-timer{margin:14px 0 16px;padding:14px 14px 12px;border:1px solid #f0c36a;border-radius:14px;background:#fff8e8;color:#3b2a0a;text-align:center;font-size:12px;line-height:1.45;box-shadow:0 8px 24px rgba(0,0,0,.16)}
+.payment-reservation-title{font-weight:900;color:#5b3b00;letter-spacing:.2px}
+.payment-reservation-text{margin-top:4px;color:#4a3310}
+.payment-reservation-text strong{display:inline-block;min-width:78px;margin-left:3px;color:#6d28d9;font-size:28px;line-height:1.1;letter-spacing:1px}
+.payment-reservation-note{margin-top:5px;color:#6b5a3b;font-size:10px}
+.payment-reservation-timer.is-danger{background:#fff0f0;border-color:#efb0b0;color:#7f1d1d}
+.payment-reservation-timer.is-danger .payment-reservation-title,.payment-reservation-timer.is-danger .payment-reservation-text,.payment-reservation-timer.is-danger .payment-reservation-note{color:#991b1b}
+.payment-reservation-timer.is-danger .payment-reservation-text strong{color:#dc2626}
+.history-payment-timer{margin-top:9px;padding:9px 10px;border:1px solid rgba(240,195,106,.45);border-radius:10px;background:rgba(255,248,232,.96);color:#4a3310;font-size:10px;line-height:1.45;text-align:center}
+.history-payment-timer strong{color:#6d28d9;font-size:16px;letter-spacing:.5px}
+.history-payment-timer.expired{background:#fff0f0;border-color:#efb0b0;color:#991b1b}
+.history-payment-timer.expired strong{color:#dc2626}
+@media(max-width:650px){.payment-reservation-timer{padding:13px 10px}.payment-reservation-text strong{font-size:25px;min-width:72px}.history-payment-timer strong{font-size:15px}}
 .payment-methods{display:grid;gap:10px;margin:15px 0}.payment-method{width:100%;padding:15px;text-align:left;border:1px solid var(--border);border-radius:12px;background:rgba(255,255,255,.025);color:#fff;cursor:pointer;transition:.18s}.payment-method:hover{border-color:rgba(168,85,247,.65);background:rgba(139,92,246,.06)}.payment-method.selected{border-color:#a855f7;background:linear-gradient(135deg,rgba(168,85,247,.15),rgba(109,40,217,.08));box-shadow:0 0 0 1px rgba(168,85,247,.12)}.payment-method strong{display:block;font-size:15px;margin-bottom:4px}.payment-method span{font-size:11px;color:var(--muted)}.payment-detail{display:none;padding:16px;margin-top:12px;border:1px solid var(--border);border-radius:13px;background:rgba(255,255,255,.025)}.payment-detail.show{display:block}.payment-line{font-size:13px;color:#d8d4e8;margin:7px 0}.payment-number{font-size:20px;font-weight:900;letter-spacing:.5px;margin:9px 0;color:#f1ddff}.payment-note{font-size:11px;color:#aaa5b8;line-height:1.55;margin-top:10px}.qris-wrap{margin:14px 0 4px;padding:14px;border:1px solid rgba(168,85,247,.28);border-radius:16px;background:rgba(0,0,0,.22);text-align:center}.qris-title{font-size:12px;font-weight:900;margin-bottom:10px;color:#eee}.qris-image-box{width:min(310px,100%);margin:0 auto;padding:10px;border-radius:14px;background:#fff;box-shadow:0 12px 35px rgba(0,0,0,.28)}.qris-image{display:block;width:100%;height:auto;max-height:360px;object-fit:contain;border-radius:8px}.qris-caption{margin-top:10px;font-size:10px;line-height:1.55;color:#aaa5b8}.qris-fallback{display:none;padding:22px 12px;color:#6b6573;font-size:11px;line-height:1.5}.qris-amount{display:inline-block;margin-top:8px;padding:7px 10px;border-radius:8px;background:rgba(168,85,247,.1);color:#d8b4fe;font-size:12px;font-weight:900}#proofFile{width:100%;margin-top:10px;color:#fff}.payment-success{text-align:center;padding:18px 0}.payment-success .icon{font-size:44px;margin-bottom:10px}.payment-close{position:absolute;right:12px;top:12px;z-index:3}
 @media(max-width:900px){.nav-links{display:none}.nav-search{display:none}.menu{display:block}.products{grid-template-columns:repeat(2,1fr)}.hero{margin:18px 16px 0}.trust{grid-template-columns:repeat(3,1fr)}.info-grid{grid-template-columns:1fr}}
 @media(max-width:650px){.nav{min-height:52px;padding:6px 12px}.logo-icon{width:34px;height:34px}.logo-text{font-size:12px}.hero{padding:24px 18px 30px;border-radius:22px}.hero h1{font-size:38px;letter-spacing:-1.5px}.hero p{font-size:13px}.hero-orb{right:-60px;bottom:-40px;width:220px;height:220px}.hero-mark img{width:68px;height:68px}.trust{grid-template-columns:repeat(3,1fr);padding:0 14px}.trust-item{padding:13px 10px}.trust-item strong{width:32px;height:32px;font-size:14px}.trust-item span{font-size:9px}.section{padding:28px 14px}.search{margin-bottom:10px;max-width:none}.search input{height:34px;font-size:11px}.section-title{font-size:23px}.products{grid-template-columns:1fr 1fr;gap:10px}.product-image{height:145px}.product-content{padding:12px}.product h3{font-size:12px}.tag{font-size:9px;padding:5px 6px}.price{font-size:13px}.detail-btn{font-size:9px;padding:8px}.steps{grid-template-columns:1fr 1fr}.info-grid{padding:0 14px 45px}.modal,.checkout-modal,.payment-modal{padding:10px}.modal-box,.checkout-box,.payment-box{max-height:95vh;border-radius:18px}.modal-content,.checkout-content,.payment-content{padding:18px 16px}}
@@ -498,9 +511,10 @@ footer{border-top:1px solid var(--border);background:#07050d;padding:35px 20px;t
         Pesanan <strong id="paymentOrderCode">-</strong><br>
         Total <strong id="paymentTotal">Rp 0</strong>
       </p>
-      <div id="paymentReservationTimer" style="margin:14px 0 16px;padding:12px 14px;border:1px solid #f0c36a;border-radius:12px;background:#fff8e8;text-align:center;font-size:12px;line-height:1.45;">
-        <div style="font-weight:800;">⚠️ BATAS WAKTU PEMBAYARAN</div>
-        <div style="margin-top:3px;">Pesanan akan dibatalkan dalam <strong id="paymentCountdown">15:00</strong></div>
+      <div id="paymentReservationTimer" class="payment-reservation-timer">
+        <div class="payment-reservation-title">⚠️ BATAS WAKTU PEMBAYARAN</div>
+        <div class="payment-reservation-text">Pesanan akan dibatalkan dalam <strong id="paymentCountdown">15:00</strong></div>
+        <div class="payment-reservation-note">Selesaikan pembayaran dan kirim bukti sebelum waktu habis.</div>
       </div>
 
       <div class="payment-methods">
@@ -1146,6 +1160,56 @@ async function claimLegacyBrowserOrders(){
 function historyStatusLabel(s){s=String(s||"pending").toLowerCase();if(s==="selesai")return "SELESAI";if(s==="dibayar")return "PEMBAYARAN DITERIMA";if(s==="diproses")return "DIPROSES";if(s==="dibatalkan")return "DIBATALKAN";return "MENUNGGU";}
 function historyBadgeClass(s){s=String(s||"pending").toLowerCase();if(["selesai","dibayar"].includes(s))return "paid";if(s==="dibatalkan")return "rejected";return "pending";}
 function paymentHistoryLabel(s){s=String(s||"pending").toLowerCase();if(["diterima","paid","lunas"].includes(s))return "Pembayaran: DITERIMA";if(["ditolak","rejected"].includes(s))return "Pembayaran: DITOLAK";return "Pembayaran: MENUNGGU KONFIRMASI";}
+let historyReservationInterval = null;
+
+function formatRemaining(ms){
+  const safe=Math.max(0,Number(ms)||0);
+  const total=Math.ceil(safe/1000);
+  const mm=String(Math.floor(total/60)).padStart(2,"0");
+  const ss=String(total%60).padStart(2,"0");
+  return `${mm}:${ss}`;
+}
+function refreshHistoryReservationTimers(){
+  const nodes=document.querySelectorAll("[data-history-expiry]");
+  if(!nodes.length){
+    if(historyReservationInterval){clearInterval(historyReservationInterval);historyReservationInterval=null;}
+    return;
+  }
+  let active=false;
+  let expiredSeen=false;
+  nodes.forEach(node=>{
+    const expiry=String(node.dataset.historyExpiry||"").trim();
+    const value=node.querySelector("strong");
+    if(!value) return;
+    if(!expiry){
+      value.textContent="BELUM DIMULAI";
+      return;
+    }
+    const remaining=new Date(expiry).getTime()-Date.now();
+    if(remaining<=0){
+      value.textContent="00:00";
+      node.classList.add("expired");
+      expiredSeen=true;
+    }else{
+      value.textContent=formatRemaining(remaining);
+      node.classList.remove("expired");
+      active=true;
+    }
+  });
+  if(expiredSeen){
+    supabaseClient.rpc("expire_unpaid_orders").then(()=>{fetchOrderHistory();loadProducts();}).catch(()=>{});
+  }
+  if(!active && historyReservationInterval){
+    clearInterval(historyReservationInterval);
+    historyReservationInterval=null;
+  }
+}
+function startHistoryReservationTimers(){
+  if(historyReservationInterval) clearInterval(historyReservationInterval);
+  refreshHistoryReservationTimers();
+  if(document.querySelector("[data-history-expiry]")) historyReservationInterval=setInterval(refreshHistoryReservationTimers,1000);
+}
+
 function renderOrderHistory(rows){
   if(!orderHistoryList)return;
   const paidProductIds=new Set(rows.filter(r=>{
@@ -1180,9 +1244,10 @@ function renderOrderHistory(rows){
       <div class="history-product">🎮 ${escapeHtml(r.product_name||"Akun Genshin")}</div>
       <div class="history-price">${rupiah(r.total_price)}</div>
       <div class="history-payment">${paymentHistoryLabel(displayPaymentStatus)}</div>
-      ${hasDelivery?`<div class="delivery-box"><strong>🎁 Detail Akun yang Dibeli</strong>${r.delivery_login?`<div class="delivery-row"><b>Login/Email:</b> ${escapeHtml(r.delivery_login)}</div>`:""}${r.delivery_password?`<div class="delivery-row"><b>Password:</b> ${escapeHtml(r.delivery_password)}</div>`:""}${r.delivery_note?`<div class="delivery-note">${escapeHtml(r.delivery_note)}</div>`:""}</div>`:(paid?`<div class="delivery-wait">✅ Pembayaran sudah diterima. Detail akun akan muncul setelah admin menyelesaikan penyerahan akun.</div>`:`<div class="delivery-wait">💳 Pesanan belum dibayar. Silakan lanjutkan pembayaran dan kirim bukti transfer.</div>${canResumePayment?`<button type="button" class="btn btn-primary resume-payment-btn" data-resume-order="${escapeHtml(r.order_code||"")}" data-resume-product="${escapeHtml(r.product_id||"")}" data-resume-total="${escapeHtml(r.total_price||0)}" style="width:100%;margin-top:10px;min-height:42px;font-size:11px;">💳 Lanjutkan Pembayaran</button>`:""}${canCancelOrder?`<button type="button" class="btn cancel-order-btn" data-cancel-order="${escapeHtml(r.order_code||"")}" data-cancel-product="${escapeHtml(r.product_id||"")}" style="width:100%;margin-top:8px;min-height:40px;font-size:11px;background:#fff0f0;color:#b42318;border:1px solid #f2b8b5;">✖ Batalkan Pesanan</button>`:""}`)}
+      ${hasDelivery?`<div class="delivery-box"><strong>🎁 Detail Akun yang Dibeli</strong>${r.delivery_login?`<div class="delivery-row"><b>Login/Email:</b> ${escapeHtml(r.delivery_login)}</div>`:""}${r.delivery_password?`<div class="delivery-row"><b>Password:</b> ${escapeHtml(r.delivery_password)}</div>`:""}${r.delivery_note?`<div class="delivery-note">${escapeHtml(r.delivery_note)}</div>`:""}</div>`:(paid?`<div class="delivery-wait">✅ Pembayaran sudah diterima. Detail akun akan muncul setelah admin menyelesaikan penyerahan akun.</div>`:`<div class="delivery-wait">💳 Pesanan belum dibayar. Silakan lanjutkan pembayaran dan kirim bukti transfer.</div><div class="history-payment-timer" data-history-expiry="${escapeHtml(r.payment_expires_at||"")}">⏱️ Batas pembayaran: <strong>${r.payment_expires_at?"--:--":"BELUM DIMULAI"}</strong></div>${canResumePayment?`<button type="button" class="btn btn-primary resume-payment-btn" data-resume-order="${escapeHtml(r.order_code||"")}" data-resume-product="${escapeHtml(r.product_id||"")}" data-resume-total="${escapeHtml(r.total_price||0)}" style="width:100%;margin-top:10px;min-height:42px;font-size:11px;">💳 Lanjutkan Pembayaran</button>`:""}${canCancelOrder?`<button type="button" class="btn cancel-order-btn" data-cancel-order="${escapeHtml(r.order_code||"")}" data-cancel-product="${escapeHtml(r.product_id||"")}" style="width:100%;margin-top:8px;min-height:40px;font-size:11px;background:#fff0f0;color:#b42318;border:1px solid #f2b8b5;">✖ Batalkan Pesanan</button>`:""}`)}
     </div>`;
   }).join("");
+  startHistoryReservationTimers();
 
   orderHistoryList.querySelectorAll("[data-resume-order]").forEach(btn=>{
     btn.addEventListener("click",()=>{
@@ -1242,7 +1307,7 @@ async function fetchOrderHistory(codeOverride,waOverride){
 
     if(manualCode){
       if(!manualWa) throw new Error("Masukkan WhatsApp untuk memulihkan pesanan.");
-      const {data,error}=await supabaseClient.rpc("check_order_history",{
+      const {data,error}=await supabaseClient.rpc("check_order_history_with_timer",{
         p_order_code:manualCode,
         p_whatsapp:manualWa
       });
@@ -1254,7 +1319,7 @@ async function fetchOrderHistory(codeOverride,waOverride){
       // tersimpan di browser tetapi belum mempunyai browser_order_id.
       await claimLegacyBrowserOrders();
 
-      const {data,error}=await supabaseClient.rpc("get_browser_order_history",{
+      const {data,error}=await supabaseClient.rpc("get_browser_order_history_with_timer",{
         p_browser_id:browserOrderId
       });
       if(error) throw error;
@@ -1408,14 +1473,19 @@ function renderPaymentTimer(){
     const remaining=Math.max(0,new Date(paymentExpiryAt).getTime()-Date.now());
     setPaymentCountdown(Math.ceil(remaining/1000));
     if(remaining<=0){
-        stopPaymentReservationTimer();
-        if(paymentCountdown) paymentCountdown.textContent="00:00";
         if(paymentReservationTimer){
-            paymentReservationTimer.style.background="#fff0f0";
-            paymentReservationTimer.style.borderColor="#efb0b0";
-            paymentReservationTimer.innerHTML='<div style="font-weight:800;">⏰ WAKTU PEMBAYARAN HABIS</div><div style="margin-top:3px;">Pesanan dibatalkan dan akun dikembalikan ke katalog.</div>';
+            paymentReservationTimer.classList.add("is-danger");
+            const title=paymentReservationTimer.querySelector(".payment-reservation-title");
+            const message=paymentReservationTimer.querySelector(".payment-reservation-text");
+            const note=paymentReservationTimer.querySelector(".payment-reservation-note");
+            if(title) title.textContent="⏰ WAKTU PEMBAYARAN HABIS";
+            if(message) message.textContent="Pesanan dibatalkan.";
+            if(note) note.textContent="Akun dikembalikan ke katalog. Silakan buat pesanan baru.";
         }
-        supabaseClient.rpc("expire_unpaid_orders").then(()=>fetchOrderHistory()).catch(()=>fetchOrderHistory());
+        if(paymentCountdown) paymentCountdown.textContent="00:00";
+        if(paymentTimerInterval){clearInterval(paymentTimerInterval);paymentTimerInterval=null;}
+        paymentExpiryAt=null;
+        supabaseClient.rpc("expire_unpaid_orders").then(()=>{fetchOrderHistory();loadProducts();}).catch(()=>{fetchOrderHistory();loadProducts();});
         return;
     }
 }
@@ -1438,12 +1508,17 @@ async function startPaymentReservationTimer(){
         if(!data) throw new Error("Pesanan tidak dapat dilanjutkan. Waktu pembayaran mungkin sudah habis.");
         paymentExpiryAt=data;
         if(paymentReservationTimer){
-            paymentReservationTimer.style.background="#fff8e8";
-            paymentReservationTimer.style.borderColor="#f0c36a";
-            paymentReservationTimer.innerHTML='<div style="font-weight:800;">⚠️ BATAS WAKTU PEMBAYARAN</div><div style="margin-top:3px;">Pesanan akan dibatalkan dalam <strong id="paymentCountdown">15:00</strong></div>';
+            paymentReservationTimer.classList.remove("is-danger");
+            const title=paymentReservationTimer.querySelector(".payment-reservation-title");
+            const message=paymentReservationTimer.querySelector(".payment-reservation-text");
+            const note=paymentReservationTimer.querySelector(".payment-reservation-note");
+            if(title) title.textContent="⚠️ BATAS WAKTU PEMBAYARAN";
+            if(note) note.textContent="Selesaikan pembayaran dan kirim bukti sebelum waktu habis.";
         }
         renderPaymentTimer();
         paymentTimerInterval=setInterval(renderPaymentTimer,1000);
+        // Sinkronkan timer yang sama ke kartu "Pembelian Saya".
+        fetchOrderHistory();
     }catch(err){
         console.error("Payment timer error:",err);
         if(paymentReservationTimer){
